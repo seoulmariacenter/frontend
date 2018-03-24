@@ -1,8 +1,9 @@
 <template>
-  <div class="container">
+  <div class="container mt-4">
     <div class="row">
       <div class="col-md-8">
-        hello
+        <carousel/>
+        <advertisement/>
       </div>
       <div class="col-md-4">
         <app-sidebar/>
@@ -12,10 +13,14 @@
 </template>
 <script>
   import AppSidebar from '../structure/AppSidebar'
+  import Carousel from '../contents/Carousel'
+  import Advertisement from '../contents/Advertisement'
   export default {
     name: "home",
     components: {
-      AppSidebar
+      AppSidebar,
+      Carousel,
+      Advertisement
     }
   }
 </script>
