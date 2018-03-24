@@ -10,7 +10,7 @@
             <ul class="nav flex-column">
               <li class="nav-item">
                 <ul class="list-inline mb-0">
-                  <li v-for="(value, key) in informations" class="list-inline-item text-secondary mb-0">
+                  <li v-for="(value, key) in informations" :key="key" class="list-inline-item text-secondary mb-0">
                     <strong>{{key}}:</strong> {{value}}
                   </li>
                 </ul>
