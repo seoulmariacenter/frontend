@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light align-middle">
       <div class="container">
         <a class="navbar-brand mr-5" href="#">
-          <img src="../../assets/logo_new.svg" width="130" alt="">
+          <img src="../../assets/svg/logo_new.svg" width="130" alt="">
         </a>
         <button class="navbar-toggler"
         type="button"
