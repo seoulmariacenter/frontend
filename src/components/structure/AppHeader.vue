@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="top-line"></div>
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light align-middle">
       <div class="container">
         <a class="navbar-brand mr-5" href="#">
           <img src="../../assets/logo_new.svg" width="130" alt="">
@@ -47,13 +47,13 @@
     height: 10px;
     background-color: #0081D5;
   }
-  .nav-link > h3 {
-    margin-bottom: 0;
+  .nav-link {
+    border-bottom: 5px solid rgba(0,0,0,0);
   }
   .nav-link:hover {
     border-bottom: 5px solid #E9ECEf;
   }
-  .nav-link:active {
-    border-bottom: 5px solid #0081D5;
+  .nav-link > h3 {
+    margin-bottom: 0;
   }
 </style>
