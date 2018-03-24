@@ -22,7 +22,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #EBE8E2;
+  background-color: #F8F5EF;
 }
 .container-fluid {
   padding: 0;
