@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid mb-0">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-3 col-sm-3 ml-0 mt-3 mr-3 mb-3">
