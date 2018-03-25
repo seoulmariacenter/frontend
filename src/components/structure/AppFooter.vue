@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-3 col-sm-3 ml-0 mt-3 mr-3 mb-3">
-            <img src="../../assets/svg/logo_grey.svg" width="130" alt="logo">
+            <img src="../../assets/svg/logo_curved_grey.svg" width="130" alt="logo">
           </div>
           <div class="col-md-7 col-sm-7 m-3">
             <ul class="nav flex-column">

@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light align-middle">
       <div class="container">
         <router-link tag="a" class="navbar-brand mr-5" :to="{name: 'Home'}">
-          <img src="../../assets/svg/logo_new.svg" width="130" alt="">
+          <img src="../../assets/svg/logo_curved.svg" width="130" alt="">
         </router-link>
         <button class="navbar-toggler"
         type="button"
