@@ -1,12 +1,6 @@
 <template>
   <div class="container">
-    <div class="row mt-5 mb-5">
-      <div class="col-md-3"></div>
-      <div class="col-md-6 col-sm-12 mt-5 mb-5">
-        <router-view/>
-      </div>
-      <div class="col-md-3"></div>
-    </div>
+    <router-view/>
   </div>
 </template>
 <script>
