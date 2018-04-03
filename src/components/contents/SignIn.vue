@@ -40,7 +40,11 @@
     },
     methods: {
       onSubmit () {
-        console.log(this.username, this.password)
+        // const formData = {
+        //   username: '',
+        //   password: ''
+        // };
+        // this.$store.dispatch()
       }
     }
   }

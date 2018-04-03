@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
 import * as getters from './getters'
 import * as actions from './actions'
 import mutations from './mutations'
@@ -7,7 +8,10 @@ import mutations from './mutations'
 Vue.use(Vuex);
 
 const state = {
-
+  endpoints: {
+    baseUrl: 'http://localhost:8000/',
+    admin: ''
+  }
 };
 
 export default new Vuex.Store({
@@ -16,3 +20,4 @@ export default new Vuex.Store({
   actions,
   mutations
 });
+
