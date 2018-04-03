@@ -40,11 +40,11 @@
     },
     methods: {
       onSubmit () {
-        // const formData = {
-        //   username: '',
-        //   password: ''
-        // };
-        // this.$store.dispatch()
+        const formData = {
+          username: this.username,
+          password: this.password
+        };
+        this.$store.dispatch('signInAdmin', formData)
       }
     }
   }

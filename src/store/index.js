@@ -10,7 +10,8 @@ Vue.use(Vuex);
 const state = {
   endpoints: {
     baseUrl: 'http://localhost:8000/',
-    admin: ''
+    member: 'member/',
+    signIn: 'sign-in/'
   }
 };
 
