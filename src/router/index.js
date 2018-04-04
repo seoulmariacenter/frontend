@@ -1,4 +1,4 @@
-import {Home, Admin, SignIn} from './lazy'
+import {Home, Admin, SignIn, Dashboard} from './lazy'
 
 export const routes = [
   {
@@ -11,7 +11,8 @@ export const routes = [
     name: 'Admin',
     component: Admin,
     children: [
-      {path: 'signin', component:SignIn}
+      {path: 'signin', name: 'signIn', component:SignIn},
+      {path: 'dashboard', name: 'Dashboard', component:Dashboard}
     ]
   }
 ];
