@@ -1,6 +1,7 @@
 import axios from 'axios/index'
+import {router} from '../main'
 
-export const signInAdmin = ({state, dispatch}, payload) => {
+export const signInAdmin = ({commit, state}, payload) => {
   axios({
     method: 'post',
     url: state.endpoints.baseUrl + state.endpoints.member + state.endpoints.signIn,
@@ -14,7 +15,10 @@ export const signInAdmin = ({state, dispatch}, payload) => {
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
   }).then((response) => {
-    console.log(response)
+    commit('updateInfo', response.data);
+    router.replace({
+      name: 'Dashboard'
+    })
   }).catch((error) => {
     console.log(error)
   })
