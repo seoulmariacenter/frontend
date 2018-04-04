@@ -12,7 +12,7 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.prototype.$http = axios;
 
-const router = new VueRouter({
+export const router = new VueRouter({
   mode: 'history',
   routes,
 });
