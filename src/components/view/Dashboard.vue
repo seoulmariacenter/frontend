@@ -1,10 +1,11 @@
 <template>
-  <div class="row">
+  <div class="row justify-content-between">
     <admin-sidebar/>
+    <router-view/>
   </div>
 </template>
 <script>
-  import AdminSidebar from './AdminSidebar'
+  import AdminSidebar from '../contents/admin/AdminSidebar'
   export default {
     name: "Dashboard",
     components: {

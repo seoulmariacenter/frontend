@@ -11,6 +11,7 @@ const state = {
   endpoints: {
     baseUrl: 'http://localhost:8000/',
     member: 'member/',
+    travel: 'travel/product/',
     signIn: 'sign-in/'
   }
 };
