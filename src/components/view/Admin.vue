@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-  import SignIn from '../contents/SignIn'
+  import SignIn from '../contents/admin/SignIn'
   export default {
     name: "Admin",
     components: {
