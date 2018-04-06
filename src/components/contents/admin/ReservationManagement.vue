@@ -13,7 +13,7 @@
           {{error}}
         </div>
         <div class="row content justify-content-between" v-if="post">
-          <div class="col-md-auto p-0 m-2" v-for="value in post.results" :key="value.id">
+          <div class="col-md-auto p-0 m-2" v-for="value in post" :key="value.id">
             <router-link :to="{path: 'product/' + value.pk + '/' }">
             <div class="card bg-dark text-white">
               <img class="card-img" src="http://via.placeholder.com/200x150" alt="Card image">
@@ -32,25 +32,28 @@
 </template>
 <script>
   import axios from 'axios/index'
+  import ProductDetail from './ProductDetail'
   export default {
     name: "ReservationManagement",
     props: ['value.pk'],
+    components: {
+      ProductDetail
+    },
     data () {
       return {
-        url: 'http://localhost:8080/admin/dashboard/',
         loading: false,
         error: null,
         post: null
       }
     },
     created () {
-      this.fetchData()
+      this.fetchData();
     },
     watch: {
       '$route': 'fetchData'
     },
     methods: {
-      getProductQuery() {
+      getProductListQuery() {
         axios({
           method: 'get',
           url: this.$store.state.endpoints.baseUrl + this.$store.state.endpoints.travel,
@@ -61,15 +64,16 @@
           credentials: true
         }).then((response) => {
           this.loading = false;
-          this.post = response.data
+          this.post = response.data.results;
         }).catch((error) => {
-          console.log(error)
+          this.loading = false;
+          this.error = error.message;
         })
       },
       fetchData() {
         this.error = this.post = null;
         this.loading = true;
-        this.getProductQuery()
+        this.getProductListQuery()
       }
     }
   }
