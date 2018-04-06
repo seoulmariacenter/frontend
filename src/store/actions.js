@@ -23,3 +23,10 @@ export const signInAdmin = ({commit, state}, payload) => {
     console.log(error)
   })
 };
+
+export const signOut = ({commit}) => {
+  commit('removeInfo');
+  router.replace({
+    name: 'Home'
+  })
+};

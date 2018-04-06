@@ -6,7 +6,7 @@
           <div class="col-md-3 col-sm-3 ml-0 mt-3 mr-3 mb-3">
             <img src="../../assets/svg/logo_curved_grey.svg" width="130" alt="logo">
           </div>
-          <div class="col-md-7 col-sm-7 m-3">
+          <div class="col-md-6 col-sm-6 m-3">
             <ul class="nav flex-column">
               <li class="nav-item">
                 <ul class="list-inline mb-0">
@@ -17,7 +17,9 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-2 col-sm-2"></div>
+          <div class="col-md-2 col-sm-1">
+            <router-link tag="button" :to="{name: 'signIn'}" class="btn btn-outline-secondary">관리자 모드</router-link>
+          </div>
         </div>
       </div>
     </div>
