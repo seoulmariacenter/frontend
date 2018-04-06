@@ -14,12 +14,12 @@ export const routes = [
       {
         path: 'signin',
         name: 'signIn',
-        component:SignIn}
-        ,
+        component:SignIn},
       {
         path: 'dashboard',
         name: 'Dashboard',
         component:Dashboard,
+        meta: {requiresAuth: true},
         children: [
           {
             path: 'management',

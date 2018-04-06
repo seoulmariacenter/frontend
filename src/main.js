@@ -17,6 +17,21 @@ export const router = new VueRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!localStorage.getItem('token')) {
+      next({
+        name: 'signIn',
+        query: {redirect:to.fullPath}
+      })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+});
+
 new Vue({
   el: '#app',
   router,
