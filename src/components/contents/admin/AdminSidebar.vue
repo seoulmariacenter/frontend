@@ -9,7 +9,7 @@
           <hr>
         </li>
         <router-link :to="{name: 'Management'}" tag="li" class="nav-item mb-2 hovering">
-          <h4>예약 관리</h4>
+          <h4>순례 상품 관리</h4>
         </router-link>
         <li class="nav-item mb-2 hovering">
           <h4>순례 상품 만들기</h4>

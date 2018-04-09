@@ -2,12 +2,12 @@
   <div class="col-md-8 bg-light">
     <div class="m-3">
       <div class="d-block" v-if="post">
-        <h2><strong>{{post.title}} 예약 관리</strong></h2>
+        <h2><strong>{{post.title}} 관리</strong></h2>
       </div>
       <hr>
       <div class="row m-2">
         <div class="loading" v-if="loading">
-          loading...
+          <h4>잠시만 기다려 주세요...</h4>
         </div>
         <div class="content" v-if="error">
           {{error}}

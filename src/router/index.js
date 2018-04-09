@@ -2,6 +2,10 @@ import {Home, Admin, SignIn, Dashboard, Management, ProductDetail} from './lazy'
 
 export const routes = [
   {
+    path: '*',
+    component: Home
+  },
+  {
     path: '/',
     name: 'Home',
     component: Home
