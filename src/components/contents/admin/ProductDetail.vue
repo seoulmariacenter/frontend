@@ -13,7 +13,15 @@
           {{error}}
         </div>
         <div class="row" v-if="post">
-          {{post}}
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0"><strong>상품명:</strong> {{post.title}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>소요 시간:</strong> {{post.start_time}} ~ {{post.end_time}} <strong>({{dateValue}}박 {{dateValue + 1}}일)</strong></li>
+              <li class="list-group-item"><strong>가격:</strong> {{post.price}}원</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -27,7 +35,8 @@
       return {
         loading: false,
         error: null,
-        post: null
+        post: null,
+        dateValue: null
       }
     },
     created () {
@@ -37,6 +46,12 @@
       '$route': 'fetchData'
     },
     methods: {
+      calcDate(startTime, endTime) {
+        const startDate = new Date(startTime);
+        const endDate = new Date(endTime);
+        const dayValue = 24 * 60 * 60 * 1000;
+        this.dateValue = parseInt((endDate - startDate)/dayValue);
+      },
       getProductRetrieveQuery() {
         axios({
           method: 'get',
@@ -49,6 +64,7 @@
         }).then((response) => {
           this.loading = false;
           this.post = response.data;
+          this.calcDate(this.post.start_time, this.post.end_time)
         }).catch((error) => {
           this.loading = false;
           this.error = error.message;
@@ -57,7 +73,7 @@
       fetchData () {
         this.error = this.post = null;
         this.loading = true;
-        this.getProductRetrieveQuery()
+        this.getProductRetrieveQuery();
       }
     }
   }
