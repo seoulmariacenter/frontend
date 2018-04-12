@@ -12,6 +12,8 @@ const state = {
     baseUrl: 'http://localhost:8000/',
     member: 'member/',
     travel: 'travel/product/',
+    date: 'date/',
+    schedule: 'schedule/',
     signIn: 'sign-in/'
   }
 };
