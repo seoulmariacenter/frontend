@@ -17,7 +17,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-2 col-sm-1">
+          <div class="col-md-2 col-sm-1 text-center">
             <router-link tag="button" :to="{name: 'signIn'}" class="btn btn-outline-secondary">관리자 모드</router-link>
           </div>
         </div>
