@@ -9,3 +9,5 @@ export const Dashboard = () => import('../components/view/Dashboard.vue');
 export const Management = () => import('../components/contents/admin/ProductManagement.vue');
 
 export const ProductDetail = () => import('../components/contents/admin/ProductDetail.vue');
+
+export const Create = () => import('../components/contents/admin/CreateManagement.vue');

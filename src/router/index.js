@@ -1,4 +1,4 @@
-import {Home, Admin, SignIn, Dashboard, Management, ProductDetail} from './lazy'
+import {Home, Admin, SignIn, Dashboard, Management, ProductDetail, Create} from './lazy'
 
 export const routes = [
   {
@@ -35,6 +35,11 @@ export const routes = [
             name: 'Product',
             component: ProductDetail,
             props: true
+          },
+          {
+            name: 'Create',
+            path: 'create',
+            component: Create
           }
         ]
       }
