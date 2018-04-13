@@ -6,7 +6,7 @@
       </div>
       <hr>
       <div class="row m-2">
-        <div class="loading" v-if="loading">
+        <div class="loading" v-if="parentLoading">
           <h4>잠시만 기다려 주세요...</h4>
         </div>
         <div class="content" v-if="error">
@@ -27,7 +27,8 @@
       </div>
       <hr>
       <div class="row m-2">
-        <date-table/>
+        <button class="btn btn-outline-secondary" @click="tableResult">일정표 확인</button>
+        <date-table v-bind:property="childLoading"/>
       </div>
     </div>
   </div>
@@ -43,7 +44,8 @@
     },
     data() {
       return {
-        loading: false,
+        parentLoading: false,
+        childLoading: false,
         error: null,
         product: null,
         dateValue: null,
@@ -58,6 +60,9 @@
       '$route': 'FetchData'
     },
     methods: {
+      tableResult() {
+        this.childLoading = true
+      },
       calcDate(startTime, endTime) {
         const startDate = new Date(startTime);
         const endDate = new Date(endTime);
@@ -74,11 +79,11 @@
           xsrfHeaderName: 'X-XSRF-TOKEN',
           credentials: true
         }).then((response) => {
-          this.loading = false;
+          this.parentLoading = false;
           this.product = response.data;
           this.calcDate(this.product.start_time, this.product.end_time)
         }).catch((error) => {
-          this.loading = false;
+          this.parentLoading = false;
           this.error = error.message;
         })
       },
