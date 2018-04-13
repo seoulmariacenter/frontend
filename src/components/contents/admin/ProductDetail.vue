@@ -28,8 +28,8 @@
       <hr>
       <div class="row m-2">
         <div class="d-flex">
-          <button class="btn btn-outline-secondary mr-5" @click="tableResult">일정표 확인</button>
-          <button class="btn btn-outline-primary ml-5">예약 확인</button>
+          <button class="btn btn-outline-info mr-2" @click="tableResult">일정표 확인</button>
+          <button class="btn btn-outline-primary ml-2">예약 확인</button>
         </div>
       </div>
       <div class="row m-2 mt-5">

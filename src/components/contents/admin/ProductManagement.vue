@@ -34,8 +34,8 @@
   import axios from 'axios/index'
   import ProductDetail from './ProductDetail'
   export default {
-    name: "ReservationManagement",
-    props: ['value.pk'],
+    name: "ProductManagement",
+    props: ['value.pk', 'property'],
     components: {
       ProductDetail
     },
@@ -73,7 +73,8 @@
       fetchData() {
         this.error = this.post = null;
         this.loading = true;
-        this.getProductListQuery()
+        this.getProductListQuery();
+        this.$emit('manageContent', false)
       }
     }
   }
