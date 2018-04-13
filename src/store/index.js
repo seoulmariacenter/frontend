@@ -15,7 +15,9 @@ const state = {
     date: 'date/',
     schedule: 'schedule/',
     signIn: 'sign-in/'
-  }
+  },
+  dateCounts: Array(),
+  scheduleInfo: Object()
 };
 
 export default new Vuex.Store({
