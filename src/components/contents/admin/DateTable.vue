@@ -1,6 +1,6 @@
 <template>
-  <div class="post content table-responsive-sm">
-    <table class="table table-striped mt-5" v-if="property">
+  <div class="post content table-responsive-sm" v-if="property">
+    <table class="table table-striped" v-if="dateTable.count !== 0">
       <thead class="thead-dark text-center">
       <tr>
         <th scope="col">DATE<br/>날짜</th>
@@ -18,28 +18,28 @@
         </th>
         <td class="schedulePlace">
           <ul class="list-group">
-            <li class="list-group-item bg-transparent border-0" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
+            <li class="list-group-item bg-transparent border-0 pt-1 pb-1" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
               <span>{{index['place']}}</span>
             </li>
           </ul>
         </td>
         <td class="via">
           <ul class="list-group">
-            <li class="list-group-item bg-transparent border-0" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
+            <li class="list-group-item bg-transparent border-0 pt-1 pb-1" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
               <span>{{index['transport']}}</span>
             </li>
           </ul>
         </td>
         <td class="time">
           <ul class="list-group">
-            <li class="list-group-item bg-transparent border-0" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
+            <li class="list-group-item bg-transparent border-0 pt-1 pb-1" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
 
             </li>
           </ul>
         </td>
         <td class="itinerary">
           <ul class="list-group">
-            <li class="list-group-item bg-transparent border-0" v-for="index in scheduleTable[value.date_num]['results']"
+            <li class="list-group-item bg-transparent border-0 pt-1 pb-1" v-for="index in scheduleTable[value.date_num]['results']"
             :key="index.id">
               <span>{{index['description']}}</span>
             </li>
@@ -48,6 +48,9 @@
       </tr>
       </tbody>
     </table>
+    <div class="alert alert-danger" v-if="dateTable.count === 0">
+      일정표 데이터가 없습니다!
+    </div>
   </div>
 </template>
 <script>
@@ -69,15 +72,11 @@
     watch: {
       '$route': 'FetchData',
       dateTable: function () {
-        console.log('hello');
         this.scheduleTable = Array();
         let step;
         for (step = 1; step < this.getDateCounts + 1; step++) {
           this.$nextTick(this.getScheduleListQuery(step));
-          console.log(step)
         }
-        console.log('complete');
-        console.log(this.scheduleTable);
       }
     },
     methods: {

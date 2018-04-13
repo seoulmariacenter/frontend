@@ -27,9 +27,15 @@
       </div>
       <hr>
       <div class="row m-2">
-        <button class="btn btn-outline-secondary" @click="tableResult">일정표 확인</button>
-        <date-table v-bind:property="childLoading"/>
+        <div class="d-flex">
+          <button class="btn btn-outline-secondary mr-5" @click="tableResult">일정표 확인</button>
+          <button class="btn btn-outline-primary ml-5">예약 확인</button>
+        </div>
       </div>
+      <div class="row m-2 mt-5">
+        <date-table v-bind:property="scheduleLoading"/>
+      </div>
+
     </div>
   </div>
 </template>
@@ -45,7 +51,7 @@
     data() {
       return {
         parentLoading: false,
-        childLoading: false,
+        scheduleLoading: false,
         error: null,
         product: null,
         dateValue: null,
@@ -61,7 +67,7 @@
     },
     methods: {
       tableResult() {
-        this.childLoading = true
+        return this.scheduleLoading ? this.scheduleLoading = false : this.scheduleLoading = true
       },
       calcDate(startTime, endTime) {
         const startDate = new Date(startTime);
