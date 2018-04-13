@@ -20,9 +20,5 @@ export const removeInfo = () => {
 };
 
 export const updateDateCounts = (state, payload) => {
-  state.dateCounts = Array.from({length: payload}, (v, k) => k + 1)
-};
-
-export const updateSchedule = (state, payload) => {
-  state.scheduleInfo = payload
+  state.dateCounts = payload
 };
