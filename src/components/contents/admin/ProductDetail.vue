@@ -12,7 +12,7 @@
         <div class="content" v-if="error">
           {{error}}
         </div>
-        <div class="content row" v-if="product">
+        <div class="content" v-if="product">
           <div class="card">
             <div class="card-header">
               <h5 class="mb-0"><strong>상품명:</strong> {{product.title}}</h5>
@@ -27,58 +27,44 @@
       </div>
       <hr>
       <div class="row m-2">
-        <div class="content table-responsive-sm" v-if="dateTable">
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <th scope="col">DATE<br/>날짜</th>
-              <th scope="col">PLACE<br/>장소</th>
-              <th scope="col">VIA<br/>교통</th>
-              <th scope="col">TIME<br/>시간</th>
-              <th scope="col">ITINERARY<br/>일정</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="value in dateTable.results" :key="value.id">
-              <th scope="row">
-                <p class="m-0">제 {{value.date_num}} 일</p>
-                <p class="m-0">{{value.date_time}}</p>
-              </th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>abc</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+        <date-table/>
       </div>
     </div>
   </div>
 </template>
 <script>
   import axios from 'axios/index'
-
+  import {mapGetters} from 'vuex'
+  import DateTable from './DateTable'
   export default {
-    name: "ProductDetail", data() {
+    name: "ProductDetail",
+    components: {
+      DateTable
+    },
+    data() {
       return {
         loading: false,
         error: null,
         product: null,
         dateValue: null,
-        dateTable: null
+        dateArray: Array(),
+        scheduleTable: Object()
       }
-    }, created() {
-      this.fetchData()
-    }, watch: {
-      '$route': 'fetchData'
-    }, methods: {
+    },
+    created() {
+      this.FetchData();
+    },
+    watch: {
+      '$route': 'FetchData'
+    },
+    methods: {
       calcDate(startTime, endTime) {
         const startDate = new Date(startTime);
         const endDate = new Date(endTime);
         const dayValue = 24 * 60 * 60 * 1000;
         this.dateValue = parseInt((endDate - startDate) / dayValue);
-      }, getProductRetrieveQuery() {
+      },
+      getProductRetrieveQuery() {
         axios({
           method: 'get',
           url: this.$store.state.endpoints.baseUrl + this.$store.state.endpoints.travel + this.$route.params.pk + '/',
@@ -95,25 +81,13 @@
           this.loading = false;
           this.error = error.message;
         })
-      }, getDateListQuery() {
-        axios({
-          method: 'get',
-          url: this.$store.state.endpoints.baseUrl + this.$store.state.endpoints.travel + this.$route.params.pk + '/' +
-          this.$store.state.endpoints.date,
-          header: {
-            'Content-Type': 'application/json'
-          },
-          xsrfHeaderName: 'X-XSRF-TOKEN',
-          credentials: true
-        }).then((response) => {
-          this.dateTable = response.data;
-        })
-      }, fetchData() {
-        this.error = this.product = null;
-        this.loading = true;
+      },
+      FetchData() {
         this.getProductRetrieveQuery();
-        this.getDateListQuery();
-      }
+      },
+    ...mapGetters([
+        'getDateCounts'
+    ])
     }
   }
 </script>
