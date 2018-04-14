@@ -18,6 +18,7 @@ const state = {
   },
   message: null,
   productLists: null,
+  productRetrieve: Object(),
   dateCounts: Array(),
   scheduleInfo: Object()
 };

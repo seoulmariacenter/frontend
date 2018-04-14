@@ -31,6 +31,14 @@ export const clearProductLists = state => {
   state.productLists = null
 };
 
+export const updateProductRetrieve = (state, payload) => {
+  state.productRetrieve = payload
+};
+
+export const clearProductRetrieve = state => {
+  state.productRetrieve = Object()
+};
+
 export const updateDateCounts = (state, payload) => {
   state.dateCounts = payload
 };

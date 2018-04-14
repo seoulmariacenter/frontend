@@ -60,19 +60,19 @@ export const getProductListsQuery = ({commit, state}) => {
 export const getProductRetrieveQuery = ({commit, state}, payload) => {
   axios({
     method: 'get',
-    url: state.endpoints.baseUrl + state.endpoints.travel + this.$route.params.pk + '/',
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload + '/',
     header: {
       'Content-Type': 'application/json'
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
   }).then((response) => {
-    this.parentLoading = false;
-    this.product = response.data;
-    this.calcDate(this.product.start_time, this.product.end_time)
+    commit('clearMsg');
+    commit('updateProductRetrieve', response.data);
   }).catch((error) => {
-    this.parentLoading = false;
-    this.error = error.message;
+    commit('clearProductRetrieve');
+    commit('clearMsg');
+    commit('UpdateMsg', error.message);
   })
 };
 
