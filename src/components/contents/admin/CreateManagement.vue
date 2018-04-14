@@ -10,7 +10,24 @@
 </template>
 <script>
   export default {
-    name: "CreateManagement"
+    name: "CreateManagement",
+    props: ['property'],
+    data() {
+      return {
+
+      }
+    },
+    created() {
+      this.fetchData()
+    },
+    watch: {
+     '$route': 'fetchData'
+    },
+    methods: {
+     fetchData() {
+       this.$emit('manageContent', false)
+     }
+    }
   }
 </script>
 <style scoped>
