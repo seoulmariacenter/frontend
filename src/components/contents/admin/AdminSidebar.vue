@@ -2,9 +2,9 @@
   <nav class="col-md-3 bg-light sidebar">
     <div class="sidebar-sticky m-3">
       <ul class="nav flex-column">
-        <li class="nav-item">
+        <router-link :to="{name: 'Dashboard'}" tag="li" class="nav-item hovering">
           <h2><strong>관리자 페이지</strong></h2>
-        </li>
+        </router-link>
         <li class="nav-item">
           <hr>
         </li>

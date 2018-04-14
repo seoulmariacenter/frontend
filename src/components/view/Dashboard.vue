@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-between">
-    <admin-sidebar/>
+    <admin-sidebar v-bind:property="content" v-on:manageContent="manageContent"/>
     <router-view v-bind:property="content" v-on:manageContent="manageContent"/>
     <div class="col-md-8 bg-light" v-if="content">
       <div class="m-3 text-center align-middle">
@@ -36,9 +36,18 @@
         content: true
       }
     },
+    created() {
+      this.fetchData()
+    },
+    watch: {
+      '$route': 'fetchData'
+    },
     methods: {
       manageContent(payload) {
         return this.content = payload
+      },
+      fetchData() {
+        this.manageContent(true)
       }
     }
   }
