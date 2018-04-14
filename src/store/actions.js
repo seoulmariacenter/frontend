@@ -1,6 +1,7 @@
 import axios from 'axios/index'
 import {router} from '../main'
 
+// 회원 인증
 export const signInAdmin = ({commit, state}, payload) => {
   axios({
     method: 'post',
@@ -23,7 +24,7 @@ export const signInAdmin = ({commit, state}, payload) => {
   }).catch((error) => {
     if (typeof error.response !== 'undefined') {
       commit('clearMsg');
-      commit('setMsg', error.response.data.message)
+      commit('updateMsg', error.response.data.message)
     }
   })
 };
@@ -36,6 +37,46 @@ export const signOut = ({commit}) => {
   })
 };
 
+// 쿼리 호출
+export const getProductListsQuery = ({commit, state}) => {
+  axios({
+    method: 'get',
+    url: state.endpoints.baseUrl + state.endpoints.travel,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    commit('updateProductLists', response.data.results);
+  }).catch((error) => {
+    commit('clearProductLists');
+    commit('clearMsg');
+    commit('updateMsg', error.message)
+  })
+};
+
+export const getProductRetrieveQuery = ({commit, state}, payload) => {
+  axios({
+    method: 'get',
+    url: state.endpoints.baseUrl + state.endpoints.travel + this.$route.params.pk + '/',
+    header: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    this.parentLoading = false;
+    this.product = response.data;
+    this.calcDate(this.product.start_time, this.product.end_time)
+  }).catch((error) => {
+    this.parentLoading = false;
+    this.error = error.message;
+  })
+};
+
+// 쿼리 생성
 export const createProduct = ({commit, state}, payload) => {
   axios({
     method: 'post',
@@ -61,7 +102,9 @@ export const createProduct = ({commit, state}, payload) => {
   }).catch((error) => {
     if (typeof error.response !== 'undefined') {
       commit('clearMsg');
-      commit('setMsg', error.response.data.detail)
+      commit('updateMsg', error.response.data.detail)
     }
   })
 };
+
+

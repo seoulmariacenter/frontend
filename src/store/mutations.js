@@ -1,3 +1,5 @@
+// 회원 인증
+
 export const updateInfo = (state, response) => {
   const base64 = response.token.split('.')[1];
   const result = JSON.parse(window.atob(base64));
@@ -19,6 +21,16 @@ export const removeInfo = () => {
   localStorage.removeItem('exp');
 };
 
+// 쿼리 호출
+
+export const updateProductLists = (state, payload) => {
+  state.productLists = payload
+};
+
+export const clearProductLists = state => {
+  state.productLists = null
+};
+
 export const updateDateCounts = (state, payload) => {
   state.dateCounts = payload
 };
@@ -27,6 +39,6 @@ export const clearMsg = state => {
   state.message = null
 };
 
-export const setMsg = (state, payload) => {
+export const updateMsg = (state, payload) => {
   state.message = payload
 };

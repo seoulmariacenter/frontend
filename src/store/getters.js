@@ -1,3 +1,7 @@
+export const getProductLists = state => {
+  return state.productLists
+};
+
 export const getDateCounts = state => {
   return state.dateCounts
 };

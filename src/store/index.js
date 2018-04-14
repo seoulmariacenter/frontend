@@ -17,6 +17,7 @@ const state = {
     signIn: 'sign-in/'
   },
   message: null,
+  productLists: null,
   dateCounts: Array(),
   scheduleInfo: Object()
 };
