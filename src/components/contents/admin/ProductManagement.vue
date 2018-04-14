@@ -9,11 +9,8 @@
         <div class="loading" v-if="loading">
           <h4>잠시만 기다려 주세요...</h4>
         </div>
-        <div class="content" v-if="error">
-          {{error}}
-        </div>
-        <div class="row content justify-content-between" v-if="post">
-          <div class="col-md-auto p-0 m-2" v-for="value in post" :key="value.id">
+        <div class="row content justify-content-between">
+          <div class="col-md-auto p-0 m-2" v-for="value in getProductLists()" :key="value.id">
             <router-link :to="{name: 'Product', params: {pk: value.pk} }">
             <div class="card bg-dark text-white">
               <img class="card-img" src="http://via.placeholder.com/200x150" alt="Card image">
@@ -26,24 +23,24 @@
             </router-link>
           </div>
         </div>
+        <message/>
       </div>
     </div>
   </div>
 </template>
 <script>
-  import axios from 'axios/index'
+  import {mapGetters} from 'vuex'
   import ProductDetail from './ProductDetail'
+  import Message from '../Message'
   export default {
     name: "ProductManagement",
-    props: ['value.pk', 'property'],
     components: {
-      ProductDetail
+      ProductDetail,
+      Message
     },
     data () {
       return {
         loading: false,
-        error: null,
-        post: null
       }
     },
     created () {
@@ -53,29 +50,15 @@
       '$route': 'fetchData'
     },
     methods: {
-      getProductListQuery() {
-        axios({
-          method: 'get',
-          url: this.$store.state.endpoints.baseUrl + this.$store.state.endpoints.travel,
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          xsrfHeaderName: 'X-XSRF-TOKEN',
-          credentials: true
-        }).then((response) => {
-          this.loading = false;
-          this.post = response.data.results;
-        }).catch((error) => {
-          this.loading = false;
-          this.error = error.message;
-        })
-      },
       fetchData() {
-        this.error = this.post = null;
+        this.$emit('manageContent', false);
         this.loading = true;
-        this.getProductListQuery();
-        this.$emit('manageContent', false)
-      }
+        this.$store.dispatch('getProductListsQuery');
+        this.loading = false;
+      },
+      ...mapGetters([
+        'getProductLists'
+      ])
     }
   }
 </script>
