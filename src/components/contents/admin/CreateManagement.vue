@@ -6,11 +6,11 @@
       </div>
       <hr>
       <div class="m-2">
-        <form @submit.prevent="" method="post">
+        <form @submit.prevent="onSubmit" method="post">
           <div class="form-group row">
-            <label for="inputUserName" class="col-md-2 col-form-label"><strong>상품 이름</strong></label>
+            <label for="inputTitle" class="col-md-2 col-form-label"><strong>상품 이름</strong></label>
             <div class="col-md-8">
-              <input v-model="productName" type="text" class="form-control" id="inputUserName" placeholder="순례 상품 이름을 입력하세요" required>
+              <input v-model="title" type="text" class="form-control" id="inputTitle" placeholder="순례 상품 이름을 입력하세요" required>
             </div>
           </div>
           <div class="form-group row">
@@ -35,10 +35,13 @@
             </div>
           </div>
           <div class="form-group row">
-            <div class="col-md-8">
-              <button @click="onSubmit" type="submit" class="btn btn-primary mr-2">순례 상품 생성</button>
+            <div class="col-md-8 d-flex">
+              <button type="submit" class="btn btn-primary mr-2">순례 상품 생성</button>
               <button @click="onReset" type="reset" class="btn btn-outline-danger ml-2">지우고 다시 쓰기</button>
             </div>
+          </div>
+          <div class="form-group row">
+            <message/>
           </div>
         </form>
       </div>
@@ -46,12 +49,16 @@
   </div>
 </template>
 <script>
+  import Message from '../Message'
   export default {
     name: "CreateManagement",
+    components: {
+      Message
+    },
     props: ['property'],
     data() {
       return {
-        productName: null,
+        title: null,
         price: null,
         startDate: null,
         endDate: null
@@ -69,22 +76,15 @@
       },
       onSubmit() {
         const formData = {
-          title: this.productName,
+          title: this.title,
           price: this.price,
-          start_time: this.startDate,
-          end_time: this.endDate
+          startDate: this.startDate,
+          endDate: this.endDate
         };
-        for (const key of Object.keys(formData)) {
-          if (formData[key] === null) {
-            console.log('not good');
-            break
-          } else {
-            console.log(formData[key])
-          }
-        }
+        this.$store.dispatch('createProduct', formData)
       },
       onReset() {
-        this.productName = this.price = this.startDate = this.endDate = null
+        this.title = this.price = this.startDate = this.endDate = null
       }
     }
   }
