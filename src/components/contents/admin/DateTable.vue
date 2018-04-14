@@ -1,57 +1,65 @@
 <template>
-  <div class="post content table-responsive-sm" v-if="property">
-    <table class="table table-striped" v-if="dateTable.count !== 0">
-      <thead class="thead-dark text-center">
-      <tr>
-        <th scope="col">DATE<br/>날짜</th>
-        <th scope="col">PLACE<br/>장소</th>
-        <th scope="col">VIA<br/>교통</th>
-        <th scope="col">TIME<br/>시간</th>
-        <th scope="col">ITINERARY<br/>일정</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-for="value in dateTable.results" :key="value.id">
-        <th class="text-center align-middle" scope="row">
-          <p class="m-0">제 {{value.date_num}} 일</p>
-          <p class="m-0">{{value.date_time}}</p>
-        </th>
-        <td class="schedulePlace">
-          <ul class="list-group">
-            <li class="list-group-item bg-transparent border-0 pt-1 pb-1" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
-              <span>{{index['place']}}</span>
-            </li>
-          </ul>
-        </td>
-        <td class="via">
-          <ul class="list-group">
-            <li class="list-group-item bg-transparent border-0 pt-1 pb-1" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
-              <span>{{index['transport']}}</span>
-            </li>
-          </ul>
-        </td>
-        <td class="time">
-          <ul class="list-group">
-            <li class="list-group-item bg-transparent border-0 pt-1 pb-1" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
+  <div class="col p-0" v-if="property">
+    <div class="table-responsive table-responsive-md table-responsive-sm" v-if="dateTable.count !== 0">
+      <table class="table table-striped">
+        <thead class="thead-dark text-center">
+        <tr>
+          <th scope="col">DATE<br/>날짜</th>
+          <th scope="col">PLACE<br/>장소</th>
+          <th scope="col">TRANSPORT<br/>교통</th>
+          <th scope="col">TIME<br/>시간</th>
+          <th scope="col">ITINERARY<br/>일정</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="value in dateTable.results" :key="value.id">
+          <th class="text-center align-middle" scope="row">
+            <p class="m-0">제 {{value.date_num}} 일</p>
+            <p class="m-0">{{value.date_time}}</p>
+          </th>
+          <td class="schedulePlace">
+            <ul class="list-group">
+              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
+                {{index['place']}}
+              </li>
+            </ul>
+          </td>
+          <td class="via">
+            <ul class="list-group">
+              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
+                {{index['transport']}}
+              </li>
+            </ul>
+          </td>
+          <td class="time">
+            <ul class="list-group">
+              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in scheduleTable[value.date_num]['results']" :key="index.id">
 
-            </li>
-          </ul>
-        </td>
-        <td class="itinerary">
-          <ul class="list-group">
-            <li class="list-group-item bg-transparent border-0 pt-1 pb-1" v-for="index in scheduleTable[value.date_num]['results']"
-            :key="index.id">
-              <span>{{index['description']}}</span>
-            </li>
-          </ul>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <div class="alert alert-danger" v-if="dateTable.count === 0">
-      일정표 데이터가 없습니다!
+              </li>
+            </ul>
+          </td>
+          <td class="itinerary">
+            <ul class="list-group">
+              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in scheduleTable[value.date_num]['results']"
+              :key="index.id">
+                {{index['description']}}
+              </li>
+            </ul>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row" v-if="dateTable.count === 0">
+      <div class="col-lg-6 offset-lg-3 col-md-12">
+        <div class="alert alert-info text-center">
+          <h4 class="alert-heading"><strong>일정표 데이터가 없습니다!</strong></h4>
+          <button class="btn btn-outline-info">일정표 만들기</button>
+        </div>
+      </div>
     </div>
   </div>
+
 </template>
 <script>
   import axios from 'axios/index'

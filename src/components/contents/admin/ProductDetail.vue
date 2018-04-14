@@ -26,11 +26,9 @@
         </div>
       </div>
       <hr>
-      <div class="row m-2">
-        <div class="d-flex">
-          <button class="btn btn-outline-info mr-2" @click="tableResult">일정표 확인</button>
-          <button class="btn btn-outline-primary ml-2">예약 확인</button>
-        </div>
+      <div class="row m-2 d-flex justify-content-between">
+          <button class="col-5 btn btn-outline-info mr-1" @click="tableResult">일정표 확인</button>
+          <button class="col-5 btn btn-outline-primary ml-1">예약 확인</button>
       </div>
       <div class="row m-2 mt-5">
         <date-table v-bind:property="scheduleLoading"/>
