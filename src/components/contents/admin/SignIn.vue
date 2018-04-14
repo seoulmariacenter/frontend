@@ -23,6 +23,9 @@
               <button type="submit" class="btn btn-primary">로그인</button>
             </div>
           </div>
+          <div class="form-group row">
+            <message/>
+          </div>
         </form>
       </div>
     </div>
@@ -30,8 +33,12 @@
   </div>
 </template>
 <script>
+  import Message from '../Message'
   export default {
     name: "SignIn",
+    components: {
+      Message
+    },
     data () {
       return {
         username: '',
