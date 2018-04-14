@@ -81,9 +81,14 @@
           startDate: this.startDate,
           endDate: this.endDate
         };
-        this.$store.dispatch('createProduct', formData)
+        if (this.startDate > this.endDate) {
+          this.$store.commit('setMsg', '도착 날짜가 출발 날짜보다 이릅니다!')
+        } else {
+          this.$store.dispatch('createProduct', formData)
+        }
       },
       onReset() {
+        this.$store.commit('clearMsg');
         this.title = this.price = this.startDate = this.endDate = null
       }
     }
