@@ -45,6 +45,7 @@
   import DateTable from './DateTable'
   export default {
     name: "ProductDetail",
+    props: ['property'],
     components: {
       DateTable
     },
@@ -95,6 +96,7 @@
       },
       FetchData() {
         this.getProductRetrieveQuery();
+        this.$emit('manageContent', false)
       },
     ...mapGetters([
         'getDateCounts'
