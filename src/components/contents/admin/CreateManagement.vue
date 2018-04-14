@@ -82,7 +82,7 @@
           endDate: this.endDate
         };
         if (this.startDate > this.endDate) {
-          this.$store.commit('setMsg', '도착 날짜가 출발 날짜보다 이릅니다!')
+          this.$store.commit('updateMsg', '도착 날짜가 출발 날짜보다 이릅니다!')
         } else {
           this.$store.dispatch('createProduct', formData)
         }
