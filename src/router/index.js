@@ -1,4 +1,13 @@
-import {Home, Admin, SignIn, Dashboard, Management, ProductDetail, Create} from './lazy'
+import {
+  Home,
+  Admin,
+  SignIn,
+  Dashboard,
+  ProductManagement,
+  ProductDetail,
+  CreateManagement,
+  CreateSchedule
+} from './lazy'
 
 export const routes = [
   {
@@ -27,8 +36,8 @@ export const routes = [
         children: [
           {
             path: 'management',
-            name: 'Management',
-            component: Management
+            name: 'ProductManagement',
+            component: ProductManagement
           },
           {
             path: 'product/:pk',
@@ -37,9 +46,15 @@ export const routes = [
             props: true
           },
           {
-            name: 'Create',
+            path: 'schedule/:pk',
+            name: 'Schedule',
+            component: CreateSchedule,
+            props: true
+          },
+          {
+            name: 'CreateManagement',
             path: 'create',
-            component: Create
+            component: CreateManagement
           }
         ]
       }
