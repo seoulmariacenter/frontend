@@ -2,7 +2,7 @@ export const updateInfo = (state, response) => {
   const base64 = response.token.split('.')[1];
   const result = JSON.parse(window.atob(base64));
 
-  localStorage.setItem('token', base64);
+  localStorage.setItem('token', response.token.toString());
 
   localStorage.setItem('pk', result.user_id);
   localStorage.setItem('username', result.username);

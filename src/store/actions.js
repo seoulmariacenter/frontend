@@ -30,7 +30,38 @@ export const signInAdmin = ({commit, state}, payload) => {
 
 export const signOut = ({commit}) => {
   commit('removeInfo');
+  commit('clearMsg');
   router.replace({
     name: 'Home'
+  })
+};
+
+export const createProduct = ({commit, state}, payload) => {
+  axios({
+    method: 'post',
+    url: state.endpoints.baseUrl + state.endpoints.travel,
+    data: {
+      title: payload.title,
+      price: payload.price,
+      start_time: payload.startDate,
+      end_time: payload.endDate
+    },
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'JWT ' + localStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    router.push({
+      name: 'Product',
+      params: {pk: response.data.pk}
+    })
+  }).catch((error) => {
+    if (typeof error.response !== 'undefined') {
+      commit('clearMsg');
+      commit('setMsg', error.response.data.detail)
+    }
   })
 };
