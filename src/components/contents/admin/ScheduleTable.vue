@@ -54,7 +54,7 @@
       <div class="col-lg-6 offset-lg-3 col-md-12">
         <div class="alert alert-info text-center">
           <h4 class="alert-heading"><strong>일정표 데이터가 없습니다!</strong></h4>
-          <button class="btn btn-outline-info">일정표 만들기</button>
+          <router-link :to="{name: 'Schedule'}" tag="button" class="btn btn-outline-info">일정표 만들기</router-link>
         </div>
       </div>
     </div>

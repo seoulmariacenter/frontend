@@ -14,7 +14,7 @@
         </div>
         <div class="row content justify-content-between" v-if="post">
           <div class="col-md-auto p-0 m-2" v-for="value in post" :key="value.id">
-            <router-link :to="{path: 'product/' + value.pk + '/' }">
+            <router-link :to="{name: 'Product', params: {pk: value.pk} }">
             <div class="card bg-dark text-white">
               <img class="card-img" src="http://via.placeholder.com/200x150" alt="Card image">
               <div class="card-img-overlay">
