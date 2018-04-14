@@ -31,7 +31,7 @@
           <button class="col-5 btn btn-outline-primary ml-1">예약 확인</button>
       </div>
       <div class="row m-2 mt-5">
-        <schedule-table v-bind:property="scheduleLoading"/>
+        <schedule-table v-bind:scheduleLoading="scheduleLoading" v-bind:product="product"/>
       </div>
 
     </div>
@@ -43,7 +43,6 @@
   import ScheduleTable from './ScheduleTable'
   export default {
     name: "ProductDetail",
-    props: ['property'],
     components: {
       ScheduleTable
     },

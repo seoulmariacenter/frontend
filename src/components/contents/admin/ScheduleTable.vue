@@ -1,6 +1,6 @@
 <template>
-  <div class="col p-0" v-if="property">
-    <div class="table-responsive table-responsive-md table-responsive-sm" v-if="dateTable.count !== 0">
+  <div class="col p-0" v-if="scheduleLoading">
+    <div class="table-responsive" v-if="dateTable.count !== 0">
       <table class="table table-striped">
         <thead class="thead-dark text-center">
         <tr>
@@ -54,7 +54,7 @@
       <div class="col-lg-6 offset-lg-3 col-md-12">
         <div class="alert alert-info text-center">
           <h4 class="alert-heading"><strong>일정표 데이터가 없습니다!</strong></h4>
-          <router-link :to="{name: 'Schedule'}" tag="button" class="btn btn-outline-info">일정표 만들기</router-link>
+          <router-link :to="{name: 'Schedule'}" tag="button" class="btn btn-outline-info" v-bind:product="product">일정표 만들기</router-link>
         </div>
       </div>
     </div>
@@ -64,9 +64,13 @@
 <script>
   import axios from 'axios/index'
   import { mapGetters } from 'vuex'
+  import CreateSchedule from './CreateSchedule'
   export default {
     name: "DateTable",
-    props: ['property'],
+    props: ['scheduleLoading', 'product'],
+    components: {
+      CreateSchedule
+    },
     data() {
       return {
         loading: false,
@@ -83,7 +87,7 @@
         this.scheduleTable = Array();
         let step;
         for (step = 1; step < this.getDateCounts + 1; step++) {
-          this.$nextTick(this.getScheduleListQuery(step));
+          this.getScheduleListQuery(step);
         }
       }
     },

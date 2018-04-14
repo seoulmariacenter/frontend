@@ -5,12 +5,14 @@
         <h2><strong>일정표 만들기</strong></h2>
       </div>
       <hr>
+      {{product}}
     </div>
   </div>
 </template>
 <script>
   export default {
     name: "CreateSchedule",
+    props: ['product'],
     data() {
       return {
 
