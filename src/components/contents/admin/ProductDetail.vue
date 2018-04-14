@@ -1,29 +1,28 @@
 <template>
   <div class="col-md-8 bg-light">
     <div class="m-3">
-      <div class="d-block" v-if="product">
-        <h2><strong>{{product.title}} 관리</strong></h2>
+      <div class="d-block">
+        <h2><strong>{{getProductRetrieve.title}} 관리</strong></h2>
       </div>
       <hr>
       <div class="row m-2">
         <div class="loading" v-if="parentLoading">
           <h4>잠시만 기다려 주세요...</h4>
         </div>
-        <div class="content" v-if="error">
-          {{error}}
-        </div>
-        <div class="content" v-if="product">
+        <div class="content" v-if="getProductRetrieve">
           <div class="card">
             <div class="card-header">
-              <h5 class="mb-0"><strong>상품명:</strong> {{product.title}}</h5>
+              <h5 class="mb-0"><strong>상품명:</strong> {{getProductRetrieve.title}}</h5>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>소요 시간:</strong> {{product.start_time}} ~ {{product.end_time}}
-                <strong>({{dateValue}}박 {{dateValue + 1}}일)</strong></li>
-              <li class="list-group-item"><strong>가격:</strong> {{product.price}}원</li>
+              <li class="list-group-item"><strong>소요 시간:</strong> {{getProductRetrieve.start_time}} ~ {{getProductRetrieve.end_time}}
+                <strong>({{calcDate(getProductRetrieve.start_time, getProductRetrieve.end_time)}}박
+                  {{calcDate(getProductRetrieve.start_time, getProductRetrieve.end_time)+1}}일)</strong></li>
+              <li class="list-group-item"><strong>가격:</strong> {{getProductRetrieve.price}}원</li>
             </ul>
           </div>
         </div>
+        <message/>
       </div>
       <hr>
       <div class="row m-2 d-flex justify-content-between">
@@ -31,30 +30,27 @@
           <button class="col-5 btn btn-outline-primary ml-1">예약 확인</button>
       </div>
       <div class="row m-2 mt-5">
-        <schedule-table v-bind:scheduleLoading="scheduleLoading" v-bind:product="product"/>
+        <schedule-table v-bind:scheduleLoading="scheduleLoading"/>
       </div>
-
     </div>
   </div>
 </template>
 <script>
-  import axios from 'axios/index'
-  import {mapGetters} from 'vuex'
+  import {mapGetters, mapMutations} from 'vuex'
   import ScheduleTable from './ScheduleTable'
+  import Message from '../Message'
   export default {
     name: "ProductDetail",
     components: {
-      ScheduleTable
+      ScheduleTable,
+      Message
     },
     data() {
       return {
         parentLoading: false,
         scheduleLoading: false,
-        error: null,
-        product: null,
-        dateValue: null,
-        dateArray: Array(),
-        scheduleTable: Object()
+        dateValue: 0,
+        params: this.$route.params.pk
       }
     },
     created() {
@@ -71,33 +67,23 @@
         const startDate = new Date(startTime);
         const endDate = new Date(endTime);
         const dayValue = 24 * 60 * 60 * 1000;
-        this.dateValue = parseInt((endDate - startDate) / dayValue);
-      },
-      getProductRetrieveQuery() {
-        axios({
-          method: 'get',
-          url: this.$store.state.endpoints.baseUrl + this.$store.state.endpoints.travel + this.$route.params.pk + '/',
-          header: {
-            'Content-Type': 'application/json'
-          },
-          xsrfHeaderName: 'X-XSRF-TOKEN',
-          credentials: true
-        }).then((response) => {
-          this.parentLoading = false;
-          this.product = response.data;
-          this.calcDate(this.product.start_time, this.product.end_time)
-        }).catch((error) => {
-          this.parentLoading = false;
-          this.error = error.message;
-        })
+        return parseInt((endDate - startDate) / dayValue);
       },
       FetchData() {
-        this.getProductRetrieveQuery();
-        this.$emit('manageContent', false)
+        this.$emit('manageContent', false);
+        this.$store.commit('clearProductRetrieve');
+        this.parentLoading = true;
+        this.$store.dispatch('getProductRetrieveQuery', this.params);
+        this.parentLoading = false;
       },
-    ...mapGetters([
-        'getDateCounts'
-    ])
+      ...mapMutations([
+        'clearProductRetrieve'
+      ])
+    },
+    computed: {
+      ...mapGetters([
+        'getProductRetrieve'
+      ])
     }
   }
 </script>

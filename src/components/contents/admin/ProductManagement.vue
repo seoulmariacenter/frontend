@@ -10,7 +10,7 @@
           <h4>잠시만 기다려 주세요...</h4>
         </div>
         <div class="row content justify-content-between">
-          <div class="col-md-auto p-0 m-2" v-for="value in getProductLists()" :key="value.id">
+          <div class="col-md-auto p-0 m-2" v-for="value in getProductLists" :key="value.id">
             <router-link :to="{name: 'Product', params: {pk: value.pk} }">
             <div class="card bg-dark text-white">
               <img class="card-img" src="http://via.placeholder.com/200x150" alt="Card image">
@@ -55,7 +55,9 @@
         this.loading = true;
         this.$store.dispatch('getProductListsQuery');
         this.loading = false;
-      },
+      }
+    },
+    computed: {
       ...mapGetters([
         'getProductLists'
       ])
