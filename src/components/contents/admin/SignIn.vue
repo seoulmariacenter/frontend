@@ -8,13 +8,13 @@
           <div class="form-group row">
             <label for="inputUserName" class="col-md-4 col-form-label"><strong>아이디</strong></label>
             <div class="col-md-8">
-              <input v-model="username" type="text" class="form-control" id="inputUserName" placeholder="아이디를 입력하세요">
+              <input v-model="username" type="text" class="form-control" id="inputUserName" placeholder="아이디를 입력하세요" required>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword" class="col-md-4 col-form-label"><strong>비밀번호</strong></label>
             <div class="col-md-8">
-              <input v-model="password" type="password" class="form-control" id="inputPassword" placeholder="비밀번호를 입력하세요">
+              <input v-model="password" type="password" class="form-control" id="inputPassword" placeholder="비밀번호를 입력하세요" required>
             </div>
           </div>
           <div class="form-group row">
