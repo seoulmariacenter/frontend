@@ -15,12 +15,16 @@ export const signInAdmin = ({commit, state}, payload) => {
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
   }).then((response) => {
+    commit('clearMsg');
     commit('updateInfo', response.data);
     router.replace({
       name: 'Dashboard'
     })
   }).catch((error) => {
-    console.log(error)
+    if (typeof error.response !== 'undefined') {
+      commit('clearMsg');
+      commit('setMsg', error.response.data.message)
+    }
   })
 };
 

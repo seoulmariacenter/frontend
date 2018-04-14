@@ -22,3 +22,11 @@ export const removeInfo = () => {
 export const updateDateCounts = (state, payload) => {
   state.dateCounts = payload
 };
+
+export const clearMsg = state => {
+  state.message = null
+};
+
+export const setMsg = (state, payload) => {
+  state.message = payload
+};

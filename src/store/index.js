@@ -16,6 +16,7 @@ const state = {
     schedule: 'schedule/',
     signIn: 'sign-in/'
   },
+  message: null,
   dateCounts: Array(),
   scheduleInfo: Object()
 };

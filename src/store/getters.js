@@ -5,3 +5,5 @@ export const getDateCounts = state => {
 export const getScheduleInfo = state => {
   return state.scheduleInfo
 };
+
+export const checkoutMsg = state => state.message;
