@@ -10,7 +10,10 @@
         <div class="col-5 p-2 rounded border border-secondary">도착 일시: <strong>{{getProductRetrieve.end_time}}</strong></div>
       </div>
       <div class="row m-2">
-        <schedule-table v-bind:scheduleLoading="scheduleLoading" v-bind:acceptModify="acceptModify"/>
+        <schedule-table v-on:parseDateNum="parseDateNum" v-on:callScheduleDetail="callScheduleDetail" v-bind:scheduleLoading="scheduleLoading" v-bind:acceptModify="acceptModify"/>
+      </div>
+      <div class="row m-2" v-show="scheduleDetail">
+        <schedule-detail v-bind:dateNum="dateNum"/>
       </div>
       <div class="row m-2 mt-5 mb-5">
         <div class="col-12" v-if="calcEndDate()">
@@ -41,16 +44,20 @@
   import {mapGetters} from 'vuex'
   import Message from '../Message'
   import ScheduleTable from './ScheduleTable'
+  import ScheduleDetail from './ScheduleDetail'
   export default {
     name: "CreateSchedule",
     components: {
       ScheduleTable,
+      ScheduleDetail,
       Message
     },
     data() {
       return {
         params: this.$route.params.pk,
+        dateNum: 30,
         scheduleLoading: true,
+        scheduleDetail: false,
         acceptModify: true
       }
     },
@@ -61,9 +68,11 @@
       '$route': 'fetchData',
     },
     methods: {
-      fetchData() {
-        this.$emit('manageContent', false);
-        this.$store.dispatch('getProductRetrieveQuery', this.params);
+      callScheduleDetail(payload) {
+        this.scheduleDetail = payload
+      },
+      parseDateNum(payload) {
+        this.dateNum = payload
       },
       calcEndDate() {
         return this.getEndDateObj >= this.getNextDateObj
@@ -71,6 +80,10 @@
       onSubmit() {
         this.$store.commit('clearMsg');
         this.$store.dispatch('createDate', this.params);
+      },
+      fetchData() {
+        this.$emit('manageContent', false);
+        this.$store.dispatch('getProductRetrieveQuery', this.params);
       }
     },
     computed: {

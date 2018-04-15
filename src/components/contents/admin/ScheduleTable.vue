@@ -47,7 +47,7 @@
             </ul>
           </td>
           <td class="modify align-middle text-center" v-if="acceptModify">
-              <button class="btn btn-secondary" @click="">제 {{value.date_num}}일 수정</button>
+              <button class="btn btn-secondary" @click="callScheduleDetail(value.date_num)">제 {{value.date_num}}일 수정</button>
           </td>
         </tr>
         </tbody>
@@ -89,6 +89,10 @@
       }
     },
     methods: {
+      callScheduleDetail(payload) {
+        this.$emit('parseDateNum', payload);
+        this.$emit('callScheduleDetail', true)
+      },
       fetchData() {
         this.$store.dispatch('getDateListQuery', this.params);
       }
