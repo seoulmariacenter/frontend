@@ -19,7 +19,7 @@ export const getScheduleInfo = state => {
 };
 
 export const getNextDateText = (state, getters) => {
-  if (state.queryData.dateTable.length === 0) {
+  if (getters.getDateTable.length === 0) {
     return '아직 일정이 없습니다'
   } else {
     const dateText = getters.getDateTable[getters.getDateTable.length -1].date_time;
