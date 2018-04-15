@@ -43,7 +43,6 @@
     data() {
       return {
         params: this.$route.params.pk,
-        dateTime: '',
         scheduleLoading: true
       }
     },
@@ -59,22 +58,8 @@
         this.$store.dispatch('getProductRetrieveQuery', this.params);
       },
       onSubmit() {
-        let formData = {
-          params: this.params,
-          dateNum: this.dateNum,
-          dateTime: this.dateTime
-        };
-        if (this.getDateCounts === 1 && this.dateTime !== this.getProductRetrieve.start_time) {
-          this.$store.commit('updateMsg', '1일차 날짜를 출발 일시와 맞춰주세요!')
-        } else {
-          this.$store.commit('clearMsg');
-          this.$store.dispatch('createDate', formData);
-          this.dateNum++;
-
-          formData.dateTime.setDate(formData.dateTime.getDate() + 1);
-          console.log(this.dateTime)
+          this.$store.dispatch('createDate', this.params);
         }
-      }
     },
     computed: {
       ...mapGetters([

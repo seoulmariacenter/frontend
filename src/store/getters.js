@@ -20,7 +20,7 @@ export const getScheduleInfo = state => {
 
 export const getNextDateText = (state, getters) => {
   if (getters.getDateTable.length === 0) {
-    return '아직 일정이 없습니다'
+    return getters.getProductRetrieve.start_time
   } else {
     const dateText = getters.getDateTable[getters.getDateTable.length -1].date_time;
     const dateArray = dateText.split('-');

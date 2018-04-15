@@ -150,14 +150,14 @@ export const createProduct = ({commit, state}, payload) => {
   })
 };
 
-export const createDate = ({commit, state}, payload) => {
+export const createDate = ({commit, state, getters}, payload) => {
   axios({
     method: 'post',
-    url: state.endpoints.baseUrl + state.endpoints.travel + payload.params + '/' + state.endpoints.date,
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload + '/' + state.endpoints.date,
     data: {
-      date_num: payload.dateNum,
-      date_time: payload.dateTime,
-      product: payload.params
+      date_num: state.queryData.dateCounts + 1,
+      date_time: getters.getNextDateText,
+      product: payload
     },
     headers: {
       'Content-Type': 'application/json',
@@ -165,12 +165,12 @@ export const createDate = ({commit, state}, payload) => {
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
-  }).then((response) => {
+  }).then(() => {
     commit('clearMsg');
-    console.log(response.data)
-
+    router.go(router.currentRoute)
   }).catch((error) => {
-    console.log(error)
+    commit('clearMsg');
+    commit('updateMsg', error.message)
   })
 };
 
