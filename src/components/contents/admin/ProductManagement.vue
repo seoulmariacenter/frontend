@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-8 bg-light">
+  <div class="col-lg-9 col-md-8 bg-light">
     <div class="m-3">
       <div class="d-block">
         <h2><strong>순례 상품 관리</strong></h2>

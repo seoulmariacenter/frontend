@@ -1,7 +1,7 @@
 <template>
   <div class="row mt-5 mb-5">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 col-sm-12 mt-5 mb-5">
+    <div class="col-lg-4 col-md-3"></div>
+    <div class="col-lg-4 col-md-6 col-sm-12 mt-5 mb-5">
       <div class="container mt-5 mb-5">
         <h2 class="pb-5">관리자 로그인</h2>
         <form @submit.prevent="onSubmit" method="post">
@@ -29,7 +29,7 @@
         </form>
       </div>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-lg-4 col-md-3"></div>
   </div>
 </template>
 <script>

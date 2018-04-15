@@ -1,7 +1,7 @@
 <template>
   <div class="col p-0" v-if="scheduleLoading">
-    <div class="table-responsive" v-if="getDateCounts !== 0">
-      <table class="table table-striped">
+    <div class="table-responsive rounded border border-secondary" v-if="getDateCounts !== 0">
+      <table class="table table-striped m-0">
         <thead class="thead-dark text-center">
         <tr>
           <th scope="col">DATE<br/>날짜</th>

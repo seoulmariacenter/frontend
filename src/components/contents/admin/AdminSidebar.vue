@@ -1,5 +1,5 @@
 <template>
-  <nav class="col-md-3 bg-light sidebar">
+  <nav class="col-lg-2 col-md-3 bg-light sidebar">
     <div class="sidebar-sticky m-3">
       <ul class="nav flex-column">
         <router-link :to="{name: 'Dashboard'}" tag="li" class="nav-item hovering">
