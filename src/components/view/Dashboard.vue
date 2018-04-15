@@ -1,7 +1,7 @@
 <template>
   <div class="row justify-content-between">
-    <admin-sidebar v-bind:property="content" v-on:manageContent="manageContent"/>
-    <router-view v-bind:property="content" v-on:manageContent="manageContent"/>
+    <admin-sidebar v-on:manageContent="manageContent"/>
+    <router-view v-on:manageContent="manageContent"/>
     <div class="col-lg-9 col-md-8 bg-light" v-if="content">
       <div class="m-3 text-center align-middle">
         <div class="d-block text-left">

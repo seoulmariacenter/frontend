@@ -47,7 +47,7 @@
             </ul>
           </td>
           <td class="modify align-middle text-center" v-if="acceptModify">
-              <button class="btn btn-secondary">제 {{value.date_num}}일 수정</button>
+              <button class="btn btn-secondary" @click="">제 {{value.date_num}}일 수정</button>
           </td>
         </tr>
         </tbody>
@@ -69,7 +69,6 @@
     props: ['scheduleLoading', 'acceptModify'],
     data() {
       return {
-        loading: false,
         params: this.$route.params.pk
       }
     },
@@ -90,9 +89,6 @@
       }
     },
     methods: {
-      tableResult () {
-        this.loading = true
-      },
       fetchData() {
         this.$store.dispatch('getDateListQuery', this.params);
       }
