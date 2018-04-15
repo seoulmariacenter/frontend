@@ -53,23 +53,17 @@
     <div class="row" v-if="getDateCounts === 0">
       <div class="col-lg-6 offset-lg-3 col-md-12">
         <div class="alert alert-info text-center">
-          <h4 class="alert-heading"><strong>일정표 데이터가 없습니다!</strong></h4>
-          <router-link :to="{name: 'Schedule'}" tag="button" class="btn btn-outline-info" v-bind:product="product">일정표 만들기</router-link>
+          <h4 class="alert-heading m-0"><strong>일정표 데이터가 없습니다!</strong></h4>
         </div>
       </div>
     </div>
   </div>
-
 </template>
 <script>
   import { mapGetters } from 'vuex'
-  import CreateSchedule from './CreateSchedule'
   export default {
-    name: "DateTable",
-    props: ['scheduleLoading', 'product'],
-    components: {
-      CreateSchedule
-    },
+    name: "ScheduleTable",
+    props: ['scheduleLoading'],
     data() {
       return {
         loading: false,
@@ -78,12 +72,10 @@
     },
     created() {
       this.fetchData();
-      console.log('created')
     },
     watch: {
       '$route': 'FetchData',
       getDateTable: function () {
-        console.log('watch');
         let step;
         for (step = 1; step < this.getDateCounts + 1; step++) {
           let formData ={
@@ -100,7 +92,6 @@
       },
       fetchData() {
         this.$store.dispatch('getDateListQuery', this.params);
-        console.log('fetch')
       }
     },
     computed: {
