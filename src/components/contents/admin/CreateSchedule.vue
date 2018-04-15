@@ -5,28 +5,12 @@
         <h2><strong>{{getProductRetrieve.title}} 일정표 관리</strong></h2>
       </div>
       <hr>
-      <div class="row m-5 justify-content-between text-center">
+      <div class="row ml-2 mr-2 mt-4 mb-4 justify-content-between text-center">
         <div class="col-5 p-2 rounded border border-secondary">출발 일시: <strong>{{getProductRetrieve.start_time}}</strong></div>
         <div class="col-5 p-2 rounded border border-secondary">도착 일시: <strong>{{getProductRetrieve.end_time}}</strong></div>
       </div>
       <div class="row m-2">
-        <schedule-table v-bind:scheduleLoading="scheduleLoading"/>
-        <div class="p-0 table-responsive border border-secondary">
-          <table class="table text-center align-middle">
-            <thead class="thead-light">
-            <tr>
-              <th scope="col" class="pl-1 pr-1">
-                MODIFY<br/>수정하기
-              </th>
-              <th scope="col" class="pl-1 pr-1" v-for="n in getDateCounts">
-                <button class="btn btn-secondary">{{n}}일차 수정</button>
-              </th>
-            </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
+        <schedule-table v-bind:scheduleLoading="scheduleLoading" v-bind:acceptModify="acceptModify"/>
       </div>
       <div class="row m-2 mt-5 mb-5">
         <div class="col-12" v-if="calcEndDate()">
@@ -66,7 +50,8 @@
     data() {
       return {
         params: this.$route.params.pk,
-        scheduleLoading: true
+        scheduleLoading: true,
+        acceptModify: true
       }
     },
     created() {

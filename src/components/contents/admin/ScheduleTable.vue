@@ -1,7 +1,7 @@
 <template>
   <div class="col p-0" v-if="scheduleLoading">
     <div class="table-responsive rounded border border-secondary" v-if="getDateCounts !== 0">
-      <table class="table table-striped m-0">
+      <table class="table table-striped table-bordered m-0">
         <thead class="thead-dark text-center">
         <tr>
           <th scope="col">DATE<br/>날짜</th>
@@ -9,6 +9,7 @@
           <th scope="col">TRANSPORT<br/>교통</th>
           <th scope="col">TIME<br/>시간</th>
           <th scope="col">ITINERARY<br/>일정</th>
+          <th scope="col" v-if="acceptModify">MODIFY<br/>수정</th>
         </tr>
         </thead>
         <tbody>
@@ -45,6 +46,9 @@
               </li>
             </ul>
           </td>
+          <td class="modify align-middle text-center" v-if="acceptModify">
+              <button class="btn btn-secondary">제 {{value.date_num}}일 수정</button>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -62,7 +66,7 @@
   import { mapGetters } from 'vuex'
   export default {
     name: "ScheduleTable",
-    props: ['scheduleLoading'],
+    props: ['scheduleLoading', 'acceptModify'],
     data() {
       return {
         loading: false,
