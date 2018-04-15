@@ -13,8 +13,9 @@
       <div class="row m-2 mt-5 mb-5">
         <div class="col-12">
           <form @submit.prevent="onSubmit" method="post">
+            <label for="inputDate">일정 추가</label>
             <div class="input-group input-group-lg">
-              <input v-model="dateTime" type="date" class="form-control rounded-left">
+              <input id="inputDate" v-model="dateTime" type="date" class="form-control rounded-left">
               <span class="input-group-btn">
                 <button class="btn btn-info btn-lg rounded-0 round" type="submit">{{dateNum}}일차 추가</button>
               </span>
@@ -74,7 +75,8 @@
     },
     computed: {
     ...mapGetters([
-      'getProductRetrieve'
+      'getProductRetrieve',
+      'getDateCounts'
     ])
     }
   }
