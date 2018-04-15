@@ -110,7 +110,7 @@ export const getScheduleListQuery = ({commit, state}, payload) => {
   }).then((response) => {
     const formData = {
       dateNum: payload.dateNum,
-      schedule: response.data
+      schedule: response.data.results
     };
     commit('updateScheduleInfo', formData);
   }).catch((error) => {

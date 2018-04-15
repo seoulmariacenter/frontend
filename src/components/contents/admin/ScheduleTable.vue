@@ -19,29 +19,28 @@
           </th>
           <td class="schedulePlace">
             <ul class="list-group">
-              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]['results']" :key="index.id">
+              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
                 {{index['place']}}
               </li>
             </ul>
           </td>
           <td class="via">
             <ul class="list-group">
-              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]['results']" :key="index.id">
+              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
                 {{index['transport']}}
               </li>
             </ul>
           </td>
           <td class="time">
             <ul class="list-group">
-              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]['results']" :key="index.id">
+              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
 
               </li>
             </ul>
           </td>
           <td class="itinerary">
             <ul class="list-group">
-              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]['results']"
-              :key="index.id">
+              <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
                 {{index['description']}}
               </li>
             </ul>
