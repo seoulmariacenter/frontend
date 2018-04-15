@@ -76,6 +76,49 @@ export const getProductRetrieveQuery = ({commit, state}, payload) => {
   })
 };
 
+export const getDateListQuery = ({commit, state}, payload) => {
+  axios({
+    method: 'get',
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload + '/' +
+    state.endpoints.date,
+    header: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearDateTable');
+    commit('clearDateCounts');
+    commit('updateDateTable', response.data.results);
+    commit('updateDateCounts', response.data.count);
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.message)
+  })
+};
+
+export const getScheduleListQuery = ({commit, state}, payload) => {
+  axios({
+    method: 'get',
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload.params + '/' +
+    state.endpoints.date + payload.dateNum + '/schedule/',
+    header: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    const formData = {
+      dateNum: payload.dateNum,
+      schedule: response.data
+    };
+    commit('updateScheduleInfo', formData);
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.message)
+  })
+};
+
 // 쿼리 생성
 export const createProduct = ({commit, state}, payload) => {
   axios({

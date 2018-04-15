@@ -16,11 +16,14 @@ const state = {
     schedule: 'schedule/',
     signIn: 'sign-in/'
   },
+  queryData: {
+    productLists: Array(),
+    productRetrieve: Object(),
+    dateCounts: 0,
+    dateTable: Array(),
+    scheduleInfo: Object(),
+  },
   message: null,
-  productLists: null,
-  productRetrieve: Object(),
-  dateCounts: Array(),
-  scheduleInfo: Object()
 };
 
 export default new Vuex.Store({
