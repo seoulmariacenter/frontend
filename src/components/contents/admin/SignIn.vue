@@ -45,6 +45,9 @@
         password: ''
       }
     },
+    created() {
+      this.$store.commit('clearMsg')
+    },
     methods: {
       onSubmit () {
         const formData = {

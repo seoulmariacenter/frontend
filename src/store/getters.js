@@ -18,6 +18,12 @@ export const getScheduleInfo = state => {
   return state.queryData.scheduleInfo
 };
 
+export const getEndDateObj = (state, getters) => {
+  const endDateText = getters.getProductRetrieve.end_time;
+  const endDateArray = endDateText.split('-');
+  return new Date(endDateArray[0], parseInt(endDateArray[1]), parseInt(endDateArray[2]));
+};
+
 export const getNextDateObj = (state, getters) => {
   if (getters.getDateTable.length === 0) {
     const dateText = getters.getProductRetrieve.start_time;

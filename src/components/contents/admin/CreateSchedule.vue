@@ -2,17 +2,16 @@
   <div class="col-md-8 bg-light">
     <div class="m-3">
       <div class="d-block">
-        <h2><strong>{{getProductRetrieve.title}} 일정표 만들기</strong></h2>
+        <h2><strong>{{getProductRetrieve.title}} 일정표 관리</strong></h2>
       </div>
       <hr>
-      <div class="row m-2 justify-content-between text-center">
+      <div class="row m-5 justify-content-between text-center">
         <div class="col-5 p-2 rounded border border-secondary">출발 일시: <strong>{{getProductRetrieve.start_time}}</strong></div>
         <div class="col-5 p-2 rounded border border-secondary">도착 일시: <strong>{{getProductRetrieve.end_time}}</strong></div>
       </div>
-      <h6 class="text-center m-4">출발 일시와 도착 일시를 확인하시고 날짜를 입력해주세요!</h6>
       <schedule-table v-bind:scheduleLoading="scheduleLoading"/>
       <div class="row m-2 mt-5 mb-5">
-        <div class="col-12">
+        <div class="col-12" v-if="calcEndDate()">
           <form @submit.prevent="onSubmit" method="post">
             <label for="inputDate">일정 추가하기</label>
             <div class="input-group input-group-lg">
@@ -22,6 +21,12 @@
               </span>
             </div>
           </form>
+        </div>
+        <div class="col-12" v-else>
+          <div class="alert alert-warning text-center">
+            <h5><strong>모든 일정을 등록하셨습니다.</strong></h5>
+            <h6 class="m-0">세부 스케줄을 채워 주세요!</h6>
+          </div>
         </div>
       </div>
       <div class="row m-2">
@@ -58,18 +63,11 @@
         this.$store.dispatch('getProductRetrieveQuery', this.params);
       },
       calcEndDate() {
-        const endTimeText = this.getProductRetrieve.end_time;
-        const endTimeArray = endTimeText.split('-');
-        const endTimeObj = new Date(endTimeArray[0], endTimeArray[1], endTimeArray[2]);
-        return endTimeObj >= this.getNextDateObj
+        return this.getEndDateObj >= this.getNextDateObj
       },
       onSubmit() {
-        if (this.calcEndDate() === false) {
-          this.$store.commit('updateMsg', '일정을 도착 일시보다 많이 추가할 수 없습니다!')
-        } else {
-          this.$store.commit('clearMsg');
-          this.$store.dispatch('createDate', this.params);
-        }
+        this.$store.commit('clearMsg');
+        this.$store.dispatch('createDate', this.params);
       }
     },
     computed: {
@@ -77,6 +75,7 @@
         'getProductRetrieve',
         'getDateTable',
         'getDateCounts',
+        'getEndDateObj',
         'getNextDateObj',
         'getNextDateText'
       ])
