@@ -14,7 +14,7 @@
       <div class="row m-2 mt-5 mb-5">
         <div class="col-12">
           <form @submit.prevent="onSubmit" method="post">
-            <label for="inputDate">일정 추가</label>
+            <label for="inputDate">일정 추가하기</label>
             <div class="input-group input-group-lg">
               <input id="inputDate" type="text" class="form-control rounded-left" :placeholder="getNextDateText" readonly>
               <span class="input-group-btn">
@@ -57,15 +57,27 @@
         this.$emit('manageContent', false);
         this.$store.dispatch('getProductRetrieveQuery', this.params);
       },
+      calcEndDate() {
+        const endTimeText = this.getProductRetrieve.end_time;
+        const endTimeArray = endTimeText.split('-');
+        const endTimeObj = new Date(endTimeArray[0], endTimeArray[1], endTimeArray[2]);
+        return endTimeObj >= this.getNextDateObj
+      },
       onSubmit() {
+        if (this.calcEndDate() === false) {
+          this.$store.commit('updateMsg', '일정을 도착 일시보다 많이 추가할 수 없습니다!')
+        } else {
+          this.$store.commit('clearMsg');
           this.$store.dispatch('createDate', this.params);
         }
+      }
     },
     computed: {
       ...mapGetters([
         'getProductRetrieve',
         'getDateTable',
         'getDateCounts',
+        'getNextDateObj',
         'getNextDateText'
       ])
     }
