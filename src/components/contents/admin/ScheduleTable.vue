@@ -91,7 +91,8 @@
     methods: {
       callScheduleDetail(payload) {
         this.$emit('parseDateNum', payload);
-        this.$emit('callScheduleDetail', true)
+        this.$emit('callScheduleDetail', true);
+        window.scrollTo(0, document.body.scrollHeight);
       },
       fetchData() {
         this.$store.dispatch('getDateListQuery', this.params);
