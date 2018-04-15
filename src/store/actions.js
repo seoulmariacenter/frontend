@@ -107,4 +107,27 @@ export const createProduct = ({commit, state}, payload) => {
   })
 };
 
+export const createDate = ({commit, state}, payload) => {
+  axios({
+    method: 'post',
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload.params + '/' + state.endpoints.date,
+    data: {
+      date_num: payload.dateNum,
+      date_time: payload.dateTime,
+      product: payload.params
+    },
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'JWT ' + localStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    console.log(response.data)
+
+  }).catch((error) => {
+    console.log(error)
+  })
+};
 
