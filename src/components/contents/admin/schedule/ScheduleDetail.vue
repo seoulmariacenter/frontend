@@ -61,7 +61,7 @@
             <div class="form-group col-md-6">
               <label for="inputTransport">교통수단</label>
               <div class="input-group">
-                <select class="custom-select" id="inputTransport" required>
+                <select class="custom-select" id="inputTransport" aria-describedby="transportHelp" required>
                   <option selected>선택...</option>
                   <option @click="resultBus">전용 버스</option>
                   <option data-toggle="modal" data-target="#flightModal">항공기</option>
@@ -81,12 +81,13 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                        <button type="button" class="btn btn-primary">항공기 선택</button>
+                        <button @click="resultFlight" type="button" class="btn btn-primary">항공기 선택</button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <small v-if="resultTransport" id="transportHelp" class="form-text text-danger">교통수단을 반드시 선택해 주세요</small>
             </div>
           </div>
           <div class="form-group">
@@ -115,7 +116,7 @@
       return {
         params: this.$route.params.pk,
         place: null,
-        resultTransport: null,
+        resultTransport: '',
         time: null,
         description: null
       }
@@ -134,11 +135,26 @@
       resultBus() {
         this.resultTransport = '전용 버스'
       },
+      resultFlight() {
+        this.resultTransport = '항공기'
+      },
       onReset() {
-        this.place = this.resultTransport = null
+        this.place = this.resultTransport = this.time = this.description = null
       },
       onSubmit() {
-
+        if (this.resultTransport === '') {
+          return this.resultTransport = true
+        } else {
+          const formData = {
+            params: this.params,
+            date: this.dateNum,
+            place: this.place,
+            transport: this.resultTransport,
+            time: this.time,
+            description: this.description
+          };
+          console.log(formData)
+        }
       },
       fetchData() {
         const formData = {
