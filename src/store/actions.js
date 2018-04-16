@@ -68,6 +68,7 @@ export const getProductRetrieveQuery = ({commit, state}, payload) => {
     credentials: true
   }).then((response) => {
     commit('clearMsg');
+    commit('clearProductRetrieve');
     commit('updateProductRetrieve', response.data);
   }).catch((error) => {
     commit('clearProductRetrieve');
@@ -170,7 +171,7 @@ export const createDate = ({commit, state, getters}, payload) => {
     router.go(router.currentRoute)
   }).catch((error) => {
     commit('clearMsg');
-    commit('updateMsg', error.message)
+    commit('updateMsg', error.response.data)
   })
 };
 
