@@ -16,8 +16,7 @@
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><strong>소요 시간:</strong> {{getProductRetrieve.start_time}} ~ {{getProductRetrieve.end_time}}
-                <strong>({{calcDate(getProductRetrieve.start_time, getProductRetrieve.end_time)}}박
-                  {{calcDate(getProductRetrieve.start_time, getProductRetrieve.end_time)+1}}일)</strong></li>
+                <strong>({{calcDate}}박 {{calcDate+1}}일)</strong></li>
               <li class="list-group-item"><strong>가격:</strong> {{getProductRetrieve.price}}원</li>
             </ul>
           </div>
@@ -65,12 +64,6 @@
       tableResult() {
         return this.scheduleLoading ? this.scheduleLoading = false : this.scheduleLoading = true
       },
-      calcDate(startTime, endTime) {
-        const startDate = new Date(startTime);
-        const endDate = new Date(endTime);
-        const dayValue = 24 * 60 * 60 * 1000;
-        return parseInt((endDate - startDate) / dayValue);
-      },
       FetchData() {
         this.$emit('manageContent', false);
         this.$store.commit('clearProductRetrieve');
@@ -84,7 +77,8 @@
     },
     computed: {
       ...mapGetters([
-        'getProductRetrieve'
+        'getProductRetrieve',
+        'calcDate'
       ])
     }
   }
