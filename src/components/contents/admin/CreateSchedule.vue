@@ -13,7 +13,7 @@
         <schedule-table v-on:parseDateNum="parseDateNum" v-on:callScheduleDetail="callScheduleDetail" v-bind:scheduleLoading="scheduleLoading" v-bind:acceptModify="acceptModify"/>
       </div>
       <div class="row m-2" v-if="scheduleDetail">
-        <schedule-detail v-bind:dateNum="dateNum"/>
+        <schedule-detail v-bind:dateNum="dateNum" v-on:callScheduleDetail="callScheduleDetail"/>
       </div>
       <div class="row m-2 mt-5 mb-5">
         <div class="col-12" v-if="calcDate">

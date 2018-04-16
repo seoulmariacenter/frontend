@@ -3,9 +3,30 @@
     <div class="card">
       <div class="card-header">
         <h5 class="d-inline-block m-0"><strong>{{dateNum}}일차 스케줄 수정하기</strong></h5>
-        <button type="button" class="close">
+        <button type="button" class="close" data-toggle="modal" data-target="#closeModal">
           <span aria-hidden="true">&times;</span>
         </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="closeModal" tabindex="-1" role="dialog" aria-labelledby="closeModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="closeModalLabel">스케줄 수정 그만두기</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                정말 닫으시겠습니까? 작성하던 내용이 지워질 수 있습니다!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-danger" @click="callScheduleDetail">닫을게요</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-body">
         <div v-for="index in getScheduleInfo[dateNum]" :key="index.id">
@@ -42,6 +63,10 @@
       '$route': 'fetchData'
     },
     methods: {
+      callScheduleDetail() {
+        this.$emit('callScheduleDetail', false);
+        this.$router.go(this.$router.currentRoute)
+      },
       fetchData() {
         const formData = {
           params: this.params,
