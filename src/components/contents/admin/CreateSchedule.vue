@@ -12,11 +12,11 @@
       <div class="row m-2">
         <schedule-table v-on:parseDateNum="parseDateNum" v-on:callScheduleDetail="callScheduleDetail" v-bind:scheduleLoading="scheduleLoading" v-bind:acceptModify="acceptModify"/>
       </div>
-      <div class="row m-2" v-show="scheduleDetail">
+      <div class="row m-2" v-if="scheduleDetail">
         <schedule-detail v-bind:dateNum="dateNum"/>
       </div>
       <div class="row m-2 mt-5 mb-5">
-        <div class="col-12" v-if="calcEndDate()">
+        <div class="col-12" v-if="calcDate">
           <form @submit.prevent="onSubmit" method="post">
             <label for="inputDate">일정 추가하기</label>
             <div class="input-group input-group-lg">
@@ -56,6 +56,7 @@
       return {
         params: this.$route.params.pk,
         dateNum: 30,
+        calcDate: true,
         scheduleLoading: true,
         scheduleDetail: false,
         acceptModify: true
@@ -66,6 +67,9 @@
     },
     watch: {
       '$route': 'fetchData',
+      calcDate: function() {
+        return this.getEndDateObj >= this.getNextDateObj
+      }
     },
     methods: {
       callScheduleDetail(payload) {
@@ -73,9 +77,6 @@
       },
       parseDateNum(payload) {
         this.dateNum = payload
-      },
-      calcEndDate() {
-        return this.getEndDateObj >= this.getNextDateObj
       },
       onSubmit() {
         this.$store.commit('clearMsg');
