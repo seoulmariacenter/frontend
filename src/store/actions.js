@@ -175,3 +175,27 @@ export const createDate = ({commit, state, getters}, payload) => {
   })
 };
 
+export const createSchedule = ({commit, state}, payload) => {
+  axios({
+    method: 'post',
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload.params + '/' + state.endpoints.date +
+    payload.date + '/' + state.endpoints.schedule,
+    data: {
+      place: payload.place,
+      description: payload.description,
+      date: [payload.params, payload.date],
+      transport: payload.transport
+    },
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'JWT ' + localStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then(() => {
+    router.go(router.currentRoute)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data)
+  })
+};

@@ -137,7 +137,7 @@
         this.resultTransport = null
       },
       resultBus() {
-        this.resultTransport = '전용 버스'
+        this.resultTransport = 1
       },
       resultFlight() {
         this.resultTransport = '항공기'
@@ -157,7 +157,7 @@
             time: this.time,
             description: this.description
           };
-          console.log(formData)
+          this.$store.dispatch('createSchedule', formData)
         }
       },
       fetchData() {
