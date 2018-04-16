@@ -31,7 +31,7 @@
 <script>
   import {mapGetters} from 'vuex'
   import ProductDetail from './ProductDetail'
-  import Message from '../Message'
+  import Message from '../../Message'
   export default {
     name: "ProductManagement",
     components: {

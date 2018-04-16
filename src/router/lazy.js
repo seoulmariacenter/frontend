@@ -6,10 +6,10 @@ export const SignIn = () => import('../components/contents/admin/SignIn.vue');
 
 export const Dashboard = () => import('../components/view/Dashboard.vue');
 
-export const ProductManagement = () => import('../components/contents/admin/ProductManagement.vue');
+export const ProductManagement = () => import('../components/contents/admin/product/ProductManagement.vue');
 
-export const ProductDetail = () => import('../components/contents/admin/ProductDetail.vue');
+export const ProductDetail = () => import('../components/contents/admin/product/ProductDetail.vue');
 
-export const CreateManagement = () => import('../components/contents/admin/CreateManagement.vue');
+export const CreateManagement = () => import('../components/contents/admin/product/ProductCreate.vue');
 
-export const CreateSchedule = () => import('../components/contents/admin/CreateSchedule.vue');
+export const CreateSchedule = () => import('../components/contents/admin/schedule/ScheduleCreate.vue');

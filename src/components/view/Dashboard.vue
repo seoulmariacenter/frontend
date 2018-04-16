@@ -24,7 +24,7 @@
 </template>
 <script>
   import AdminSidebar from '../contents/admin/AdminSidebar'
-  import ProductManagement from '../contents/admin/ProductManagement'
+  import ProductManagement from '../contents/admin/product/ProductManagement'
   export default {
     name: "Dashboard",
     components: {

@@ -45,11 +45,11 @@
 </template>
 <script>
   import {mapGetters} from 'vuex'
-  import Message from '../Message'
+  import Message from '../../Message'
   import ScheduleTable from './ScheduleTable'
   import ScheduleDetail from './ScheduleDetail'
   export default {
-    name: "CreateSchedule",
+    name: "ScheduleCreate",
     components: {
       ScheduleTable,
       ScheduleDetail,

@@ -37,8 +37,8 @@
 </template>
 <script>
   import {mapGetters, mapMutations} from 'vuex'
-  import ScheduleTable from './ScheduleTable'
-  import Message from '../Message'
+  import ScheduleTable from '../schedule/ScheduleTable'
+  import Message from '../../Message'
   export default {
     name: "ProductDetail",
     components: {

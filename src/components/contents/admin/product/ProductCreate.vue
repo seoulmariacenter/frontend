@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-  import Message from '../Message'
+  import Message from '../../Message'
   export default {
     name: "CreateManagement",
     components: {
