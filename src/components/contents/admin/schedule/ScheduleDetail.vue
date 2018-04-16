@@ -62,7 +62,7 @@
               <label for="inputTransport">교통수단</label>
               <div class="input-group">
                 <select class="custom-select" id="inputTransport" aria-describedby="transportHelp" required>
-                  <option selected>선택...</option>
+                  <option @click="resultNull" selected>선택...</option>
                   <option @click="resultBus">전용 버스</option>
                   <option data-toggle="modal" data-target="#flightModal">항공기</option>
                 </select>
@@ -87,7 +87,7 @@
                   </div>
                 </div>
               </div>
-              <small v-if="resultTransport" id="transportHelp" class="form-text text-danger">교통수단을 반드시 선택해 주세요</small>
+              <small v-if="validation" id="transportHelp" class="form-text text-danger">교통수단을 반드시 선택해 주세요</small>
             </div>
           </div>
           <div class="form-group">
@@ -116,7 +116,8 @@
       return {
         params: this.$route.params.pk,
         place: null,
-        resultTransport: '',
+        resultTransport: null,
+        validation: null,
         time: null,
         description: null
       }
@@ -132,6 +133,9 @@
         this.$emit('callScheduleDetail', false);
         this.$router.go(this.$router.currentRoute)
       },
+      resultNull() {
+        this.resultTransport = null
+      },
       resultBus() {
         this.resultTransport = '전용 버스'
       },
@@ -139,11 +143,11 @@
         this.resultTransport = '항공기'
       },
       onReset() {
-        this.place = this.resultTransport = this.time = this.description = null
+        this.place = this.resultTransport = this.time = this.description = this.validation = null
       },
       onSubmit() {
-        if (this.resultTransport === '') {
-          return this.resultTransport = true
+        if (this.resultTransport === null) {
+          return this.validation = true
         } else {
           const formData = {
             params: this.params,
