@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="card-body">
-        <div v-for="index in getScheduleInfo[dateNum]">
+        <div v-for="index in getScheduleInfo[dateNum]" :key="index.id">
           {{index}}
         </div>
         <div class="alert alert-info" v-if="getScheduleInfo[dateNum].length === 0">
