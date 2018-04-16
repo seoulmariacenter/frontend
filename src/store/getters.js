@@ -30,15 +30,15 @@ export const calcDate = state => {
   return parseInt((endDate - startDate) / dayValue);
 };
 
-export const getEndDateObj = state => {
-  const endDateText = state.queryData.productRetrieve.end_time;
+export const getEndDateObj = (state, getters) => {
+  const endDateText = getters.getProductRetrieve.end_time;
   const endDateArray = endDateText.split('-');
   return new Date(endDateArray[0], parseInt(endDateArray[1]), parseInt(endDateArray[2]));
 };
 
 export const getNextDateObj = (state, getters) => {
   if (getters.getDateTable.length === 0) {
-    const dateText = state.queryData.productRetrieve.start_time;
+    const dateText = getters.getProductRetrieve.start_time;
     const dateArray = dateText.split('-');
     return new Date(dateArray[0], parseInt(dateArray[1]), parseInt(dateArray[2]) + 1);
   } else {

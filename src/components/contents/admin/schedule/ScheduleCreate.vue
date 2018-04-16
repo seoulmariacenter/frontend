@@ -19,7 +19,7 @@
         <schedule-detail v-bind:dateNum="dateNum" v-on:callScheduleDetail="callScheduleDetail"/>
       </div>
       <div class="row m-2 mt-5 mb-5">
-        <div class="col-12" v-if="calcDate">
+        <div class="col-12" v-if="isDateFull">
           <form @submit.prevent="onSubmit" method="post">
             <label for="inputDate">일정 추가하기</label>
             <div class="input-group input-group-lg">
@@ -59,7 +59,7 @@
       return {
         params: this.$route.params.pk,
         dateNum: 30,
-        calcDate: true,
+        // isDateFull: true,
         scheduleLoading: false,
         scheduleDetail: false,
         acceptModify: true
@@ -70,9 +70,6 @@
     },
     watch: {
       '$route': 'fetchData',
-      calcDate: function() {
-        return this.getEndDateObj >= this.getNextDateObj
-      }
     },
     methods: {
       tableResult() {
@@ -101,7 +98,10 @@
         'getEndDateObj',
         'getNextDateObj',
         'getNextDateText'
-      ])
+      ]),
+      isDateFull () {
+        return this.getEndDateObj >= this.getNextDateObj
+      }
     }
   }
 </script>
