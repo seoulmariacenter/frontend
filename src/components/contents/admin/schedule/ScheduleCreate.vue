@@ -9,7 +9,7 @@
         <div class="col-5 p-2 rounded border border-secondary">출발 일시: <strong>{{getProductRetrieve.start_time}}</strong></div>
         <div class="col-5 p-2 rounded border border-secondary">도착 일시: <strong>{{getProductRetrieve.end_time}}</strong></div>
       </div>
-      <div class="row m-2 text-center justify-content-center">
+      <div class="row m-2 mb-4 text-center justify-content-center">
         <button class="col-3 btn btn-outline-info mr-1" @click="tableResult">일정표 확인</button>
       </div>
       <div class="row m-2">

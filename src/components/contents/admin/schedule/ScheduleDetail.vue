@@ -29,15 +29,32 @@
         </div>
       </div>
       <div class="card-body">
-        <div v-for="index in getScheduleInfo[dateNum]" :key="index.id">
-          {{index}}
-        </div>
+        <table class="table table-sm">
+          <thead>
+          <tr>
+            <th scope="col">장소</th>
+            <th scope="col">교통</th>
+            <th scope="col">시간</th>
+            <th scope="col">설명</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="index in getScheduleInfo[dateNum]" :key="index.id">
+            <th scope="row">{{index['place']}}</th>
+            <td>{{index['transport']}}</td>
+            <td>{{index['time']}}</td>
+            <td>{{index['description']}}</td>
+          </tr>
+          </tbody>
+        </table>
         <div class="alert alert-info" v-if="getScheduleInfo[dateNum].length === 0">
           <strong>아직 스케줄이 없습니다!</strong>
         </div>
         <hr>
         <h4 class="card-title">새로운 스케줄 등록하기</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">
+          
+        </p>
         <div class="d-flex">
           <button class="btn btn-primary mr-1">스케줄 등록</button>
           <button class="btn btn-outline-danger ml-1">지우고 다시 쓰기</button>
