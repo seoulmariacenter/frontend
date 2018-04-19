@@ -40,14 +40,6 @@
               <input @change="onFileSelected" type="file" class="form-control-file" id="imageUpload" accept="image/*">
             </div>
           </div>
-          <div class="form-group col-md-5 pl-0">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-              <label class="form-check-label" for="invalidCheck2">
-                발행하기
-              </label>
-            </div>
-          </div>
           <div class="form-group row">
             <div class="col-md-8 d-flex p-2">
               <button type="submit" class="btn btn-primary mr-2">순례 상품 생성</button>
