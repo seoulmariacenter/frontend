@@ -1,8 +1,8 @@
 <template>
   <div class="container">
+    <carousel/>
     <div class="row">
       <div class="col-md-8">
-        <carousel/>
         <advertisement/>
       </div>
       <div class="col-md-4">
