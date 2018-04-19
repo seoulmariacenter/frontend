@@ -28,9 +28,14 @@
 <script>
   export default {
     name: "ProductUpdateDestroy",
+    data() {
+      return {
+        params: this.$route.params.pk
+      }
+    },
     methods: {
       onSubmit() {
-
+        this.$store.dispatch('DestroyProduct', this.params)
       }
     }
   }

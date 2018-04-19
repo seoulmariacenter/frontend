@@ -59,4 +59,10 @@ export const getNextDateText = (state, getters) => {
 
 // 메시지 관련
 
-export const checkoutMsg = state => state.message;
+export const checkoutMsg = state => {
+  if (state.message === 'Signature has expired.') {
+    return '사이트 보안을 위해 설정된 관리자님의 유효 시간이 만료되었습니다. 다시 로그인해주세요!'
+  } else {
+    return state.message
+  }
+};

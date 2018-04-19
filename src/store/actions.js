@@ -134,7 +134,7 @@ export const createProduct = ({commit, state}, payload) => {
       publish: false
     },
     headers: {
-      'Content-Type': 'applecation/x-www-urlencoded',
+      'Content-Type': 'application/*',
       'Authorization': 'JWT ' + localStorage.getItem('token')
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
@@ -199,5 +199,28 @@ export const createSchedule = ({commit, state}, payload) => {
   }).catch((error) => {
     commit('clearMsg');
     commit('updateMsg', error.response.data)
+  })
+};
+
+// 쿼리 삭제
+export const DestroyProduct = ({commit, state}, payload) => {
+  axios({
+    method: 'delete',
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload + '/',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'JWT ' + localStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then(() => {
+    alert('삭제가 완료되었습니다');
+    router.go(router.currentRoute);
+    router.replace({
+      name: 'ProductManagement'
+    })
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data.detail)
   })
 };
