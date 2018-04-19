@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card mt-4 mb-4">
     <div class="card-body">
       <h5 class="card-title"><img class="mb-1"
       src="../../assets/svg/si-glyph-call-forward.svg"
