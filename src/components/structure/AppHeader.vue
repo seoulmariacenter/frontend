@@ -43,6 +43,9 @@
   }
 </script>
 <style scoped>
+  .navbar {
+    box-shadow: 0 0 1em gray;
+  }
   .top-line {
     height: 10px;
     background-color: #0081D5;
