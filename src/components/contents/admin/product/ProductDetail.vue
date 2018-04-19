@@ -3,7 +3,7 @@
     <div class="m-3">
       <div class="d-block d-flex">
         <h2 class="mt-2"><strong>{{getProductRetrieve.title}} 관리</strong></h2>
-        <button class="btn btn-lg btn-secondary ml-5" disabled>{{isPublished}}</button>
+        <button :class="[button]" v-on="isPublished" disabled><strong>{{publishText}}</strong></button>
       </div>
       <hr>
       <div class="loading row m-2" v-if="parentLoading">
@@ -57,6 +57,12 @@
     },
     data() {
       return {
+        button: {
+          'btn btn-lg ml-5': true,
+          'btn-secondary': true,
+          'btn-info': false
+        },
+        publishText: '',
         parentLoading: false,
         scheduleLoading: false,
         acceptModify: false,
@@ -92,7 +98,13 @@
       ]),
       isPublished() {
         if (this.getProductRetrieve.publish === false) {
-          return '미발행'
+          this.publishText = '미발행';
+          this.button["btn-secondary"] = true;
+          this.button["btn-info"] = false
+        } else {
+          this.publishText = '발행 중';
+          this.button["btn-secondary"] = false;
+          this.button["btn-info"] = true
         }
       }
     }
