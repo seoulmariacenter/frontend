@@ -4,6 +4,10 @@ export const getProductLists = state => {
   return state.queryData.productLists
 };
 
+export const getPublishedProductLists = (state, getters) => {
+  return getters.getProductLists.filter(list => list.publish)
+};
+
 export const getProductRetrieve = state => {
   return state.queryData.productRetrieve
 };

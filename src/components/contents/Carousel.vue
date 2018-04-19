@@ -2,10 +2,10 @@
   <div id="mainCarouselIndicators" class="carousel slide" data-ride="carousel">
     {{addClass()}}
     <ol id="productIndicators" class="carousel-indicators">
-      <li data-target="#mainCarouselIndicators" v-for="index in getProductLists" :key="index.id" :data-slide-to="getProductLists.indexOf(index)"></li>
+      <li data-target="#mainCarouselIndicators" v-for="index in getPublishedProductLists" :key="index.id" :data-slide-to="getPublishedProductLists.indexOf(index)"></li>
     </ol>
     <div class="carousel-inner" id="carousel">
-      <div class="carousel-item" v-for="product in getProductLists" :key="product.id">
+      <div class="carousel-item" v-for="product in getPublishedProductLists" :key="product.id">
         <img v-if="product.image" :src="product.image" class="d-block w-100" alt="순례 상품 대표 이미지">
         <img v-else class="d-block w-100" src="../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
         <div id="opacity" class="card rounded-0">
@@ -54,7 +54,7 @@
     },
     computed: {
       ...mapGetters([
-          'getProductLists'
+          'getPublishedProductLists'
       ])
     }
   }
