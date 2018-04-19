@@ -173,7 +173,7 @@ export const createDate = ({commit, state, getters}, payload) => {
     router.go(router.currentRoute)
   }).catch((error) => {
     commit('clearMsg');
-    commit('updateMsg', error.response.data)
+    commit('updateMsg', error.response.data.detail)
   })
 };
 

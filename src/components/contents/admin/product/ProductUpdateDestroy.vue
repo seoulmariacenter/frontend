@@ -3,6 +3,7 @@
     <button class="btn btn-sm btn-outline-danger mr-1">순례 상품 수정</button>
     <button type="button" class="btn btn-sm btn-danger ml-1" data-toggle="modal" data-target="#destroyModal">순례 상품 삭제</button>
 
+
     <!--Modal-->
     <div class="modal fade" id="destroyModal" tabindex="-1" role="dialog" aria-labelledby="destroyModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

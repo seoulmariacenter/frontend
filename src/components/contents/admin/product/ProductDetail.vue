@@ -1,8 +1,9 @@
 <template>
   <div class="col-lg-9 col-md-8 bg-light">
     <div class="m-3">
-      <div class="d-block">
-        <h2><strong>{{getProductRetrieve.title}} 관리</strong></h2>
+      <div class="d-block d-flex">
+        <h2 class="mt-2"><strong>{{getProductRetrieve.title}} 관리</strong></h2>
+        <button class="btn btn-lg btn-secondary ml-5" disabled>{{isPublished}}</button>
       </div>
       <hr>
       <div class="loading row m-2" v-if="parentLoading">
@@ -88,7 +89,12 @@
       ...mapGetters([
         'getProductRetrieve',
         'calcDate'
-      ])
+      ]),
+      isPublished() {
+        if (this.getProductRetrieve.publish === false) {
+          return '미발행'
+        }
+      }
     }
   }
 </script>
