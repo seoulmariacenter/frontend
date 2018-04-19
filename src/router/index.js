@@ -6,7 +6,8 @@ import {
   ProductManagement,
   ProductDetail,
   CreateManagement,
-  CreateSchedule
+  ProductUpdate,
+  ScheduleCreate
 } from './lazy'
 
 export const routes = [
@@ -40,21 +41,27 @@ export const routes = [
             component: ProductManagement
           },
           {
+            path: 'create',
+            name: 'CreateManagement',
+            component: CreateManagement
+          },
+          {
             path: 'product/:pk',
             name: 'Product',
             component: ProductDetail,
             props: true
           },
           {
-            path: 'schedule/:pk',
-            name: 'Schedule',
-            component: CreateSchedule,
+            path: 'product/:pk/update',
+            name: 'UpdateProduct',
+            component: ProductUpdate,
             props: true
           },
           {
-            name: 'CreateManagement',
-            path: 'create',
-            component: CreateManagement
+            path: 'schedule/:pk',
+            name: 'Schedule',
+            component: ScheduleCreate,
+            props: true
           }
         ]
       }
