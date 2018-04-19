@@ -5,11 +5,11 @@
         <h2><strong>{{getProductRetrieve.title}} 관리</strong></h2>
       </div>
       <hr>
-      <div class="row m-2">
-        <div class="loading" v-if="parentLoading">
-          <h4>잠시만 기다려 주세요...</h4>
-        </div>
-        <div class="content" v-if="getProductRetrieve">
+      <div class="loading row m-2" v-if="parentLoading">
+        <h4>잠시만 기다려 주세요...</h4>
+      </div>
+      <div class="row m-2" v-if="getProductRetrieve">
+        <div class="col-lg-6 col-sm-12 mb-sm-4">
           <div class="card">
             <div class="card-header">
               <h5 class="mb-0"><strong>상품명:</strong> {{getProductRetrieve.title}}</h5>
@@ -19,10 +19,14 @@
                 <strong>({{calcDate}}박 {{calcDate+1}}일)</strong></li>
               <li class="list-group-item"><strong>가격:</strong> {{getProductRetrieve.price}}원</li>
             </ul>
+            <product-update-destroy/>
           </div>
         </div>
-        <message/>
+        <figure class="figure col-lg-6 col-sm-12">
+          <img :src="getProductRetrieve.image" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+        </figure>
       </div>
+      <message/>
       <hr>
       <div class="row m-2 d-flex justify-content-between">
         <button class="col-3 btn btn-outline-info mr-1" @click="tableResult">일정표 확인</button>
@@ -37,11 +41,13 @@
 </template>
 <script>
   import {mapGetters, mapMutations} from 'vuex'
+  import ProductUpdateDestroy from './ProductUpdateDestroy'
   import ScheduleTable from '../schedule/ScheduleTable'
   import Message from '../../Message'
   export default {
     name: "ProductDetail",
     components: {
+      ProductUpdateDestroy,
       ScheduleTable,
       Message
     },

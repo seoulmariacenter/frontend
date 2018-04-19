@@ -129,10 +129,12 @@ export const createProduct = ({commit, state}, payload) => {
       title: payload.title,
       price: payload.price,
       start_time: payload.startDate,
-      end_time: payload.endDate
+      end_time: payload.endDate,
+      image: payload.image,
+      publish: false
     },
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'applecation/x-www-urlencoded',
       'Authorization': 'JWT ' + localStorage.getItem('token')
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
@@ -146,7 +148,7 @@ export const createProduct = ({commit, state}, payload) => {
   }).catch((error) => {
     if (typeof error.response !== 'undefined') {
       commit('clearMsg');
-      commit('updateMsg', error.response.data.detail)
+      commit('updateMsg', error.response.data)
     }
   })
 };

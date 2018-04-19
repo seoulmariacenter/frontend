@@ -12,8 +12,8 @@
         <div class="row content justify-content-between">
           <div class="col-md-auto p-0 m-2" v-for="value in getProductLists" :key="value.id">
             <router-link :to="{name: 'Product', params: {pk: value.pk} }">
-            <div class="card bg-dark text-white">
-              <img class="card-img" src="http://via.placeholder.com/200x150" alt="Card image">
+            <div class="card bg-dark text-white" style="width: 18rem">
+              <img class="card-img" :src="value.image" alt="Card image">
               <div class="card-img-overlay">
                 <h5 class="card-title">{{value.title}}</h5>
                 <p class="card-text">{{value.start_time}} - {{value.end_time}}</p>

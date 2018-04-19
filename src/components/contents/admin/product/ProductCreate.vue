@@ -6,7 +6,7 @@
       </div>
       <hr>
       <div class="m-2">
-        <form @submit.prevent="onSubmit" method="post">
+        <form enctype="multipart/form-data" @submit.prevent="onSubmit" method="post">
           <div class="form-group row">
             <label for="inputTitle" class="col-md-2 col-form-label"><strong>상품 이름</strong></label>
             <div class="col-md-8">
@@ -34,8 +34,14 @@
               <input v-model="endDate" type="date" class="form-control" id="inputStartDate2" required>
             </div>
           </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="imageUpload" class="col-form-label"><strong>상품 대표 이미지</strong></label>
+              <input @change="onFileSelected" type="file" class="form-control-file" id="imageUpload" accept="image/*">
+            </div>
+          </div>
           <div class="form-group row">
-            <div class="col-md-8 d-flex">
+            <div class="col-md-8 d-flex p-2">
               <button type="submit" class="btn btn-primary mr-2">순례 상품 생성</button>
               <button @click="onReset" type="reset" class="btn btn-outline-danger ml-2">지우고 다시 쓰기</button>
             </div>
@@ -61,7 +67,8 @@
         title: null,
         price: null,
         startDate: null,
-        endDate: null
+        endDate: null,
+        selectedFile: null
       }
     },
     created() {
@@ -74,16 +81,29 @@
       fetchData() {
         this.$emit('manageContent', false)
       },
+      onFileSelected(event) {
+        this.selectedFile = event.target.files[0];
+      },
       onSubmit() {
         const formData = {
           title: this.title,
           price: this.price,
           startDate: this.startDate,
-          endDate: this.endDate
+          endDate: this.endDate,
+          image: this.selectedFile
         };
+
+        // let formData = new FormData();
+        // formData.append('title', this.title);
+        // formData.append('price', this.price);
+        // formData.append('startDate', this.startDate);
+        // formData.append('endData', this.endDate);
+        // formData.append('image', this.selectedFile);
+
         if (this.startDate > this.endDate) {
           this.$store.commit('updateMsg', '도착 날짜가 출발 날짜보다 이릅니다!')
         } else {
+          console.log(formData);
           this.$store.dispatch('createProduct', formData)
         }
       },
