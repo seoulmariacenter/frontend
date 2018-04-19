@@ -1,30 +1,18 @@
 <template>
   <div id="mainCarouselIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#mainCarouselIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#mainCarouselIndicators" data-slide-to="1"></li>
-      <li data-target="#mainCarouselIndicators" data-slide-to="2"></li>
+    {{addClass()}}
+    <ol id="productIndicators" class="carousel-indicators">
+      <li data-target="#mainCarouselIndicators" v-for="index in getProductLists" :key="index.id" :data-slide-to="getProductLists.indexOf(index)"></li>
     </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="http://via.placeholder.com/600x400" alt="First slide">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>hello</h5>
-          <p>hi</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="http://via.placeholder.com/600x400" alt="Second slide">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>hello</h5>
-          <p>hi</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="http://via.placeholder.com/600x400" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>hello</h5>
-          <p>hi</p>
+    <div class="carousel-inner" id="carousel">
+      <div class="carousel-item" v-for="product in getProductLists" :key="product.id">
+        <img v-if="product.image" :src="product.image" class="d-block w-100" alt="순례 상품 대표 이미지">
+        <img v-else class="d-block w-100" src="../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
+        <div id="opacity" class="card rounded-0">
+          <div class="m-4 ml-5 text-white">
+            <h1 class="card-title display-4"><strong>{{product.title}}</strong></h1>
+            <h5 class="card-text mb-1"><strong>{{product.start_time}} ~ {{product.end_time}}</strong></h5>
+          </div>
         </div>
       </div>
     </div>
@@ -39,9 +27,40 @@
   </div>
 </template>
 <script>
+  import {mapGetters} from 'vuex'
   export default {
-    name: "carousel"
+    name: "carousel",
+    created() {
+      this.fetchData()
+    },
+    watch: {
+      '$route': 'fetchData'
+    },
+    methods: {
+      addClass() {
+        const carousel = window.document.getElementById('carousel');
+        const indicator = window.document.getElementById('productIndicators');
+        setTimeout(() => {
+          const firstChild = carousel.childNodes[0];
+          firstChild.classList.add('active');
+          const firstIndicator = indicator.childNodes[0];
+          firstIndicator.classList.add('active');
+        }, 500);
+
+      },
+      fetchData() {
+        this.$store.dispatch('getProductListsQuery');
+      }
+    },
+    computed: {
+      ...mapGetters([
+          'getProductLists'
+      ])
+    }
   }
 </script>
 <style scoped>
+  #opacity {
+    background-color: rgba(0, 129, 213, 0.8);
+  }
 </style>
