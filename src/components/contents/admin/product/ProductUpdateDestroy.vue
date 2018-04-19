@@ -1,6 +1,6 @@
 <template>
   <div class="m-3 ml-3">
-    <button class="btn btn-sm btn-outline-danger mr-1">순례 상품 수정</button>
+    <router-link :to="{name: 'UpdateProduct', params:{pk: params}}" tag="button" class="btn btn-sm btn-outline-danger mr-1">순례 상품 수정</router-link>
     <button type="button" class="btn btn-sm btn-danger ml-1" data-toggle="modal" data-target="#destroyModal">순례 상품 삭제</button>
 
 
