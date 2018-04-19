@@ -22,8 +22,11 @@
             <product-update-destroy/>
           </div>
         </div>
-        <figure class="figure col-lg-6 col-sm-12">
-          <img :src="getProductRetrieve.image" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+        <figure class="figure col-lg-6 col-sm-12" v-if="getProductRetrieve.image">
+          <img :src="getProductRetrieve.image" class="figure-img img-fluid rounded" alt="순례 상품 대표 이미지">
+        </figure>
+        <figure class="figure col-lg-6 col-sm-12" v-else>
+          <img class="figure-img img-fluid rounded" src="../../../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
         </figure>
       </div>
       <message/>
