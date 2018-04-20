@@ -9,9 +9,6 @@
         <div class="col-5 p-2 rounded border border-secondary">출발 일시: <strong>{{getProductRetrieve.start_time}}</strong></div>
         <div class="col-5 p-2 rounded border border-secondary">도착 일시: <strong>{{getProductRetrieve.end_time}}</strong></div>
       </div>
-      <div class="row m-2 mb-4 text-center justify-content-center">
-        <button class="col-3 btn btn-outline-info mr-1" @click="tableResult">일정표 확인</button>
-      </div>
       <div class="row m-2">
         <schedule-table v-on:parseDateNum="parseDateNum" v-on:callScheduleDetail="callScheduleDetail" v-bind:scheduleLoading="scheduleLoading" v-bind:acceptModify="acceptModify"/>
       </div>
@@ -72,9 +69,6 @@
       '$route': 'fetchData',
     },
     methods: {
-      tableResult() {
-        return this.scheduleLoading ? this.scheduleLoading = false : this.scheduleLoading = true
-      },
       callScheduleDetail(payload) {
         this.scheduleDetail = payload
       },
@@ -88,6 +82,9 @@
       fetchData() {
         this.$emit('manageContent', false);
         this.$store.dispatch('getProductRetrieveQuery', this.params);
+        setTimeout(()=> {
+          this.scheduleLoading ? this.scheduleLoading = false : this.scheduleLoading = true
+        }, 50)
       }
     },
     computed: {
