@@ -58,7 +58,7 @@
   import {mapGetters} from 'vuex'
   import Message from '../../Message'
   export default {
-    name: "CreateManagement",
+    name: "ProductCreate",
     components: {
       Message
     },

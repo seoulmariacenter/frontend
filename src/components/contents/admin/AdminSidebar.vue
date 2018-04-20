@@ -11,7 +11,7 @@
         <router-link :to="{name: 'ProductManagement'}" tag="li" class="nav-item mb-2 hovering">
           <h4>순례 상품 관리</h4>
         </router-link>
-        <router-link :to="{name: 'CreateManagement'}" tag="li" class="nav-item mb-2 hovering">
+        <router-link :to="{name: 'ProductCreate'}" tag="li" class="nav-item mb-2 hovering">
           <h4>순례 상품 만들기</h4>
         </router-link>
         <li @click="signOut" class="nav-item mb-2 hovering">

@@ -13,7 +13,7 @@
             <h5>일정을 확인하고 예약자를 보려면</h5>
             <h4><strong>순례 상품 관리</strong></h4>
           </router-link>
-          <router-link :to="{name: 'CreateManagement'}" tag="div" class="alert alert-success m-4 hovering">
+          <router-link :to="{name: 'ProductCreate'}" tag="div" class="alert alert-success m-4 hovering">
             <h5>새로운 순례 상품을 만들려면</h5>
             <h4><strong>순례 상품 만들기</strong></h4>
           </router-link>

@@ -10,7 +10,7 @@ export const ProductManagement = () => import('../components/contents/admin/prod
 
 export const ProductDetail = () => import('../components/contents/admin/product/ProductDetail.vue');
 
-export const CreateManagement = () => import('../components/contents/admin/product/ProductCreate.vue');
+export const ProductCreate = () => import('../components/contents/admin/product/ProductCreate.vue');
 
 export const ScheduleCreate = () => import('../components/contents/admin/schedule/ScheduleCreate.vue');
 

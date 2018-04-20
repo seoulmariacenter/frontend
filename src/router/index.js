@@ -5,7 +5,7 @@ import {
   Dashboard,
   ProductManagement,
   ProductDetail,
-  CreateManagement,
+  ProductCreate,
   ProductUpdate,
   ScheduleCreate
 } from './lazy'
@@ -44,8 +44,8 @@ export const routes = [
           },
           {
             path: 'create',
-            name: 'CreateManagement',
-            component: CreateManagement
+            name: 'ProductCreate',
+            component: ProductCreate
           },
           {
             path: 'product/:pk',
