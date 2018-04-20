@@ -71,7 +71,7 @@
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="flightModalLabel">항공기 검색</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -80,8 +80,8 @@
                         ...
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                        <button @click="resultFlight" type="button" class="btn btn-primary">항공기 선택</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
                       </div>
                     </div>
                   </div>
@@ -109,6 +109,7 @@
 </template>
 <script>
   import {mapGetters} from 'vuex'
+  import {router} from "../../../../main";
   export default {
     name: "ScheduleDetail",
     props: ['dateNum'],
@@ -131,7 +132,7 @@
     methods: {
       callScheduleDetail() {
         this.$emit('callScheduleDetail', false);
-        this.$router.go(this.$router.currentRoute)
+        router.go(router.currentRoute)
       },
       resultNull() {
         this.resultTransport = null
