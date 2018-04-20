@@ -56,39 +56,22 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputPlace">장소</label>
-              <input v-model="place" type="text" class="form-control" id="inputPlace" placeholder="장소 입력" required>
+              <input v-model="place" type="text" class="form-control" id="inputPlace" placeholder="장소 입력">
             </div>
             <div class="form-group col-md-6">
               <label for="inputTransport">교통수단</label>
               <div class="input-group">
-                <select class="custom-select" id="inputTransport" aria-describedby="transportHelp" required>
-                  <option @click="resultNull" selected>선택...</option>
-                  <option @click="resultBus">전용 버스</option>
-                  <option data-toggle="modal" data-target="#flightModal">항공기</option>
+                <select v-model="whichTransport" class="custom-select" id="inputTransport" aria-describedby="transportHelp">
+                  <option value="">선택 안함</option>
+                  <option value="전용 버스">전용 버스</option>
+                  <option value="1" data-toggle="modal" data-target="#exampleModal">항공기</option>
                 </select>
-                <!-- Modal -->
-                <div class="modal fade" id="flightModal" tabindex="-1" role="dialog" aria-labelledby="flightModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        ...
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
-              <small v-if="validation" id="transportHelp" class="form-text text-danger">교통수단을 반드시 선택해 주세요</small>
             </div>
+          </div>
+          <div class="form-group border border-info rounded p-2" v-if="isFlight">
+            <label for="inputFlight">항공기</label>
+            <input v-model="flightName" type="text" class="form-control" id="inputFlight" placeholder="항공편 이름을 입력하세요 (예: KE957)">
           </div>
           <div class="form-group">
             <label for="inputTime">시간</label>
@@ -96,11 +79,11 @@
           </div>
           <div class="form-group">
             <label for="inputDescription">일정</label>
-            <input v-model="description" type="text" class="form-control" id="inputDescription" placeholder="일정 입력">
+            <input v-model="description" type="text" class="form-control" id="inputDescription" placeholder="일정 입력" required>
           </div>
           <div class="d-flex">
             <button type="submit" class="btn btn-primary mr-1">스케줄 등록</button>
-            <button @click="onReset" class="btn btn-outline-danger ml-1">지우고 다시 쓰기</button>
+            <button type="button" @click="onReset" class="btn btn-outline-danger ml-1">지우고 다시 쓰기</button>
           </div>
         </form>
       </div>
@@ -116,50 +99,53 @@
     data() {
       return {
         params: this.$route.params.pk,
-        place: null,
-        resultTransport: null,
-        validation: null,
-        time: null,
-        description: null
+        place: '',
+        whichTransport: '',
+        isFlight: false,
+        flightName: '',
+        time: '',
+        description: ''
       }
     },
     created() {
       this.fetchData()
     },
     watch: {
-      '$route': 'fetchData'
+      '$route': 'fetchData',
+      whichTransport: function () {
+        this.whichTransport === '1' ? this.isFlight = true : this.isFlight = false;
+      }
     },
     methods: {
       callScheduleDetail() {
         this.$emit('callScheduleDetail', false);
         router.go(router.currentRoute)
       },
-      resultNull() {
-        this.resultTransport = null
-      },
-      resultBus() {
-        this.resultTransport = 1
-      },
-      resultFlight() {
-        this.resultTransport = '항공기'
-      },
       onReset() {
-        this.place = this.resultTransport = this.time = this.description = this.validation = null
+        this.place = this.whichTransport = this.flightName = this.time = this.description = ''
       },
       onSubmit() {
-        if (this.resultTransport === null) {
-          return this.validation = true
-        } else {
-          const formData = {
-            params: this.params,
-            date: this.dateNum,
-            place: this.place,
-            transport: this.resultTransport,
-            time: this.time,
-            description: this.description
-          };
-          this.$store.dispatch('createSchedule', formData)
+        let resultTransport;
+        this.whichTransport === '1' ? resultTransport = this.flightName : resultTransport = this.whichTransport;
+        const formData = {
+          params: this.params,
+          date: this.dateNum,
+          place: this.place,
+          transport: resultTransport,
+          time: this.time,
+          description: this.description
+        };
+
+        let result = Object();
+        for (let property in formData) {
+          if (formData[property] === '') {
+            result[property] = '.';
+          } else {
+            result[property] = formData[property]
+          }
         }
+
+        this.$store.dispatch('createSchedule', result)
       },
       fetchData() {
         const formData = {
