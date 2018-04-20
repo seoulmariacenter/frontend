@@ -10,7 +10,7 @@
         <img v-else class="d-block w-100" src="../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
         <div id="opacity" class="card rounded-0">
           <div class="m-4 ml-5 text-white">
-            <h1 class="card-title display-4"><strong>{{product.title}}</strong></h1>
+            <h1 class="card-title"><strong>{{product.title}}</strong></h1>
             <h5 class="card-text mb-1"><strong>{{product.start_time}} ~ {{product.end_time}}</strong></h5>
           </div>
         </div>
@@ -45,7 +45,7 @@
           firstChild.classList.add('active');
           const firstIndicator = indicator.childNodes[0];
           firstIndicator.classList.add('active');
-        }, 500);
+        }, 50);
 
       },
       fetchData() {
