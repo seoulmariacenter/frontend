@@ -13,7 +13,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="value in getDateTable" :key="value.id">
+        <tr id="renderedTable" v-for="value in getDateTable" :key="value.id">
           <th class="text-center align-middle" scope="row">
             <p class="m-0">제 {{value.date_num}} 일</p>
             <p class="m-0">{{value.date_time}}</p>
@@ -21,28 +21,28 @@
           <td class="schedulePlace">
             <ul class="list-group">
               <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
-                {{index['place']}}
+                {{index['place'] === '' ? '1' : index['place']}}
               </li>
             </ul>
           </td>
           <td class="via">
             <ul class="list-group">
               <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
-                {{index['transport']}}
+                {{index['transport'] === '' ? '1' : index['transport']}}
               </li>
             </ul>
           </td>
           <td class="time">
             <ul class="list-group">
               <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
-
+                {{index['time'] === '' ? '1' : index['time']}}
               </li>
             </ul>
           </td>
           <td class="itinerary">
             <ul class="list-group">
               <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
-                {{index['description']}}
+                {{index['description'] === '' ? '1' : index['description']}}
               </li>
             </ul>
           </td>
@@ -86,7 +86,7 @@
           };
           this.$store.dispatch('getScheduleListQuery', formData)
         }
-      }
+      },
     },
     methods: {
       callScheduleDetail(payload) {
@@ -94,8 +94,24 @@
         this.$emit('callScheduleDetail', true);
         window.scrollTo(0, document.body.scrollHeight);
       },
+      addClass() {
+        const table = window.document.getElementById('renderedTable').getElementsByTagName('td');
+
+        for (let key = 0; key < 4; key++ in table) {
+          const list = table[key].getElementsByTagName('ul')[0];
+          for (let step in list.childNodes) {
+            if (list.childNodes[step].innerText === '.') {
+              list.childNodes[step].classList.add('invisible')
+            }
+          }
+        }
+      },
       fetchData() {
         this.$store.dispatch('getDateListQuery', this.params);
+
+        setTimeout(()=> {
+          this.addClass()
+        },1000)
       }
     },
     computed: {
@@ -103,9 +119,12 @@
         'getDateTable',
         'getDateCounts',
         'getScheduleInfo'
-      ]),
+      ])
     }
   }
 </script>
 <style scoped>
+  .invisible {
+    color: rgba(0,0,0,0)
+  }
 </style>
