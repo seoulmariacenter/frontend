@@ -3,7 +3,7 @@
     <div class="m-3">
       <div class="d-block d-flex">
         <h2 class="mt-2"><strong>{{getProductRetrieve.title}} 관리</strong></h2>
-        <button :class="classObject" data-toggle="modal" data-target="#publishModal"><strong>{{isPublished}}</strong></button>
+        <button :class="classObject" data-toggle="modal" data-target="#publishModal"><strong>{{isPublishedText}}</strong></button>
 
         <!--Modal-->
         <div class="modal fade" id="publishModal" tabindex="-1" role="dialog" aria-labelledby="publishModalLabel" aria-hidden="true">
@@ -16,10 +16,10 @@
                 </button>
               </div>
               <div class="modal-body">
-                <p>현재 이 상품은 <strong>'{{isPublished}}'</strong> 상태입니다. <strong>'{{oppositePublished}}'</strong> 으로 변경하시겠습니까?</p>
+                <p>현재 이 상품은 <strong>'{{isPublishedText}}'</strong> 상태입니다. <strong>'{{oppositePublishedText}}'</strong> 으로 변경하시겠습니까?</p>
               </div>
               <div class="modal-footer">
-                <form @submit.prevent="onSubmit" method="post">
+                <form @submit.prevent="onSubmit(oppositePublishedText)" method="post">
                   <button type="button" class="btn btn-secondary mr-1" data-dismiss="modal">취소</button>
                   <button type="submit" class="btn btn-primary ml-1"><strong>변경하기</strong></button>
                 </form>
@@ -85,7 +85,6 @@
           yes: '발행 중',
           no: '미발행'
         },
-        oppositePublishValue: false,
         parentLoading: false,
         scheduleLoading: false,
         acceptModify: false,
@@ -103,10 +102,12 @@
       tableResult() {
         return this.scheduleLoading ? this.scheduleLoading = false : this.scheduleLoading = true
       },
-      onSubmit() {
+      onSubmit(payload) {
+        let boolean;
+        payload === this.published.yes ? boolean = true : boolean = false;
         const formData = {
           params: this.params,
-          publish: this.oppositePublishValue
+          publish: boolean
         };
         this.$store.dispatch('updateProduct', formData);
         router.go(router.currentRoute)
@@ -136,17 +137,11 @@
           'btn-info': this.getProductRetrieve.publish
         }
       },
-      isPublished: function() {
+      isPublishedText: function() {
         return this.getProductRetrieve.publish ? this.published.yes : this.published.no;
       },
-      oppositePublished: function () {
-        if (this.isPublished === this.published.no) {
-          this.oppositePublishValue = true;
-          return this.published.yes
-        } else {
-          this.oppositePublishValue = false;
-          return this.published.no
-        }
+      oppositePublishedText: function() {
+        return this.getProductRetrieve.publish ? this.published.no : this.published.yes;
       }
     }
   }
