@@ -56,7 +56,6 @@
       return {
         params: this.$route.params.pk,
         dateNum: 30,
-        // isDateFull: true,
         scheduleLoading: false,
         scheduleDetail: false,
         acceptModify: true
@@ -84,7 +83,7 @@
         this.$store.dispatch('getProductRetrieveQuery', this.params);
         setTimeout(()=> {
           this.scheduleLoading ? this.scheduleLoading = false : this.scheduleLoading = true
-        }, 50)
+        }, 500)
       }
     },
     computed: {
