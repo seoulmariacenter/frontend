@@ -40,17 +40,9 @@
               <input @change="onFileSelected" type="file" class="form-control-file" id="imageUpload" accept="image/*">
             </div>
           </div>
-          <div class="form-group col pl-0">
-            <div class="form-check">
-              <input v-model="isPublished" class="form-check-input" type="checkbox" :value="getProductRetrieve.publish" id="publishCheck">
-              <label class="form-check-label" for="publishCheck">
-                <strong>발행하기!</strong> (이 버튼을 체크하시면 고객들이 순례 상품을 볼 수 있게 됩니다)
-              </label>
-            </div>
-          </div>
           <div class="form-group row">
             <div class="col-md-8 d-flex p-2">
-              <button type="submit" class="btn btn-primary mr-2">순례 상품 생성</button>
+              <button type="submit" class="btn btn-primary mr-2">순례 상품 수정</button>
               <button @click="onReset" type="reset" class="btn btn-outline-danger ml-2">지우고 다시 쓰기</button>
             </div>
           </div>
@@ -79,7 +71,6 @@
         startDate: null,
         endDate: null,
         selectedFile: null,
-        isPublished: false,
       }
     },
     created() {
@@ -104,7 +95,6 @@
           startDate: this.startDate,
           endDate: this.endDate,
           image: this.selectedFile,
-          publish: this.isPublished
         };
 
         let result = Object();

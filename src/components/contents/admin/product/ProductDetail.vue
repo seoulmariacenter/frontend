@@ -3,7 +3,30 @@
     <div class="m-3">
       <div class="d-block d-flex">
         <h2 class="mt-2"><strong>{{getProductRetrieve.title}} 관리</strong></h2>
-        <button :class="[button]" v-on="isPublished" disabled><strong>{{publishText}}</strong></button>
+        <button :class="[button]" data-toggle="modal" data-target="#publishModal"><strong>{{isPublished}}</strong></button>
+
+        <!--Modal-->
+        <div class="modal fade" id="publishModal" tabindex="-1" role="dialog" aria-labelledby="publishModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">발행 관리</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>현재 이 상품은 <strong>'{{isPublished}}'</strong> 상태입니다. <strong>'{{oppositePublished}}'</strong> 으로 변경하시겠습니까?</p>
+              </div>
+              <div class="modal-footer">
+                <form @submit.prevent="onSubmit" method="post">
+                  <button type="button" class="btn btn-secondary mr-1" data-dismiss="modal">취소</button>
+                  <button type="submit" class="btn btn-primary ml-1"><strong>변경하기</strong></button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <hr>
       <div class="loading row m-2" v-if="parentLoading">
@@ -45,6 +68,7 @@
 </template>
 <script>
   import {mapGetters, mapMutations} from 'vuex'
+  import {router} from '../../../../main'
   import ProductUpdateDestroy from './ProductUpdateDestroy'
   import ScheduleTable from '../schedule/ScheduleTable'
   import Message from '../../Message'
@@ -62,7 +86,11 @@
           'btn-secondary': true,
           'btn-info': false
         },
-        publishText: '',
+        published: {
+          yes: '발행 중',
+          no: '미발행'
+        },
+        oppositePublishValue: false,
         parentLoading: false,
         scheduleLoading: false,
         acceptModify: false,
@@ -74,11 +102,19 @@
       this.FetchData();
     },
     watch: {
-      '$route': 'FetchData'
+      '$route': 'FetchData',
     },
     methods: {
       tableResult() {
         return this.scheduleLoading ? this.scheduleLoading = false : this.scheduleLoading = true
+      },
+      onSubmit() {
+        const formData = {
+          params: this.params,
+          publish: this.oppositePublishValue
+        };
+        this.$store.dispatch('updateProduct', formData);
+        router.go(router.currentRoute)
       },
       FetchData() {
         this.$emit('manageContent', false);
@@ -96,15 +132,24 @@
         'getProductRetrieve',
         'calcDate'
       ]),
-      isPublished() {
+      isPublished: function() {
         if (this.getProductRetrieve.publish === false) {
-          this.publishText = '미발행';
           this.button["btn-secondary"] = true;
-          this.button["btn-info"] = false
+          this.button["btn-info"] = false;
+          return this.published.no;
         } else {
-          this.publishText = '발행 중';
           this.button["btn-secondary"] = false;
-          this.button["btn-info"] = true
+          this.button["btn-info"] = true;
+          return this.published.yes;
+        }
+      },
+      oppositePublished: function () {
+        if (this.isPublished === this.published.no) {
+          this.oppositePublishValue = true;
+          return this.published.yes
+        } else {
+          this.oppositePublishValue = false;
+          return this.published.no
         }
       }
     }
