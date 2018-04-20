@@ -3,7 +3,7 @@
     <div class="m-3">
       <div class="d-block d-flex">
         <h2 class="mt-2"><strong>{{getProductRetrieve.title}} 관리</strong></h2>
-        <button :class="[button]" data-toggle="modal" data-target="#publishModal"><strong>{{isPublished}}</strong></button>
+        <button :class="classObject" data-toggle="modal" data-target="#publishModal"><strong>{{isPublished}}</strong></button>
 
         <!--Modal-->
         <div class="modal fade" id="publishModal" tabindex="-1" role="dialog" aria-labelledby="publishModalLabel" aria-hidden="true">
@@ -81,11 +81,6 @@
     },
     data() {
       return {
-        button: {
-          'btn btn-lg ml-5': true,
-          'btn-secondary': true,
-          'btn-info': false
-        },
         published: {
           yes: '발행 중',
           no: '미발행'
@@ -132,16 +127,17 @@
         'getProductRetrieve',
         'calcDate'
       ]),
-      isPublished: function() {
-        if (this.getProductRetrieve.publish === false) {
-          this.button["btn-secondary"] = true;
-          this.button["btn-info"] = false;
-          return this.published.no;
-        } else {
-          this.button["btn-secondary"] = false;
-          this.button["btn-info"] = true;
-          return this.published.yes;
+      classObject: function() {
+        return {
+          'btn': true,
+          'btn-lg': true,
+          'ml-4': true,
+          'btn-secondary': !this.getProductRetrieve.publish,
+          'btn-info': this.getProductRetrieve.publish
         }
+      },
+      isPublished: function() {
+        return this.getProductRetrieve.publish ? this.published.yes : this.published.no;
       },
       oppositePublished: function () {
         if (this.isPublished === this.published.no) {
