@@ -17,7 +17,7 @@
             <label for="inputPrice" class="col-md-2 col-form-label"><strong>가격</strong></label>
             <div class="col-md-8">
               <div class="input-group">
-                <input v-model="price" type="number" class="form-control" id="inputPrice" :placeholder="'기존 가격: ' + getProductRetrieve.price">
+                <input v-model="price" type="text" class="form-control" id="inputPrice" :placeholder="'기존 가격: ' + getProductRetrieve.price">
                 <div class="input-group-append">
                   <span class="input-group-text">원 (₩)</span>
                 </div>
