@@ -32,6 +32,21 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.hasToken)) {
+    if (localStorage.getItem('token')) {
+      next({
+        name: 'Dashboard',
+        query: {redirect:to.fullPath}
+      })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+});
+
 new Vue({
   el: '#app',
   router,

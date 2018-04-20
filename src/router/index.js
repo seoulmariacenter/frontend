@@ -28,7 +28,9 @@ export const routes = [
       {
         path: 'signin',
         name: 'signIn',
-        component:SignIn},
+        component:SignIn,
+        meta: {hasToken: true}
+      },
       {
         path: 'dashboard',
         name: 'Dashboard',
