@@ -186,7 +186,8 @@ export const createSchedule = ({commit, state}, payload) => {
       place: payload.place,
       description: payload.description,
       date: [payload.params, payload.date],
-      transport: payload.transport
+      transport: payload.transport,
+      time: payload.time
     },
     headers: {
       'Content-Type': 'application/json',
