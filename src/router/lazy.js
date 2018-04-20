@@ -12,6 +12,6 @@ export const ProductDetail = () => import('../components/contents/admin/product/
 
 export const ProductCreate = () => import('../components/contents/admin/product/ProductCreate.vue');
 
-export const ScheduleCreate = () => import('../components/contents/admin/schedule/ScheduleCreate.vue');
-
 export const ProductUpdate = () => import('../components/contents/admin/product/ProductUpdate.vue');
+
+export const ScheduleCreate = () => import('../components/contents/admin/schedule/ScheduleCreate.vue');
