@@ -1,6 +1,5 @@
 <template>
   <div id="mainCarouselIndicators" class="carousel slide" data-ride="carousel">
-    {{addClass()}}
     <ol id="productIndicators" class="carousel-indicators">
       <li data-target="#mainCarouselIndicators" v-for="index in getPublishedProductLists" :key="index.id" :data-slide-to="getPublishedProductLists.indexOf(index)"></li>
     </ol>
@@ -50,6 +49,9 @@
       },
       fetchData() {
         this.$store.dispatch('getProductListsQuery');
+        setTimeout(() => {
+          this.addClass()
+        }, 50)
       }
     },
     computed: {
