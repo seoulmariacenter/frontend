@@ -9,20 +9,19 @@
         <div class="loading" v-if="loading">
           <h4>잠시만 기다려 주세요...</h4>
         </div>
-        <div class="row content justify-content-between">
-          <div class="col-md-auto p-0 m-2" v-for="value in getProductLists" :key="value.id">
-            <router-link :to="{name: 'Product', params: {pk: value.pk} }">
-            <div class="card bg-dark text-white" style="width: 18rem">
+        <div class="row content">
+          <div class="col-md-auto p-0 m-1" v-for="value in getProductLists" :key="value.id">
+            <router-link :to="{name: 'Product', params: {pk: value.pk} }" class="hovering">
+            <div class="card text-dark" style="width: 18rem">
               <div v-if="value.image">
-                <img class="card-img" :src="value.image" alt="Card image">
+                <img class="card-img-top" :src="value.image" alt="Card image">
               </div>
               <div v-else>
-                <img class="card-img" src="../../../../assets/image/medjugorje_maria_01.jpg">
+                <img class="card-img-top" src="../../../../assets/image/medjugorje_maria_01.jpg">
               </div>
-              <div class="card-img-overlay">
-                <h5 class="card-title">{{value.title}}</h5>
+              <div class="card-body bg-white">
+                <h4 class="card-title mb-0"><strong>{{value.title}}</strong></h4>
                 <p class="card-text">{{value.start_time}} - {{value.end_time}}</p>
-                <p class="card-text text-right">{{value.price}}원</p>
               </div>
             </div>
             </router-link>
@@ -70,4 +69,7 @@
   }
 </script>
 <style scoped>
+  .hovering:hover {
+    text-decoration: none;
+  }
 </style>
