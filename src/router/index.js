@@ -55,7 +55,7 @@ export const routes = [
           },
           {
             path: 'product/:pk/update',
-            name: 'UpdateProduct',
+            name: 'ProductUpdate',
             component: ProductUpdate,
             props: true
           },
