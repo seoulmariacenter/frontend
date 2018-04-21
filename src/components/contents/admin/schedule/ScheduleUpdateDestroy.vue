@@ -39,7 +39,7 @@
             <input v-model="description" type="text" class="form-control" id="inputDescription" :placeholder="'기존 일정: ' + getScheduleRetrieve.description" required>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-danger"><strong>스케줄 삭제</strong></button>
+            <button type="button" class="btn btn-outline-danger" @click="onDestroy"><strong>스케줄 삭제</strong></button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="parseSchedulePk">수정 취소</button>
             <button type="submit" class="btn btn-primary">수정하기</button>
           </div>
@@ -78,6 +78,14 @@
       parseSchedulePk() {
         this.$emit('parseSchedulePk', 0);
         router.go(router.currentRoute)
+      },
+      onDestroy() {
+        const formData = {
+          params: this.params,
+          date: this.dateNum,
+          schedulePk: this.schedulePk
+        };
+        this.$store.dispatch('DestroySchedule', formData)
       },
       onSubmit() {
         let resultTransport;

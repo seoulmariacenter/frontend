@@ -302,3 +302,22 @@ export const DestroyProduct = ({commit, state}, payload) => {
     commit('updateMsg', error.response.data.detail)
   })
 };
+
+export const DestroySchedule = ({commit, state}, payload) => {
+  axios({
+    method: 'delete',
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload.params + '/' + state.endpoints.date
+    + payload.date + '/' + state.endpoints.schedule + payload.schedulePk + '/',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'JWT ' + localStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then(() => {
+    router.go(router.currentRoute)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data)
+  })
+};
