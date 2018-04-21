@@ -29,21 +29,23 @@
         </div>
       </div>
       <div class="card-body">
-        <table class="table table-sm">
+        <table class="table table-sm m-0">
           <thead>
           <tr>
             <th scope="col">장소</th>
             <th scope="col">교통</th>
             <th scope="col">시간</th>
             <th scope="col">일정</th>
+            <th class="text-center" scope="col">수정</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody id="scheduleTable">
           <tr v-for="index in getScheduleInfo[dateNum]" :key="index.id">
             <th scope="row">{{index['place']}}</th>
             <td>{{index['transport']}}</td>
             <td>{{index['time']}}</td>
             <td>{{index['description']}}</td>
+            <td class="text-center"><button class="btn btn-sm btn-outline-warning">수정</button></td>
           </tr>
           </tbody>
         </table>
@@ -121,6 +123,17 @@
         this.$emit('callScheduleDetail', false);
         router.go(router.currentRoute)
       },
+      addClass() {
+        const table = window.document.getElementById('scheduleTable').getElementsByTagName('tr');
+        for (let key = 0; key < table.length; key++ in table) {
+          const list = table[key].childNodes;
+          for (let step = 0; step < list.length; step++ in list) {
+            if (list[step].innerText === '.') {
+              list[step].classList.add('text-white')
+            }
+          }
+        }
+        },
       onReset() {
         this.place = this.whichTransport = this.flightName = this.time = this.description = ''
       },
@@ -153,6 +166,9 @@
           dateNum: this.dateNum
         };
         this.$store.dispatch('getScheduleListQuery', formData);
+        setTimeout(() => {
+          this.addClass()
+        }, 50)
       }
     },
     computed: {
