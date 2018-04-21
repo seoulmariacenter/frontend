@@ -254,6 +254,32 @@ export const updateProduct = ({commit, state}, payload) => {
   })
 };
 
+export const updateSchedule = ({commit, state}, payload) => {
+  axios({
+    method: 'patch',
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload.params + '/' + state.endpoints.date
+    + payload.date + '/' + state.endpoints.schedule + payload.schedulePk + '/',
+    data: {
+      place: payload.place,
+      description: payload.description,
+      date: [payload.params, payload.date],
+      transport: payload.transport,
+      time: payload.time
+    },
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'JWT ' + localStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then(() => {
+    router.go(router.currentRoute)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data)
+  })
+};
+
 // 쿼리 삭제
 export const DestroyProduct = ({commit, state}, payload) => {
   axios({
