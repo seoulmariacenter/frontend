@@ -45,10 +45,16 @@
             <td>{{index['transport']}}</td>
             <td>{{index['time']}}</td>
             <td>{{index['description']}}</td>
-            <td class="text-center"><button class="btn btn-sm btn-outline-warning">수정</button></td>
+            <td class="text-center">
+              <button type="button" class="btn btn-sm btn-outline-warning" data-toggle="modal" data-target="#scheduleModal">수정</button>
+            </td>
           </tr>
           </tbody>
         </table>
+        <!-- Modal -->
+        <div class="modal fade" id="scheduleModal" tabindex="-1" role="dialog" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+          <schedule-update-destroy/>
+        </div>
         <div class="alert alert-info" v-if="getScheduleInfo[dateNum].length === 0">
           <strong>아직 스케줄이 없습니다!</strong>
         </div>
@@ -95,9 +101,13 @@
 <script>
   import {mapGetters} from 'vuex'
   import {router} from "../../../../main";
+  import ScheduleUpdateDestroy from './ScheduleUpdateDestroy'
   export default {
     name: "ScheduleDetail",
     props: ['dateNum'],
+    components: {
+      ScheduleUpdateDestroy
+    },
     data() {
       return {
         params: this.$route.params.pk,
