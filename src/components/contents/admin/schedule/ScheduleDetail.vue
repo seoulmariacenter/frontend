@@ -46,14 +46,24 @@
             <td>{{index['time']}}</td>
             <td>{{index['description']}}</td>
             <td class="text-center">
-              <button type="button" class="btn btn-sm btn-outline-warning" data-toggle="modal" data-target="#scheduleModal">수정</button>
+              <button
+              type="button"
+              class="btn btn-sm btn-outline-warning"
+              data-toggle="modal"
+              data-target="#scheduleModal"
+              @click="parseSchedulePk(index['pk'])"
+              >수정</button>
             </td>
           </tr>
           </tbody>
         </table>
         <!-- Modal -->
         <div class="modal fade" id="scheduleModal" tabindex="-1" role="dialog" aria-labelledby="scheduleModalLabel" aria-hidden="true">
-          <schedule-update-destroy/>
+          <schedule-update-destroy
+          v-if="schedulePk !== 0"
+          v-bind:dateNum="dateNum"
+          v-bind:schedulePk="schedulePk"
+          v-on:parseSchedulePk="parseSchedulePk"/>
         </div>
         <div class="alert alert-info" v-if="getScheduleInfo[dateNum].length === 0">
           <strong>아직 스케줄이 없습니다!</strong>
@@ -111,6 +121,7 @@
     data() {
       return {
         params: this.$route.params.pk,
+        schedulePk: 0,
         place: '',
         whichTransport: '',
         isFlight: false,
@@ -132,6 +143,9 @@
       callScheduleDetail() {
         this.$emit('callScheduleDetail', false);
         router.go(router.currentRoute)
+      },
+      parseSchedulePk(payload) {
+        this.schedulePk = payload
       },
       addClass() {
         const table = window.document.getElementById('scheduleTable').getElementsByTagName('tr');
