@@ -22,6 +22,7 @@ const state = {
     dateCounts: 0,
     dateTable: Array(),
     scheduleInfo: Object(),
+    scheduleRetrieve: Object()
   },
   message: null,
 };

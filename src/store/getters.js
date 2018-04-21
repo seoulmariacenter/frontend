@@ -24,6 +24,10 @@ export const getScheduleInfo = state => {
   return state.queryData.scheduleInfo
 };
 
+export const getScheduleRetrieve = state => {
+  return state.queryData.scheduleRetrieve
+};
+
 
 // 시간 관련
 

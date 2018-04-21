@@ -39,6 +39,14 @@ export const clearProductRetrieve = state => {
   state.queryData.productRetrieve = Object()
 };
 
+export const updateScheduleRetrieve = (state, payload) => {
+  state.queryData.scheduleRetrieve = payload
+};
+
+export const clearScheduleRetrieve = state => {
+  state.queryData.scheduleRetrieve = Object()
+};
+
 // 일정표
 export const updateDateTable = (state, payload) => {
   state.queryData.dateTable = payload
