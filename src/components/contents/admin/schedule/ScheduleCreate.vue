@@ -55,7 +55,7 @@
     data() {
       return {
         params: this.$route.params.pk,
-        dateNum: 30,
+        dateNum: 0,
         scheduleLoading: false,
         scheduleDetail: false,
         acceptModify: true
