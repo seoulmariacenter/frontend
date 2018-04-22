@@ -38,7 +38,7 @@ export const signOut = ({commit}) => {
 };
 
 // 쿼리 호출
-export const getProductListsQuery = ({commit, state}) => {
+export const getProductListQuery = ({commit, state}) => {
   axios({
     method: 'get',
     url: state.endpoints.baseUrl + state.endpoints.travel,

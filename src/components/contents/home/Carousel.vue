@@ -48,7 +48,7 @@
 
       },
       fetchData() {
-        this.$store.dispatch('getProductListsQuery');
+        this.$store.dispatch('getProductListQuery');
         setTimeout(() => {
           this.addClass()
         }, 50)

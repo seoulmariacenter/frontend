@@ -57,7 +57,7 @@
       fetchData() {
         this.$emit('manageContent', false);
         this.loading = true;
-        this.$store.dispatch('getProductListsQuery');
+        this.$store.dispatch('getProductListQuery');
         this.loading = false;
       }
     },
