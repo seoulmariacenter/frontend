@@ -13,8 +13,8 @@
 </template>
 <script>
   import AppSidebar from '../structure/AppSidebar'
-  import Carousel from '../contents/Carousel'
-  import Advertisement from '../contents/Advertisement'
+  import Carousel from '../contents/home/Carousel'
+  import Advertisement from '../contents/home/Advertisement'
   export default {
     name: "home",
     components: {

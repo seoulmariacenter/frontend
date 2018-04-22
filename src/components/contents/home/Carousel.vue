@@ -6,7 +6,7 @@
     <div class="carousel-inner" id="carousel">
       <div class="carousel-item" v-for="product in getPublishedProductLists" :key="product.id">
         <img v-if="product.image" :src="product.image" class="d-block w-100" alt="순례 상품 대표 이미지">
-        <img v-else class="d-block w-100" src="../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
+        <img v-else class="d-block w-100" src="../../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
         <div id="opacity" class="card rounded-0">
           <div class="m-4 ml-5 text-white">
             <h1 class="card-title"><strong>{{product.title}}</strong></h1>
