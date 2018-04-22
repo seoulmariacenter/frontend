@@ -3,6 +3,7 @@ import {
   Admin,
   SignIn,
   Dashboard,
+  Reservation,
   ProductManagement,
   ProductDetail,
   ProductCreate,
@@ -19,6 +20,11 @@ export const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path:'/reservation',
+    name: 'Reservation',
+    component: Reservation
   },
   {
     path: '/admin',

@@ -6,6 +6,8 @@ export const SignIn = () => import('../components/contents/admin/SignIn.vue');
 
 export const Dashboard = () => import('../components/view/Dashboard.vue');
 
+export const Reservation = () => import('../components/view/Reservation.vue');
+
 export const ProductManagement = () => import('../components/contents/admin/product/ProductManagement.vue');
 
 export const ProductDetail = () => import('../components/contents/admin/product/ProductDetail.vue');
