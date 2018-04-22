@@ -1,7 +1,11 @@
 // 쿼리 관련
 
-export const getProductLists = state => {
+export const getWholeProductLists = state => {
   return state.queryData.productLists
+};
+
+export const getProductLists = state => {
+  return state.queryData.productLists.results
 };
 
 export const getPublishedProductLists = (state, getters) => {
