@@ -29,6 +29,15 @@
         </div>
         <message/>
       </div>
+      <div class="m-2">
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" v-for="num in pageListCount">
+              <button @click="callPaginatedList(num)" class="page-link text-info">{{num}}</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
 </template>
@@ -54,17 +63,30 @@
       '$route': 'fetchData'
     },
     methods: {
+      callPaginatedList(payload) {
+        const pageNum = '?page=' + String(payload);
+        this.$store.dispatch('getProductListQuery', pageNum)
+      },
       fetchData() {
         this.$emit('manageContent', false);
         this.loading = true;
-        this.$store.dispatch('getProductListQuery');
+        this.$store.dispatch('getProductListQuery', '?page=1');
         this.loading = false;
       }
     },
     computed: {
       ...mapGetters([
-        'getProductLists'
-      ])
+        'getProductLists',
+        'getWholeProductLists'
+      ]),
+      pageListCount() {
+        const total = parseInt(parseInt(this.getWholeProductLists.count) / 6) + 1;
+        let resultArray = Array();
+        for (let key = 1; key < total + 1; key++) {
+          resultArray.push(key)
+        }
+        return resultArray;
+      }
     }
   }
 </script>
