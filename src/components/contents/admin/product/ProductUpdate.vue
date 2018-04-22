@@ -56,7 +56,7 @@
 </template>
 <script>
   import {mapGetters} from 'vuex'
-  import Message from '../../Message'
+  import Message from '../../../structure/AppMessage'
   export default {
     name: "ProductCreate",
     components: {

@@ -33,7 +33,7 @@
   </div>
 </template>
 <script>
-  import Message from '../Message'
+  import Message from '../../structure/AppMessage'
   export default {
     name: "SignIn",
     components: {

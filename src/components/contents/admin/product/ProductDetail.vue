@@ -71,7 +71,7 @@
   import {router} from '../../../../main'
   import ProductUpdateDestroy from './ProductUpdateDestroy'
   import ScheduleTable from '../schedule/ScheduleTable'
-  import Message from '../../Message'
+  import Message from '../../../structure/AppMessage'
   export default {
     name: "ProductDetail",
     components: {
