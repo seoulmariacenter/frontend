@@ -38,10 +38,10 @@ export const signOut = ({commit}) => {
 };
 
 // 쿼리 호출
-export const getProductListQuery = ({commit, state}) => {
+export const getProductListQuery = ({commit, state}, payload) => {
   axios({
     method: 'get',
-    url: state.endpoints.baseUrl + state.endpoints.travel,
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload,
     headers: {
       'Content-Type': 'application/json'
     },
@@ -49,7 +49,7 @@ export const getProductListQuery = ({commit, state}) => {
     credentials: true
   }).then((response) => {
     commit('clearMsg');
-    commit('updateProductLists', response.data.results);
+    commit('updateProductLists', response.data);
   }).catch((error) => {
     commit('clearProductLists');
     commit('clearMsg');
