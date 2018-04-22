@@ -39,6 +39,7 @@ export const clearProductRetrieve = state => {
   state.queryData.productRetrieve = Object()
 };
 
+// 스케줄
 export const updateScheduleRetrieve = (state, payload) => {
   state.queryData.scheduleRetrieve = payload
 };
@@ -64,6 +65,7 @@ export const clearDateCounts = state => {
   state.queryData.dateCounts = 0
 };
 
+// 스케줄
 export const updateScheduleInfo = (state, payload) => {
   state.queryData.scheduleInfo[payload.dateNum] = payload.schedule
 };

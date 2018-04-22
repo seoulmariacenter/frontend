@@ -109,6 +109,7 @@ export const getScheduleListQuery = ({commit, state}, payload) => {
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
   }).then((response) => {
+    commit('clearScheduleInfo');
     const formData = {
       dateNum: payload.dateNum,
       schedule: response.data.results
