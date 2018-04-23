@@ -38,6 +38,26 @@ export const signOut = ({commit}) => {
 };
 
 // 쿼리 호출
+export const getPublishedProductListQuery = ({commit, state}, payload) => {
+  axios({
+    method: 'get',
+    url: state.endpoints.baseUrl + state.endpoints.travel + 'publish/' + payload,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    commit('clearProductLists');
+    commit('updateProductLists', response.data);
+  }).catch((error) => {
+    commit('clearProductLists');
+    commit('clearMsg');
+    commit('updateMsg', error.message)
+  })
+};
+
 export const getProductListQuery = ({commit, state}, payload) => {
   axios({
     method: 'get',
@@ -49,6 +69,7 @@ export const getProductListQuery = ({commit, state}, payload) => {
     credentials: true
   }).then((response) => {
     commit('clearMsg');
+    commit('clearProductLists');
     commit('updateProductLists', response.data);
   }).catch((error) => {
     commit('clearProductLists');
