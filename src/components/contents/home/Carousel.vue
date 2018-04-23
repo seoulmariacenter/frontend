@@ -44,14 +44,14 @@
           firstChild.classList.add('active');
           const firstIndicator = indicator.childNodes[0];
           firstIndicator.classList.add('active');
-        }, 300);
+        }, 1000);
 
       },
       fetchData() {
-        this.$store.dispatch('getProductListQuery', '?page=1');
+        this.$store.dispatch('getPublishedProductListQuery', '?page=1');
         setTimeout(() => {
           this.addClass()
-        }, 300)
+        }, 1000)
       }
     },
     computed: {
