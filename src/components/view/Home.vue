@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <transition name="fade">
-      <carousel v-show="show"/>
-    </transition>
+      <carousel/>
     <div class="row">
       <div class="col-md-8">
         <advertisement/>
@@ -23,30 +21,8 @@
       AppSidebar,
       Carousel,
       Advertisement
-    },
-    data() {
-      return {
-        show: false
-      }
-    },
-    created() {
-      this.fetchData()
-    },
-    watch: {
-      '$route': 'fetchData'
-    },
-    methods: {
-      fetchData() {
-        this.show = true
-      }
     }
   }
 </script>
 <style scoped>
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-  }
 </style>
