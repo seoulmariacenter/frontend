@@ -28,7 +28,12 @@ export const updateProductLists = (state, payload) => {
 };
 
 export const clearProductLists = state => {
-  state.queryData.productLists = Array()
+  state.queryData.productLists = {
+    'count': 0,
+    'next': null,
+    'previous': null,
+    'results': Array()
+  }
 };
 
 export const updateProductRetrieve = (state, payload) => {

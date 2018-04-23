@@ -17,7 +17,12 @@ const state = {
     signIn: 'sign-in/'
   },
   queryData: {
-    productLists: Array(),
+    productLists: {
+      'count': 0,
+      'next': null,
+      'previous': null,
+      'results': Array()
+    },
     productRetrieve: Object(),
     dateCounts: 0,
     dateTable: Array(),
