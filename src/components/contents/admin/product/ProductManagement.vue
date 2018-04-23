@@ -80,8 +80,15 @@
         'getWholeProductLists'
       ]),
       pageListCount() {
-        const total = parseInt(parseInt(this.getWholeProductLists.count) / 6) + 1;
+        let total;
         let resultArray = Array();
+
+        if (Number.isInteger(parseInt(this.getWholeProductLists.count) / 8)) {
+          total = parseInt(this.getWholeProductLists.count) / 8
+        } else {
+          total = parseInt(this.getWholeProductLists.count / 8) + 1
+        }
+
         for (let key = 1; key < total + 1; key++) {
           resultArray.push(key)
         }

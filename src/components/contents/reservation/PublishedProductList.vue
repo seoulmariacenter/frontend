@@ -59,11 +59,11 @@
     methods: {
       callPaginatedList(payload) {
         const pageNum = '?page=' + String(payload);
-        this.$store.dispatch('getProductListQuery', pageNum)
+        this.$store.dispatch('getPublishedProductListQuery', pageNum)
       },
       fetchData() {
         this.loading = true;
-        this.$store.dispatch('getProductListQuery', '?page=1');
+        this.$store.dispatch('getPublishedProductListQuery', '?page=1');
         setTimeout(() => {
           this.loading = false;
           this.post = true
@@ -76,8 +76,15 @@
         'getWholeProductLists'
       ]),
       pageListCount() {
-        const total = parseInt(parseInt(this.getWholeProductLists.count) / 6) + 1;
+        let total;
         let resultArray = Array();
+
+        if (Number.isInteger(parseInt(this.getWholeProductLists.count) / 6)) {
+          total = parseInt(this.getWholeProductLists.count) / 6
+        } else {
+          total = parseInt(this.getWholeProductLists.count / 6) + 1
+        }
+
         for (let key = 1; key < total + 1; key++) {
           resultArray.push(key)
         }
