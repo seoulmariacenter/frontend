@@ -47,7 +47,7 @@
 <script>
   export default {
     name: "ReservationForm",
-    props: ['productTitle'],
+    props: ['productTitle', 'productPk'],
     data() {
       return {
         name: '',
@@ -57,7 +57,13 @@
     },
     methods: {
       onSubmit() {
-
+        const formData = {
+          name: this.name,
+          phone: this.phone,
+          gender: this.gender,
+          product: this.productPk
+        };
+        this.$store.dispatch('createReservation', formData)
       }
     }
   }
