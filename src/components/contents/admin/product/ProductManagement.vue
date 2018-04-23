@@ -32,7 +32,7 @@
       <div class="m-2">
         <nav aria-label="Page navigation">
           <ul class="pagination justify-content-center">
-            <li class="page-item" v-for="num in pageListCount">
+            <li class="page-item" v-for="num in pageListCount" :key="num.id">
               <button @click="callPaginatedList(num)" class="page-link text-info">{{num}}</button>
             </li>
           </ul>
