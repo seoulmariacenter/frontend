@@ -8,7 +8,9 @@ import {
   ProductDetail,
   ProductCreate,
   ProductUpdate,
-  ScheduleCreate
+  ScheduleCreate,
+  ReservationManagement,
+  ReservationComplete
 } from './lazy'
 
 export const routes = [
@@ -24,7 +26,19 @@ export const routes = [
   {
     path:'/reservation',
     name: 'Reservation',
-    component: Reservation
+    component: Reservation,
+    children: [
+      {
+        path: 'management',
+        name: 'ReservationManagement',
+        component: ReservationManagement
+      },
+      {
+        path: 'complete',
+        name: 'Complete',
+        component: ReservationComplete
+      }
+    ]
   },
   {
     path: '/admin',
@@ -34,7 +48,7 @@ export const routes = [
       {
         path: 'signin',
         name: 'signIn',
-        component:SignIn,
+        component: SignIn,
         meta: {hasToken: true}
       },
       {

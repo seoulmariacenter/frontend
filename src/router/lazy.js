@@ -17,3 +17,7 @@ export const ProductCreate = () => import('../components/contents/admin/product/
 export const ProductUpdate = () => import('../components/contents/admin/product/ProductUpdate.vue');
 
 export const ScheduleCreate = () => import('../components/contents/admin/schedule/ScheduleCreate.vue');
+
+export const ReservationManagement = () => import('../components/contents/reservation/ReservationManagement.vue');
+
+export const ReservationComplete = () => import('../components/contents/reservation/ReservationComplete.vue');
