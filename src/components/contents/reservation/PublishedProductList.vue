@@ -6,9 +6,9 @@
         <p class="mt-3 mb-0">총 <span class="text-info">{{getWholeProductLists.count}}</span> 개의 상품이 있습니다.</p>
       </div>
       <hr>
-      <div class="row m-2">
-        <div class="loading" v-if="loading">
-          <h2>잠시만 기다려 주세요...</h2>
+      <div class="row m-2 justify-content-center">
+        <div v-if="loading" class="alert alert-info text-center" role="alert">
+          <h4 class="mb-0"><strong>순례 상품을 가지고 오는 중입니다. 잠시만 기다려주세요!</strong></h4>
         </div>
         <div class="row" v-if="post">
           <div class="col-lg-4 col-md-6 col-sm-12 mb-4" v-for="value in getPublishedProductLists" :key="value.id">
@@ -67,7 +67,7 @@
         setTimeout(() => {
           this.loading = false;
           this.post = true
-        }, 1000)
+        }, 100)
       }
     },
     computed: {
