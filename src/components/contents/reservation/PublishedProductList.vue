@@ -1,17 +1,17 @@
 <template>
-  <div class="bg-light">
+  <div class="bg-light col-md-6 col-sm-12">
     <div class="m-3 pt-3 pb-3">
       <div class="d-block d-flex justify-content-between">
         <h2><strong>순례 상품 선택</strong></h2>
         <p class="mt-3 mb-0">총 <span class="text-info">{{getWholeProductLists.count}}</span> 개의 상품이 있습니다.</p>
       </div>
       <hr>
-      <div class="row m-2 justify-content-center">
+      <div class="row m-0 justify-content-center h500 overflow">
         <div v-if="loading" class="alert alert-info text-center" role="alert">
           <h4 class="mb-0"><strong>순례 상품을 가지고 오는 중입니다. 잠시만 기다려주세요!</strong></h4>
         </div>
-        <div class="row" v-if="post">
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4" v-for="value in getPublishedProductLists" :key="value.id">
+        <div class="row m-2" v-if="post">
+          <div class="col-12 p-0 mb-4" v-for="value in getPublishedProductLists" :key="value.id">
             <div class="card text-dark">
               <div v-if="value.image">
                 <img class="card-img-top" :src="value.image" alt="Card image">
@@ -94,4 +94,10 @@
   }
 </script>
 <style scoped>
+  .h500 {
+    height: 330px;
+  }
+  .overflow {
+    overflow: scroll;
+  }
 </style>

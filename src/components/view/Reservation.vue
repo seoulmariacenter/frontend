@@ -1,7 +1,9 @@
 <template>
   <div class="container">
-    <published-product-list/>
-    <reservation-form/>
+    <div class="row justify-content-between">
+      <reservation-form/>
+      <published-product-list/>
+    </div>
   </div>
 </template>
 <script>
@@ -16,4 +18,7 @@
   }
 </script>
 <style scoped>
+  .height {
+    height: 500px;
+  }
 </style>
