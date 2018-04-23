@@ -244,6 +244,33 @@ export const createSchedule = ({commit, state}, payload) => {
   })
 };
 
+export const createReservation = ({commit, state}, payload) => {
+  axios({
+    method: 'post',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.make,
+    data: {
+      username: payload.name,
+      phone_number: payload.phone,
+      gender: payload.gender,
+      product: payload.product
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearReservationInfo');
+    commit('updateReservationInfo', response.data);
+    router.push({
+      name: 'Complete'
+    })
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data);
+  })
+};
+
 // 쿼리 수정
 export const updateProduct = ({commit, state}, payload) => {
   axios({

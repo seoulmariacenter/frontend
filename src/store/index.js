@@ -14,6 +14,9 @@ const state = {
     travel: 'travel/product/',
     date: 'date/',
     schedule: 'schedule/',
+    reservation: 'reservation/',
+    make: 'make/',
+    check: 'check/',
     signIn: 'sign-in/'
   },
   queryData: {
@@ -27,7 +30,8 @@ const state = {
     dateCounts: 0,
     dateTable: Array(),
     scheduleInfo: Object(),
-    scheduleRetrieve: Object()
+    scheduleRetrieve: Object(),
+    reservationInfo: Object()
   },
   message: null,
 };

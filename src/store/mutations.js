@@ -44,7 +44,7 @@ export const clearProductRetrieve = state => {
   state.queryData.productRetrieve = Object()
 };
 
-// 스케줄
+// 스케줄 상세
 export const updateScheduleRetrieve = (state, payload) => {
   state.queryData.scheduleRetrieve = payload
 };
@@ -70,13 +70,22 @@ export const clearDateCounts = state => {
   state.queryData.dateCounts = 0
 };
 
-// 스케줄
+// 스케줄 리스트
 export const updateScheduleInfo = (state, payload) => {
   state.queryData.scheduleInfo[payload.dateNum] = payload.schedule
 };
 
 export const clearScheduleInfo = state => {
   state.queryData.scheduleInfo = Object()
+};
+
+// 예약 정보
+export const updateReservationInfo = (state, payload) => {
+  state.queryData.reservationInfo = payload
+};
+
+export const clearReservationInfo = state => {
+  state.queryData.reservationInfo = Object()
 };
 
 // 메시지 관리
