@@ -36,7 +36,7 @@
     },
     methods: {
       onSubmit() {
-        this.$store.dispatch('DestroyProduct', this.params)
+        this.$store.dispatch('destroyProduct', this.params)
       }
     }
   }

@@ -85,7 +85,7 @@
           date: this.dateNum,
           schedulePk: this.schedulePk
         };
-        this.$store.dispatch('DestroySchedule', formData)
+        this.$store.dispatch('destroySchedule', formData)
       },
       onSubmit() {
         let resultTransport;

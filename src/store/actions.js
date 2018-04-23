@@ -303,7 +303,7 @@ export const updateSchedule = ({commit, state}, payload) => {
 };
 
 // 쿼리 삭제
-export const DestroyProduct = ({commit, state}, payload) => {
+export const destroyProduct = ({commit, state}, payload) => {
   axios({
     method: 'delete',
     url: state.endpoints.baseUrl + state.endpoints.travel + payload + '/',
@@ -325,7 +325,7 @@ export const DestroyProduct = ({commit, state}, payload) => {
   })
 };
 
-export const DestroySchedule = ({commit, state}, payload) => {
+export const destroySchedule = ({commit, state}, payload) => {
   axios({
     method: 'delete',
     url: state.endpoints.baseUrl + state.endpoints.travel + payload.params + '/' + state.endpoints.date
