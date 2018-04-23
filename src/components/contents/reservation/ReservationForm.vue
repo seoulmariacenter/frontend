@@ -9,7 +9,7 @@
         <form class="col-12" @submit.prevent="onSubmit">
           <div class="form-row">
             <label for="inputProduct" class="col-form-label">선택 상품</label>
-            <input type="text" class="form-control" id="inputProduct" placeholder="" disabled>
+            <input type="text" class="form-control" id="inputProduct" :placeholder="productTitle" disabled>
           </div>
           <div class="form-row">
             <label for="inputName" class="col-form-label">이름</label>
@@ -47,6 +47,7 @@
 <script>
   export default {
     name: "ReservationForm",
+    props: ['productTitle'],
     data() {
       return {
         name: '',
