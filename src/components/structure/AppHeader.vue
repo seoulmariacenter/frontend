@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mb-4">
+  <div class="fixed-top container-fluid mb-4">
     <div class="top-line"></div>
     <nav class="navbar navbar-expand-md navbar-light bg-light align-middle">
       <div class="container">
