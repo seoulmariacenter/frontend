@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <section class="container">
       <carousel/>
     <div class="row">
       <div class="col-md-8">
@@ -9,7 +9,7 @@
         <app-sidebar/>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 <script>
   import AppSidebar from '../structure/AppSidebar'
