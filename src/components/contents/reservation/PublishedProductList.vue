@@ -2,7 +2,7 @@
   <div class="bg-light">
     <div class="m-3 pt-3 pb-3">
       <div class="d-block d-flex justify-content-between">
-        <h2><strong>순례 상품 관리</strong></h2>
+        <h2><strong>순례 상품 선택</strong></h2>
         <p class="mt-3 mb-0">총 <span class="text-info">{{getWholeProductLists.count}}</span> 개의 상품이 있습니다.</p>
       </div>
       <hr>
