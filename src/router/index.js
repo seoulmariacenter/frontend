@@ -11,7 +11,8 @@ import {
   ScheduleCreate,
   ReservationManagement,
   ReservationComplete,
-  ReservationCheck
+  ReservationCheck,
+  ReservationDetail
 } from './lazy'
 
 export const routes = [
@@ -43,6 +44,11 @@ export const routes = [
         path: 'check',
         name: 'Check',
         component: ReservationCheck
+      },
+      {
+        path: 'detail',
+        name: 'Detail',
+        component: ReservationDetail
       }
     ]
   },

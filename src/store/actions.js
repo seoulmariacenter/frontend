@@ -81,7 +81,9 @@ export const checkReservation = ({commit, state}, payload) => {
   }).then((response) => {
     commit('clearReservationInfo');
     commit('updateReservationInfo', response.data);
-    console.log(response.data)
+    router.push({
+      name: 'Detail'
+    })
   }).catch((error) => {
     commit('clearMsg');
     commit('updateMsg', error.response.data.message);
