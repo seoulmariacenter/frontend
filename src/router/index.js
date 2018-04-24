@@ -43,7 +43,8 @@ export const routes = [
       {
         path: 'check',
         name: 'Check',
-        component: ReservationCheck
+        component: ReservationCheck,
+        meta: {hasReservation: true}
       },
       {
         path: 'detail',

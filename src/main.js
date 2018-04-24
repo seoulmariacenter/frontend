@@ -18,6 +18,21 @@ export const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.hasReservation)) {
+    if (localStorage.getItem('username')) {
+      next({
+        name: 'Detail',
+        query: {redirect:to.fullPath}
+      })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+});
+
+router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!localStorage.getItem('token')) {
       next({
