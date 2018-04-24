@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="loading" class="alert alert-info text-center" role="alert">
-      <h4 class="mb-0"><strong>순례 상품을 가지고 오는 중입니다. 잠시만 기다려주세요!</strong></h4>
+      <h4 class="mb-0"><strong>순례 상품을 불러 오는 중입니다. 잠시만 기다려주세요!</strong></h4>
     </div>
     <div v-show="show" id="mainCarouselIndicators" class="carousel slide" data-ride="carousel">
         <ol id="productIndicators" class="carousel-indicators">

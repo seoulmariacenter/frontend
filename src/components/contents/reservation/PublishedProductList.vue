@@ -7,8 +7,11 @@
       </div>
       <hr>
       <div class="row m-0 justify-content-center h330 overflow">
-        <div v-if="loading" class="alert alert-info text-center" role="alert">
-          <h4 class="mb-0"><strong>순례 상품을 가지고 오는 중입니다. 잠시만 기다려주세요!</strong></h4>
+        <div class="m-2" v-if="loading">
+          <div class="alert alert-info text-center h-50" role="alert">
+            <h4 class="mt-4"><strong>순례 상품을 불러 오는 중입니다.</strong></h4>
+            <h4><strong>잠시만 기다려주세요!</strong></h4>
+          </div>
         </div>
         <div class="row m-2" v-if="post">
           <div

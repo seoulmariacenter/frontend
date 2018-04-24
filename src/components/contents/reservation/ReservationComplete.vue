@@ -16,7 +16,7 @@
         </div>
         <div class="alert alert-info mt-5" role="alert">
           <h4 class="alert-heading">감사합니다! 예약이 완료되었습니다.</h4>
-          <p>예약 정보를 확인하시려면 우측 상단의 <strong>"예약 확인"</strong> 버튼을 누르시고 성함과 예매번호를 입력해주세요.</p>
+          <p>예약 정보를 확인하시려면 우측 상단의 <strong>"예약 확인"</strong> 버튼을 누르시고 성함과 예약 번호를 입력해주세요.</p>
           <p>자세한 사항은 서울마리아센터 대표번호(<strong>02-723-5425</strong>)로 연락주세요!</p>
           <hr>
           <router-link :to="{name: 'Home'}" tag="button" class="btn btn-lg btn-outline-info">홈으로 돌아가기</router-link>
