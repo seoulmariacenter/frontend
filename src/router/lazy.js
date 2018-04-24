@@ -21,3 +21,5 @@ export const ScheduleCreate = () => import('../components/contents/admin/schedul
 export const ReservationManagement = () => import('../components/contents/reservation/ReservationManagement.vue');
 
 export const ReservationComplete = () => import('../components/contents/reservation/ReservationComplete.vue');
+
+export const ReservationCheck = () => import('../components/contents/reservation/ReservationCheck.vue');

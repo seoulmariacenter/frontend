@@ -29,7 +29,7 @@
           </ul>
           <ul class="navbar-nav align-items-center">
             <li class="nav-item ml-lg-5 mr-lg-5 ml-md-3 mr-md-3">
-              <a class="nav-link pl-0 pr-0 pt-4 pb-3" href="#"><h3>예약 확인</h3></a>
+              <router-link :to="{name: 'Check'}" tag="a" class="nav-link pl-0 pr-0 pt-4 pb-3"><h3>예약 확인</h3></router-link>
             </li>
           </ul>
         </div>
