@@ -1,5 +1,5 @@
 <template>
-  <div class="col-sm-10">
+  <div class="col">
     <div v-show="checkoutMsg !== null" class="alert alert-danger" role="alert">
       <strong>{{checkoutMsg}}</strong>
     </div>
