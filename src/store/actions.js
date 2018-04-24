@@ -37,6 +37,57 @@ export const signOut = ({commit}) => {
   })
 };
 
+export const createReservation = ({commit, state}, payload) => {
+  axios({
+    method: 'post',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.make,
+    data: {
+      username: payload.name,
+      phone_number: payload.phone,
+      gender: payload.gender,
+      product: payload.product
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    commit('clearReservationInfo');
+    commit('updateReservationInfo', response.data);
+    router.push({
+      name: 'Complete'
+    })
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data);
+  })
+};
+
+export const checkReservation = ({commit, state}, payload) => {
+  axios({
+    method: 'post',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.check,
+    data: {
+      name: payload.name,
+      password: payload.password
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearReservationInfo');
+    commit('updateReservationInfo', response.data);
+    console.log(response.data)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data.message);
+  })
+};
+
 // 쿼리 호출
 export const getPublishedProductListQuery = ({commit, state}, payload) => {
   axios({
@@ -241,33 +292,6 @@ export const createSchedule = ({commit, state}, payload) => {
   }).catch((error) => {
     commit('clearMsg');
     commit('updateMsg', error.response.data)
-  })
-};
-
-export const createReservation = ({commit, state}, payload) => {
-  axios({
-    method: 'post',
-    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.make,
-    data: {
-      username: payload.name,
-      phone_number: payload.phone,
-      gender: payload.gender,
-      product: payload.product
-    },
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    xsrfHeaderName: 'X-XSRF-TOKEN',
-    credentials: true
-  }).then((response) => {
-    commit('clearReservationInfo');
-    commit('updateReservationInfo', response.data);
-    router.push({
-      name: 'Complete'
-    })
-  }).catch((error) => {
-    commit('clearMsg');
-    commit('updateMsg', error.response.data);
   })
 };
 
