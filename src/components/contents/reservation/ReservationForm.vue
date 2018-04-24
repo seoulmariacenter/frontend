@@ -13,11 +13,11 @@
           </div>
           <div class="form-row">
             <label for="inputName" class="col-form-label">이름</label>
-            <input v-model="name" type="text" class="form-control" id="inputName" placeholder="예약 인원의 대표자 성함을 입력하세요.">
+            <input v-model="name" type="text" class="form-control" id="inputName" placeholder="예약 인원의 대표자 성함을 입력하세요." required>
           </div>
           <div class="form-row">
             <label for="inputPhone" class="col-form-label">연락처</label>
-            <input v-model="phone" type="text" class="form-control" id="inputPhone" placeholder="핸드폰 번호를 입력하세요. 예) 010-1234-5678">
+            <input v-model="phone" type="text" class="form-control" id="inputPhone" placeholder="핸드폰 번호를 입력하세요. 예) 010-1234-5678" required>
           </div>
           <fieldset class="form-row">
             <legend class="col-form-label pb-0">성별</legend>
@@ -25,13 +25,13 @@
               <div class="form-check mr-4">
                 <input v-model="gender" class="form-check-input" type="radio" name="gridRadios" id="genderRadios1" value="True" checked>
                 <label class="form-check-label" for="genderRadios1">
-                  남성
+                  여성
                 </label>
               </div>
               <div class="form-check m1-4">
                 <input v-model="gender" class="form-check-input" type="radio" name="gridRadios" id="genderRadios2" value="False">
                 <label class="form-check-label" for="genderRadios2">
-                  여성
+                  남성
                 </label>
               </div>
             </div>
