@@ -42,13 +42,20 @@
           </div>
         </form>
       </div>
+      <div class="row m-2">
+        <message/>
+      </div>
     </div>
   </div>
 </template>
 <script>
+  import Message from '../../structure/AppMessage'
   export default {
     name: "ReservationForm",
     props: ['productTitle', 'productPk'],
+    components: {
+      Message
+    },
     data() {
       return {
         name: '',

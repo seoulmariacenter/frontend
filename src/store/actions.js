@@ -61,7 +61,7 @@ export const createReservation = ({commit, state}, payload) => {
     })
   }).catch((error) => {
     commit('clearMsg');
-    commit('updateMsg', error.response.data);
+    commit('updateMsg', error.response.data.message);
   })
 };
 
