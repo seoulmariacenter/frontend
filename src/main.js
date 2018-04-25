@@ -19,7 +19,7 @@ export const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.hasReservation)) {
-    if (localStorage.getItem('username')) {
+    if (sessionStorage.getItem('username')) {
       next({
         name: 'Detail',
         query: {redirect:to.fullPath}
@@ -34,7 +34,7 @@ router.beforeEach((to, from, next) => {
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (!localStorage.getItem('token')) {
+    if (!sessionStorage.getItem('token')) {
       next({
         name: 'signIn',
         query: {redirect:to.fullPath}
@@ -49,7 +49,7 @@ router.beforeEach((to, from, next) => {
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.hasToken)) {
-    if (localStorage.getItem('token')) {
+    if (sessionStorage.getItem('token')) {
       next({
         name: 'Dashboard',
         query: {redirect:to.fullPath}

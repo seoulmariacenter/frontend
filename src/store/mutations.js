@@ -4,21 +4,21 @@ export const updateInfo = (state, response) => {
   const base64 = response.token.split('.')[1];
   const result = JSON.parse(window.atob(base64));
 
-  localStorage.setItem('token', response.token.toString());
+  sessionStorage.setItem('token', response.token.toString());
 
-  localStorage.setItem('pk', result.user_id);
-  localStorage.setItem('username', result.username);
-  localStorage.setItem('orig', result.orig_iat);
-  localStorage.setItem('exp', result.exp);
+  sessionStorage.setItem('pk', result.user_id);
+  sessionStorage.setItem('username', result.username);
+  sessionStorage.setItem('orig', result.orig_iat);
+  sessionStorage.setItem('exp', result.exp);
 };
 
 export const removeInfo = () => {
-  localStorage.removeItem('token');
+  sessionStorage.removeItem('token');
 
-  localStorage.removeItem('pk');
-  localStorage.removeItem('username');
-  localStorage.removeItem('orig');
-  localStorage.removeItem('exp');
+  sessionStorage.removeItem('pk');
+  sessionStorage.removeItem('username');
+  sessionStorage.removeItem('orig');
+  sessionStorage.removeItem('exp');
 };
 
 // 쿼리 호출
