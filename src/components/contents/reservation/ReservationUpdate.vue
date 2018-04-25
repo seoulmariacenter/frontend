@@ -22,17 +22,48 @@
       </div>
       <hr>
       <div class="row m-2 d-flex justify-content-between">
-        <button class="btn btn-outline-info">예약 정보 수정</button>
-        <button class="btn btn-outline-warning">동승자 등록</button>
-        <button class="btn btn-outline-secondary">로그아웃</button>
+        <button type="button" class="btn btn-outline-info">예약 정보 수정</button>
+        <button type="button" class="btn btn-outline-warning">동승자 등록</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#signOutModal">로그아웃</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="signOutModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="signOutModalLabel">로그아웃</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                로그아웃하시겠습니까?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
+                <button @click="signOutReservation" type="button" class="btn btn-info">로그아웃</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+  import {router} from '../../../main'
   import {mapGetters} from 'vuex'
   export default {
     name: "ReservationUpdate",
+    methods: {
+      signOutReservation() {
+        sessionStorage.removeItem('username');
+        router.go(router.currentRoute);
+        router.replace({
+          name: 'Home'
+        })
+      }
+    },
     computed: {
       ...mapGetters([
         'getReservationInfo'
