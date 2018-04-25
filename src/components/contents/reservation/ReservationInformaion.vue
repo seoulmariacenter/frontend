@@ -8,7 +8,7 @@
       <div class="row m-2">
         <div class="col p-0 card">
           <div class="card-header">
-            <h5 class="mb-0"><strong>예약 상품:</strong></h5>
+            <h5 class="mb-0"><strong>예약 상품: {{getReservationInfo.product}}</strong></h5>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">예약자 성함: {{getReservationInfo.username}}</li>
@@ -22,7 +22,7 @@
       </div>
       <hr>
       <div class="row m-2 d-flex justify-content-between">
-        <button type="button" class="btn btn-outline-info">예약 정보 수정</button>
+        <button @click="updateModule = !updateModule" type="button" class="btn btn-outline-info">예약 정보 수정</button>
         <button type="button" class="btn btn-outline-warning">동승자 등록</button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#signOutModal">로그아웃</button>
 
@@ -47,14 +47,26 @@
           </div>
         </div>
       </div>
+      <div class="row m-2">
+        <reservation-update-destroy v-if="updateModule"/>
+      </div>
     </div>
   </div>
 </template>
 <script>
   import {router} from '../../../main'
   import {mapGetters} from 'vuex'
+  import ReservationUpdateDestroy from './ReservationUpdateDestroy'
   export default {
     name: "ReservationUpdate",
+    components: {
+      ReservationUpdateDestroy
+    },
+    data() {
+      return {
+        updateModule: false
+      }
+    },
     methods: {
       signOutReservation() {
         sessionStorage.removeItem('username');
@@ -66,7 +78,8 @@
     },
     computed: {
       ...mapGetters([
-        'getReservationInfo'
+        'getReservationInfo',
+        'getProductRetrieve'
       ])
     }
   }

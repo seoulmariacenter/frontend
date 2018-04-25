@@ -8,7 +8,7 @@
           <p class="mt-3 mb-0">반드시 주의 깊게 읽어주세요!</p>
         </div>
         <hr>
-        <div class="row m-0 justify-content-center overflow">
+        <div class="row m-0 justify-content-center">
           <div class="card text-white bg-danger">
             <div class="card-header">예약 관련</div>
             <div class="card-body">
@@ -40,10 +40,4 @@
   }
 </script>
 <style scoped>
-  .h330 {
-    height: 330px;
-  }
-  .overflow {
-    overflow: scroll;
-  }
 </style>
