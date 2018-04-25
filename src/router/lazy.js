@@ -25,3 +25,5 @@ export const ReservationComplete = () => import('../components/contents/reservat
 export const ReservationCheck = () => import('../components/contents/reservation/ReservationCheck.vue');
 
 export const ReservationDetail = () => import('../components/contents/reservation/ReservationDetail.vue');
+
+export const ReservationCancelComplete = () => import('../components/contents/reservation/ReservationCancelComplete.vue');
