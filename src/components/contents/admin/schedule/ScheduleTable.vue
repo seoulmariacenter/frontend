@@ -1,5 +1,5 @@
 <template>
-  <div class="col p-0" v-if="scheduleLoading">
+  <div class="col p-0">
     <div class="table-responsive rounded border border-secondary" v-if="getDateCounts !== 0">
       <table class="table table-striped table-bordered m-0">
         <thead class="thead-dark text-center">
@@ -21,28 +21,28 @@
           <td class="schedulePlace">
             <ul class="list-group">
               <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
-                {{index['place'] === '' ? '1' : index['place']}}
+                {{index['place']}}
               </li>
             </ul>
           </td>
           <td class="via">
             <ul class="list-group">
               <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
-                {{index['transport'] === '' ? '1' : index['transport']}}
+                {{index['transport']}}
               </li>
             </ul>
           </td>
           <td class="time">
             <ul class="list-group">
               <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
-                {{index['time'] === '' ? '1' : index['time']}}
+                {{index['time']}}
               </li>
             </ul>
           </td>
           <td class="itinerary">
             <ul class="list-group">
               <li class="list-group-item bg-transparent border-0 pt-1 pb-1 pl-0 pr-0" v-for="index in getScheduleInfo[value.date_num]" :key="index.id">
-                {{index['description'] === '' ? '1' : index['description']}}
+                {{index['description']}}
               </li>
             </ul>
           </td>
@@ -66,7 +66,7 @@
   import { mapGetters } from 'vuex'
   export default {
     name: "ScheduleTable",
-    props: ['scheduleLoading', 'acceptModify'],
+    props: ['acceptModify'],
     data() {
       return {
         params: this.$route.params.pk
@@ -111,7 +111,7 @@
 
         setTimeout(()=> {
           this.addClass()
-        },1000)
+        }, 1000)
       }
     },
     computed: {
