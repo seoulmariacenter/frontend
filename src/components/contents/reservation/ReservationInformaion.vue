@@ -78,8 +78,7 @@
     },
     computed: {
       ...mapGetters([
-        'getReservationInfo',
-        'getProductRetrieve'
+        'getReservationInfo'
       ])
     }
   }

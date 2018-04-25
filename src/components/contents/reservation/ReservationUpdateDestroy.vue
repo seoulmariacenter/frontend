@@ -2,7 +2,7 @@
     <form class="col p-1" @submit.prevent="onFetch">
       <div class="form-row">
         <label for="inputProduct" class="col-form-label">선택 상품</label>
-        <input type="text" class="form-control" id="inputProduct" :placeholder="'현재 상품: '" disabled>
+        <input type="text" class="form-control" id="inputProduct" :placeholder="'현재 상품: ' + getReservationInfo.product" disabled>
       </div>
       <div class="form-row">
         <label for="inputName" class="col-form-label">예약자 성함</label>
