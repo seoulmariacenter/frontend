@@ -20,6 +20,12 @@
           </ul>
         </div>
       </div>
+      <hr>
+      <div class="row m-2 d-flex justify-content-between">
+        <button class="btn btn-outline-info">예약 정보 수정</button>
+        <button class="btn btn-outline-warning">동승자 등록</button>
+        <button class="btn btn-outline-secondary">로그아웃</button>
+      </div>
     </div>
   </div>
 </template>
