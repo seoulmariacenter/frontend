@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-between">
-    <reservation-update/>
+    <reservation-information/>
     <div class="bg-light col-md-5 col-sm-12">
       <div class="m-3 pt-3 pb-3">
         <div class="d-block d-flex justify-content-between">
@@ -22,11 +22,11 @@
   </div>
 </template>
 <script>
-  import ReservationUpdate from './ReservationUpdate'
+  import ReservationInformation from './ReservationInformaion'
   export default {
     name: "ReservationDetail",
     components: {
-      ReservationUpdate
+      ReservationInformation
     },
     data() {
       return {
