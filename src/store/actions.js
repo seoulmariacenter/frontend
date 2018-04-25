@@ -91,6 +91,32 @@ export const checkReservation = ({commit, state}, payload) => {
   })
 };
 
+export const cancelReservation = ({commit, state}, payload) => {
+  axios({
+    method: 'patch',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.cancel,
+    data: {
+      name: payload.name,
+      password: payload.password
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then(()=> {
+    commit('clearReservationInfo');
+    sessionStorage.removeItem('username');
+    router.go(router.currentRoute);
+    router.push({
+      name: 'Cancel'
+    })
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data.message);
+  })
+};
+
 // 쿼리 호출
 export const getPublishedProductListQuery = ({commit, state}, payload) => {
   axios({

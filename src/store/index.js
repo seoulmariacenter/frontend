@@ -17,6 +17,7 @@ const state = {
     reservation: 'reservation/',
     make: 'make/',
     check: 'check/',
+    cancel: 'cancel/',
     signIn: 'sign-in/'
   },
   queryData: {
