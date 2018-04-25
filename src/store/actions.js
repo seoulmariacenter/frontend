@@ -82,7 +82,7 @@ export const checkReservation = ({commit, state}, payload) => {
     commit('clearMsg');
     commit('clearReservationInfo');
     commit('updateReservationInfo', response.data);
-    sessionStorage.setItem('username', response.data.username);
+    sessionStorage.setItem('hostname', response.data.username);
     router.push({
       name: 'Detail'
     })
@@ -107,7 +107,7 @@ export const cancelReservation = ({commit, state}, payload) => {
     credentials: true
   }).then(()=> {
     commit('clearReservationInfo');
-    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('hostname');
     router.go(router.currentRoute);
     router.replace({
       name: 'Cancel'
