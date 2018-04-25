@@ -29,7 +29,7 @@ export const signInAdmin = ({commit, state}, payload) => {
   })
 };
 
-export const signOut = ({commit}) => {
+export const signOutAdmin = ({commit}) => {
   commit('removeInfo');
   commit('clearMsg');
   router.replace({

@@ -14,7 +14,7 @@
         <router-link :to="{name: 'ProductCreate'}" tag="li" class="nav-item mb-2 hovering">
           <h4>순례 상품 만들기</h4>
         </router-link>
-        <li @click="signOut" class="nav-item mb-2 hovering">
+        <li @click="signOutAdmin" class="nav-item mb-2 hovering">
           <h4>로그아웃</h4>
         </li>
         <li class="nav-item"></li>
@@ -28,7 +28,7 @@
     name: "AdminSidebar",
     methods: {
     ...mapActions([
-      'signOut'
+      'signOutAdmin'
     ])
     }
   }
