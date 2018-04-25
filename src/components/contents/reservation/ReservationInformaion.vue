@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="row m-2">
-        <reservation-update-destroy v-if="updateModule"/>
+        <reservation-update-cancel v-if="updateModule"/>
       </div>
     </div>
   </div>
@@ -56,11 +56,11 @@
 <script>
   import {router} from '../../../main'
   import {mapGetters} from 'vuex'
-  import ReservationUpdateDestroy from './ReservationUpdateDestroy'
+  import ReservationUpdateCancel from './ReservationUpdateCancel'
   export default {
-    name: "ReservationUpdate",
+    name: "ReservationInformation",
     components: {
-      ReservationUpdateDestroy
+      ReservationUpdateCancel
     },
     data() {
       return {

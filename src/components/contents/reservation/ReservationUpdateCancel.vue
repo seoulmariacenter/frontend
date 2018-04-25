@@ -62,7 +62,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
-              <button @click="destroyReservation" type="button" class="btn btn-danger">예약 취소</button>
+              <button @click="cancelReservation" type="button" class="btn btn-danger">예약 취소</button>
             </div>
           </form>
         </div>
@@ -88,8 +88,15 @@
       }
     },
     methods: {
-      destroyReservation() {
-
+      cancelReservation() {
+        const formData = {
+          name: this.getReservationInfo.username,
+          password: this.reservationNum.a +
+          this.reservationNum.b +
+          this.reservationNum.c +
+          this.reservationNum.d
+        };
+        this.$store.dispatch('cancelReservation', formData)
       },
       onFetch() {
 
