@@ -79,6 +79,7 @@ export const checkReservation = ({commit, state}, payload) => {
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
   }).then((response) => {
+    commit('clearMsg');
     commit('clearReservationInfo');
     commit('updateReservationInfo', response.data);
     sessionStorage.setItem('username', response.data.username);
@@ -108,7 +109,7 @@ export const cancelReservation = ({commit, state}, payload) => {
     commit('clearReservationInfo');
     sessionStorage.removeItem('username');
     router.go(router.currentRoute);
-    router.push({
+    router.replace({
       name: 'Cancel'
     })
   }).catch((error) => {

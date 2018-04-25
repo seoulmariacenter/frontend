@@ -64,6 +64,7 @@
               <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
               <button @click="cancelReservation" type="button" class="btn btn-danger">예약 취소</button>
             </div>
+            <message/>
           </form>
         </div>
       </div>
@@ -72,8 +73,12 @@
 </template>
 <script>
   import {mapGetters} from 'vuex'
+  import Message from '../../structure/AppMessage'
   export default {
     name: "ReservationUpdateDestroy",
+    components: {
+      Message
+    },
     data() {
       return {
         name: '',
