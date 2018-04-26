@@ -22,7 +22,7 @@
       </div>
       <hr>
       <div class="row m-2 d-flex justify-content-between">
-        <button type="button" class="btn btn-warning">동승자 등록</button>
+        <button @click="callReservationMember = !callReservationMember" type="button" class="btn btn-warning">동승자 등록</button>
         <button type="button" class="btn btn-outline-danger ml-1" data-toggle="modal" data-target="#destroyModal">예약 취소</button>
         <!-- Modal -->
         <div class="modal fade" id="destroyModal" tabindex="-1" role="dialog" aria-labelledby="destroyModalLabel" aria-hidden="true">
@@ -82,7 +82,7 @@
         </div>
       </div>
       <div class="row m-2">
-
+        <reservation-member v-if="callReservationMember"/>
       </div>
     </div>
   </div>
@@ -91,13 +91,16 @@
   import {router} from '../../../main'
   import {mapGetters} from 'vuex'
   import Message from '../../structure/AppMessage'
+  import ReservationMember from './ReservationMember'
   export default {
     name: "ReservationInformation",
     components: {
-      Message
+      Message,
+      ReservationMember
     },
     data() {
       return {
+        callReservationMember: false,
         reservationNum: {
           a: '',
           b: '',
