@@ -94,7 +94,7 @@ export const checkReservation = ({commit, state}, payload) => {
 
 export const cancelReservation = ({commit, state}, payload) => {
   axios({
-    method: 'patch',
+    method: 'post',
     url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.cancel,
     data: {
       name: payload.name,
