@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-between">
       <provision-sidebar/>
-      <router-view/>
+      <router-view class="col-lg-8 col-md-8 bg-light"/>
     </div>
   </div>
 </template>

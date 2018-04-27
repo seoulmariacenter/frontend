@@ -3,11 +3,11 @@
     <div class="sidebar-sticky m-3">
       <ul class="nav flex-column">
         <li class="nav-item mb-2"><h4><strong>서울마리아센터 소개</strong></h4></li>
-        <li class="nav-item mb-2">대표 인사말</li>
-        <li class="nav-item mb-2">성모님의 부르심을 찾아서</li>
-        <li class="nav-item mb-2">여행 약관</li>
-        <li class="nav-item mb-2">서비스 이용 약관</li>
-        <li class="nav-item mb-2">개인정보 처리방침</li>
+        <router-link :to="{name: 'Introduce'}" tag="li" class="nav-item mb-2 hovering">대표 인사말</router-link>
+        <router-link :to="{name: 'Maria'}" tag="li" class="nav-item mb-2 hovering">성모님의 부르심을 찾아서</router-link>
+        <router-link :to="{name: 'Travel'}" tag="li" class="nav-item mb-2 hovering">여행 약관</router-link>
+        <router-link :to="{name: 'Service'}" tag="li" class="nav-item mb-2 hovering">서비스 이용 약관</router-link>
+        <router-link :to="{name: 'Private'}" tag="li" class="nav-item mb-2 hovering">개인정보 처리방침</router-link>
       </ul>
     </div>
   </div>
@@ -18,4 +18,7 @@
   }
 </script>
 <style scoped>
+  .hovering:hover {
+    cursor: pointer;
+  }
 </style>
