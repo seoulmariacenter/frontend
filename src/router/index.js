@@ -13,7 +13,8 @@ import {
   ReservationComplete,
   ReservationCheck,
   ReservationDetail,
-  ReservationCancelComplete
+  ReservationCancelComplete,
+  ReservationList
 } from './lazy'
 
 export const routes = [
