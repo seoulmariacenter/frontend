@@ -100,6 +100,12 @@ export const routes = [
             props: true
           },
           {
+            path: 'product/:pk/reservation',
+            name: 'ReservationList',
+            component: ReservationList,
+            props: true
+          },
+          {
             path: 'schedule/:pk',
             name: 'Schedule',
             component: ScheduleCreate,
