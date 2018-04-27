@@ -7,7 +7,7 @@
       </div>
       <hr>
       <div class="row m-2" v-if="getReservationInfo">
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-3" v-for="value in getReservationInfo.results" :key="value.id">
+        <div class="col-md-6 col-sm-12 mb-3" v-for="value in getReservationInfo.results" :key="value.id">
           <div class="card">
             <h5 class="card-header">예약자: {{value.username}}</h5>
             <div class="card-body">
