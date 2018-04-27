@@ -19,7 +19,8 @@ const state = {
     make: 'make/',
     check: 'check/',
     cancel: 'cancel/',
-    signIn: 'sign-in/'
+    signIn: 'sign-in/',
+    refresh: 'refresh/'
   },
   queryData: {
     productLists: {

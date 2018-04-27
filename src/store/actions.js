@@ -37,6 +37,27 @@ export const signOutAdmin = ({commit}) => {
   })
 };
 
+export const refreshTokenAdmin = ({commit, state}) => {
+  axios({
+    method: 'post',
+    url: state.endpoints.baseUrl + state.endpoints.member + state.endpoints.refresh,
+    data: {
+      "token": sessionStorage.getItem('token')
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    commit('updateInfo', response.data);
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data.message)
+  })
+};
+
 export const createReservation = ({commit, state}, payload) => {
   axios({
     method: 'post',
