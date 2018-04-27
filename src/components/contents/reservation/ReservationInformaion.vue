@@ -42,10 +42,10 @@
                   <div class="form-group">
                     <label class="col-form-label"><strong>예약 번호</strong></label>
                     <div class="form-group d-flex">
-                      <input v-model="reservationNum.a" type="text" class="form-control mr-2" required>
-                      <input v-model="reservationNum.b" type="text" class="form-control ml-2 mr-2" required>
-                      <input v-model="reservationNum.c" type="text" class="form-control ml-2 mr-2" required>
-                      <input v-model="reservationNum.d" type="text" class="form-control ml-2" required>
+                      <input v-model="reservationNum.a" type="text" maxlength="4" class="form-control mr-2" required>
+                      <input v-model="reservationNum.b" type="text" maxlength="4" class="form-control ml-2 mr-2" required>
+                      <input v-model="reservationNum.c" type="text" maxlength="4" class="form-control ml-2 mr-2" required>
+                      <input v-model="reservationNum.d" type="text" maxlength="4" class="form-control ml-2" required>
                     </div>
                   </div>
                 </div>
