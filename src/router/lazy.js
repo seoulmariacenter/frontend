@@ -10,6 +10,16 @@ export const Reservation = () => import('../components/view/Reservation.vue');
 
 export const Provision = () => import('../components/view/Provision.vue');
 
+export const ProvisionIntroduce = () => import('../components/contents/provision/ProvisionIntroduce.vue');
+
+export const ProvisionMaria = () => import('../components/contents/provision/ProvisionMaria.vue');
+
+export const ProvisionTravel = () => import('../components/contents/provision/ProvisionTravel.vue');
+
+export const ProvisionService = () => import('../components/contents/provision/ProvisionService.vue');
+
+export const ProvisionPrivate = () => import('../components/contents/provision/ProvisionPrivate.vue');
+
 export const ProductManagement = () => import('../components/contents/admin/product/ProductManagement.vue');
 
 export const ProductDetail = () => import('../components/contents/admin/product/ProductDetail.vue');
