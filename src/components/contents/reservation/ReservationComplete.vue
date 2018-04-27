@@ -7,7 +7,7 @@
           <h4 class="mb-0"><strong>예약 완료!</strong></h4>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item list-group-item-warning">예약 번호: <strong>{{getReservationInfo.reservation_num}}</strong></li>
+          <li class="list-group-item list-group-item-warning"><h3 class="mt-2 text-center">예약 번호:<br><strong>{{getReservationInfo.reservation_num}}</strong></h3></li>
           <li class="list-group-item list-group-item-danger"><span class="text-danger"><strong>예약 번호를 꼭 기록해주세요!</strong><br/>이 페이지를 벗어나면 예약 번호를 확인할 수 없습니다.</span>
           </li>
           <li class="list-group-item">예약 상품: <strong>{{getReservationInfo.product}}</strong></li>
