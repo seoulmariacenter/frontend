@@ -15,6 +15,7 @@ const state = {
     date: 'date/',
     schedule: 'schedule/',
     reservation: 'reservation/',
+    list: 'list/',
     make: 'make/',
     check: 'check/',
     cancel: 'cancel/',
@@ -32,7 +33,13 @@ const state = {
     dateTable: Array(),
     scheduleInfo: Object(),
     scheduleRetrieve: Object(),
-    reservationInfo: Object()
+    reservationInfo: {
+      'count': 0,
+      'next': null,
+      'previous': null,
+      'results': Array()
+    },
+    activeReservationCount: 0
   },
   message: null,
 };

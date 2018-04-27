@@ -242,6 +242,46 @@ export const getScheduleRetrieveQuery = ({commit, state}, payload) => {
   })
 };
 
+export const getReservationListQuery = ({commit, state}, payload) => {
+  axios({
+    method: 'get',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.list + payload + '/',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'JWT ' + sessionStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    commit('clearReservationInfo');
+    commit('updateReservationInfo', response.data)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data)
+  })
+};
+
+export const getActiveReservationCount = ({commit, state}, payload) => {
+  axios({
+    method: 'get',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.list + payload + '/active/',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'JWT ' + sessionStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    commit('clearActiveReservationCount');
+    commit('updateActiveReservationCount', response.data.count)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data)
+  })
+};
+
 // 쿼리 생성
 export const createProduct = ({commit, state}, payload) => {
   axios({

@@ -85,7 +85,20 @@ export const updateReservationInfo = (state, payload) => {
 };
 
 export const clearReservationInfo = state => {
-  state.queryData.reservationInfo = Object()
+  state.queryData.reservationInfo = {
+    'count': 0,
+    'next': null,
+    'previous': null,
+    'results': Array()
+  }
+};
+
+export const updateActiveReservationCount = (state, payload) => {
+  state.queryData.activeReservationCount = payload
+};
+
+export const clearActiveReservationCount = state => {
+  state.queryData.activeReservationCount = 0
 };
 
 // 메시지 관리

@@ -36,6 +36,10 @@ export const getReservationInfo = state => {
   return state.queryData.reservationInfo
 };
 
+export const getActiveReservationCount = state => {
+  return state.queryData.activeReservationCount
+};
+
 
 // 시간 관련
 
