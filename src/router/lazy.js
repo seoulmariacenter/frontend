@@ -22,6 +22,8 @@ export const ProvisionPrivate = () => import('../components/contents/provision/P
 
 export const ProvisionInsurance = () => import('../components/contents/provision/ProvisionInsurance.vue');
 
+export const ProvisionCompensation = () => import('../components/contents/provision/ProvisionCompensation.vue');
+
 export const ProductManagement = () => import('../components/contents/admin/product/ProductManagement.vue');
 
 export const ProductDetail = () => import('../components/contents/admin/product/ProductDetail.vue');
