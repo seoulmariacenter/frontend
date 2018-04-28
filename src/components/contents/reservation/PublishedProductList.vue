@@ -6,7 +6,7 @@
         <p class="mt-3 mb-0">총 <span class="text-info">{{getWholeProductLists.count}}</span> 개의 상품이 있습니다.</p>
       </div>
       <hr>
-      <div class="row m-0 justify-content-center h330 overflow">
+      <div class="row m-0 justify-content-center h500 overflow">
         <div class="m-2" v-if="loading">
           <div class="alert alert-info text-center h-50" role="alert">
             <h4 class="mt-4"><strong>순례 상품을 불러 오는 중입니다.</strong></h4>
@@ -117,8 +117,8 @@
   }
 </script>
 <style scoped>
-  .h330 {
-    height: 330px;
+  .h500 {
+    height: 500px;
   }
   .overflow {
     overflow: scroll;
