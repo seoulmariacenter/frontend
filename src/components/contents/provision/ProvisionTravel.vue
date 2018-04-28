@@ -41,8 +41,8 @@
     name: "ProvisionTravel",
     data() {
       return {
-        isDomesticProvision: true,
-        isForeignProvision: false
+        isDomesticProvision: false,
+        isForeignProvision: true
       }
     },
     methods: {
