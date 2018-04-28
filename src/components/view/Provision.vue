@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-between">
       <provision-sidebar/>
-      <router-view class="col-lg-8 col-md-8 bg-light"/>
+      <router-view/>
     </div>
   </div>
 </template>
