@@ -1,8 +1,6 @@
 <template>
   <div class="col p-0">
-    <form>
-
-    </form>
+    hello
   </div>
 </template>
 <script>
