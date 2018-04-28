@@ -6,8 +6,15 @@
       </div>
       <hr>
       <div class="m-3">
+        <p>출처: <a target="_blank"
+        class="text-info"
+        href="http://www.ftc.go.kr/www/cop/bbs/selectBoardList.do?key=201&bbsId=BBSMSTR_000000002320&bbsTyCode=BBST01">공정거래위원회</a>
+        </p>
         <div class="d-flex">
-          <button @click="callProvision('domestic')" class="btn btn-outline-secondary mr-3" type="button">국내 여행 표준 약관</button>
+          <button @click="callProvision('domestic')"
+          class="btn btn-outline-secondary mr-3"
+          type="button">국내 여행 표준 약관
+          </button>
           <button @click="callProvision('foreign')" class="btn btn-outline-info ml-3" type="button">국외 여행 표준 약관</button>
         </div>
         <div class="row mt-3">
