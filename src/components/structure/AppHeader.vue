@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light align-middle">
       <div class="container">
         <router-link tag="a" class="navbar-brand mr-5" :to="{name: 'Home'}">
-          <img src="../../assets/svg/logo_curved.svg" width="130" alt="">
+          <img src="../../assets/svg/logo_curved.svg" width="80" alt="">
         </router-link>
         <button class="navbar-toggler"
         type="button"
@@ -18,18 +18,26 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
           <ul class="navbar-nav align-items-center">
             <li class="nav-item active ml-lg-5 mr-lg-5 ml-md-3 mr-md-3">
-              <router-link :to="{name: 'ReservationManagement'}" tag="a" class="nav-link pl-0 pr-0 pt-4 pb-3"><h3>예약</h3></router-link>
+              <router-link :to="{name: 'ReservationManagement'}" tag="a" class="nav-link pl-0 pr-0 pt-3 pb-1 mb-1">
+                <h4 class="mb-0">예약</h4>
+              </router-link>
             </li>
             <li class="nav-item active ml-lg-5 mr-lg-5 ml-md-3 mr-md-3">
-              <a class="nav-link pl-0 pr-0 pt-4 pb-3" href="#"><h3>성지</h3></a>
+              <a class="nav-link pl-0 pr-0 pt-3 pb-1 mb-1" href="#">
+                <h4 class="mb-0">성지</h4>
+              </a>
             </li>
             <li class="nav-item active ml-lg-5 mr-lg-5 ml-md-3 mr-md-3">
-              <router-link :to="{name: 'Introduce'}" tag="a" class="nav-link pl-0 pr-0 pt-4 pb-3"><h3>여행사 소개</h3></router-link>
+              <router-link :to="{name: 'Introduce'}" tag="a" class="nav-link pl-0 pr-0 pt-3 pb-1 mb-1">
+                <h4 class="mb-0">여행사 소개</h4>
+              </router-link>
             </li>
           </ul>
           <ul class="navbar-nav align-items-center">
             <li class="nav-item ml-lg-5 mr-lg-5 ml-md-3 mr-md-3">
-              <router-link :to="{name: 'Check'}" tag="a" class="nav-link pl-0 pr-0 pt-4 pb-3"><h3>예약 확인</h3></router-link>
+              <router-link :to="{name: 'Check'}" tag="a" class="nav-link pl-0 pr-0 pt-3 pb-1 mb-1">
+                <h4 class="mb-0">예약 확인</h4>
+              </router-link>
             </li>
           </ul>
         </div>

@@ -29,7 +29,7 @@ export default {
   padding: 0;
 }
 .main {
-  margin-top: 113px;
+  margin-top: 73px;
   padding-top: 48px;
 }
 </style>

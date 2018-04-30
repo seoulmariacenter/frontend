@@ -6,31 +6,31 @@
       </div>
       <hr>
       <div class="m-3">
-        <p>서울마리아센터의 중심 순례지인 "메쥬고리예" 성모 성지를 소개합니다.</p>
+        <p>서울마리아센터의 중심 순례지인 <strong>메쥬고리예</strong> 성모 성지를 소개합니다.</p>
         <p>출처: <a target="_blank"
         class="text-info"
         href="http://www.qpmm.org/">평화의 모후 선교회</a>
         </p>
         <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-          <div class="btn-group mr-2 mb-2" role="group" aria-label="First group">
+          <div class="btn-group mr-lg-2 mr-sm-1 mb-2" role="group" aria-label="First group">
             <button
             class="btn btn-outline-secondary"
             type="button">메쥬고리예 소개
             </button>
           </div>
-          <div class="btn-group mr-2 mb-2" role="group" aria-label="Second group">
+          <div class="btn-group mr-lg-2 mr-sm-1 mb-2" role="group" aria-label="Second group">
             <button
             class="btn btn-outline-info"
             type="button">메쥬고리예 발현 기록
             </button>
           </div>
-          <div class="btn-group mr-2 mb-2" role="group" aria-label="Third group">
+          <div class="btn-group mr-lg-2 mr-sm-1 mb-2" role="group" aria-label="Third group">
             <button
             class="btn btn-outline-primary"
             type="button">가톨릭 교회의 입장
             </button>
           </div>
-          <div class="btn-group mr-2 mb-2" role="group" aria-label="Fourth group">
+          <div class="btn-group mr-lg-2 mr-sm-0 mb-2" role="group" aria-label="Fourth group">
             <button
             class="btn btn-outline-warning"
             type="button">유스페스티벌
