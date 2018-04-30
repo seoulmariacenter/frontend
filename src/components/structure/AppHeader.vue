@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed-top container-fluid mb-4">
+  <header id="mainHeader" class="container-fluid mb-4" role="banner">
     <div class="top-line"></div>
     <nav class="navbar navbar-expand-md navbar-light bg-light align-middle">
       <div class="container">
@@ -43,7 +43,7 @@
         </div>
       </div>
     </nav>
-  </div>
+  </header>
 </template>
 <script>
   export default {
@@ -51,6 +51,16 @@
   }
 </script>
 <style scoped>
+  #mainHeader {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+    height: auto;
+    -webkit-transition: top .4s;
+    transition: top .4s;
+    background-color: #F8F5EF;
+  }
   .navbar {
     box-shadow: 0 0 1em gray;
   }

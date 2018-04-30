@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-header/>
+    <app-header @scroll="hideHeader"/>
     <router-view class="main"/>
     <app-footer/>
   </div>
@@ -14,6 +14,28 @@ export default {
   components: {
     AppHeader,
     AppFooter
+  },
+  data() {
+    return {
+      lastScrollTop: 0
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.hideHeader, false);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.hideHeader, false);
+  },
+  methods: {
+    hideHeader(event) {
+      let st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st > this.lastScrollTop){
+        event.target.getElementById('mainHeader').style.top = "-100%";
+      } else {
+        event.target.getElementById('mainHeader').style.top = "0";
+      }
+      this.lastScrollTop = st;
+    }
   }
 }
 </script>
@@ -29,7 +51,6 @@ export default {
   padding: 0;
 }
 .main {
-  margin-top: 73px;
-  padding-top: 48px;
+  padding-top: 123px;
 }
 </style>
