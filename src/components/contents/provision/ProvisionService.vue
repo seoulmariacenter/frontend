@@ -10,7 +10,7 @@
         class="text-info"
         href="http://www.ftc.go.kr/www/cop/bbs/selectBoardList.do?key=201&bbsId=BBSMSTR_000000002320&bbsTyCode=BBST01">공정거래위원회</a>
         </p>
-        <div class="card border-secondary h750 overflow">
+        <div class="card border-secondary">
           <div class="card-body" v-html="cyberMallProvision"></div>
         </div>
       </div>
@@ -29,10 +29,4 @@
   }
 </script>
 <style scoped>
-  .h750 {
-    height: 750px;
-  }
-  .overflow {
-    overflow: scroll;
-  }
 </style>

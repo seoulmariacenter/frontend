@@ -10,7 +10,7 @@
         class="text-info"
         href="http://www.privacy.go.kr">개인정보보호 종합포털</a>
         </p>
-        <div class="card border-secondary h750 overflow">
+        <div class="card border-secondary">
           <div class="card-body" v-html="privatePolicy"></div>
         </div>
       </div>

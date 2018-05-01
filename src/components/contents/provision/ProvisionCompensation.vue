@@ -14,7 +14,7 @@
         <div class="row mt-3">
           <div class="col-12 mb-3">
             <transition name="slide-fade">
-              <div class="card border-secondary h750 overflow" v-if="isCompensationDomestic">
+              <div class="card border-secondary" v-if="isCompensationDomestic">
                 <h4 class="card-header text-secondary">
                   <strong>국내 여행 소비자 분쟁 해결 기준</strong>
                 </h4>
@@ -23,7 +23,7 @@
               </div>
             </transition>
             <transition name="slide-fade">
-              <div class="card border-info h750 overflow" v-if="isCompensationForeign">
+              <div class="card border-info" v-if="isCompensationForeign">
                 <h4 class="card-header text-info">
                   <strong>국외 여행 소비자 분쟁 해결 기준</strong>
                 </h4>
@@ -68,12 +68,6 @@
   }
 </script>
 <style scoped>
-  .h750 {
-    height: 750px;
-  }
-  .overflow {
-    overflow: scroll;
-  }
   .slide-fade-enter-active {
     transition: all .6s ease;
   }
