@@ -73,6 +73,70 @@
                 </div>
               </div>
             </transition>
+            <transition name="slide-fade">
+              <div class="card border-warning" v-if="isYouth">
+                <h4 class="card-header text-warning">
+                  <strong>유스페스티벌</strong>
+                </h4>
+                <div class="card-body">
+                  <h3>메주고리예 유스페스티벌이란?</h3>
+                  <p class="mb-1">메주고리예에서는 1989년부터 매년 7-8월마다 전 세계의 청년들이 함께 모여 성모님을 찬양하는 축제를 벌이고 있습니다.
+                    2017년 기준으로 28회 째를 맞이하고 있는 유스페스티벌은 회를 거듭할수록 규모가 커져 참가 사제 약 5백 명, 순례객 약 5만 명에 이르는 국제적 규모의 행사가 되었습니다.</p>
+                  <p><a target="_blank" href="https://www.facebook.com/Medjugorje-Youth-festival-310061499090138/" class="text-warning">
+                    <strong>유스페스티벌 페이스북 페이지 바로 가기</strong>
+                  </a></p>
+                  <hr>
+                  <h3>영상 보기</h3>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe
+                    class="embed-responsive-item"
+                    src="https://www.youtube.com/embed/8iWlBLxGIjw?rel=0"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen></iframe>
+                  </div>
+                  <hr>
+                  <h3>사진으로 보는 유스페스티벌</h3>
+                  <div class="row">
+                    <div class="col-12 mb-4">
+                      <img src="../../../assets/image/midafest/midafest_01.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 col-sm-12 mb-4">
+                      <img src="../../../assets/image/midafest/midafest_02.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 col-sm-12 mb-4">
+                      <img src="../../../assets/image/midafest/midafest_04.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-12 mb-4">
+                      <img src="../../../assets/image/midafest/midafest_03.jpg" class="img-fluid">
+                    </div>
+                  </div>
+                  <p>유럽, 미국, 아시아, 남미, 아프리카 등 세계 각국에서 모인 청년들은 성모님의 은총 아래 서로의 신앙을 공유하고, 우리 모두가 하나의 가톨릭 공동체임을 재확인합니다.</p>
+                  <div class="row">
+                    <div class="col-12 mb-4">
+                      <img src="../../../assets/image/midafest/midafest_07.jpg" class="img-fluid mb-4">
+                      <p class="mb-0">유스페스티벌 기간 동안에는 여러 나라에서 오신 신부님들이 야외 광장에서 각국의 언어로 고해성사를 베풀어주십니다. 광장 전체에 고해성사를 보는 청년들이 가득 차 있는 광경은 우리의 가슴을 벅차오르게 합니다.</p>
+                    </div>
+                    <div class="col-md-6 col-sm-12 mb-4">
+                      <img src="../../../assets/image/midafest/midafest_05.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 col-sm-12 mb-4">
+                      <img src="../../../assets/image/midafest/midafest_06.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-12 mb-4">
+                      <img src="../../../assets/image/midafest/midafest_08.jpg" class="img-fluid">
+                    </div>
+                  </div>
+                  <p>유스페스티벌의 하이라이트는 야외 제단에서 다함께 바치는 공동체 미사입니다. 5백여 명의 사제와 7만 명이 넘는 신자들이 거룩하신 성체를 나누어 먹고 성령의 불꽃으로 가슴이 타오르는 기쁨을 체험합니다.</p>
+                  <div class="row">
+                    <div class="col-12 mb-4">
+                      <img src="../../../assets/image/midafest/midafest_09.jpg" class="img-fluid mb-4">
+                      <p class="mb-0">유스페스티벌은 십자가 산 밤샘 순례를 끝으로 마무리됩니다. 새벽 일출과 함께 십자가 산 정상에서 드리는 미사의 감동을 여러분도 함께 느끼셨으면 좋겠습니다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
