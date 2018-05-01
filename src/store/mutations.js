@@ -85,7 +85,15 @@ export const updateReservationInfo = (state, payload) => {
 };
 
 export const clearReservationInfo = state => {
-  state.queryData.reservationInfo = {
+  state.queryData.reservationInfo = Object()
+};
+
+export const updateReservationQuery = (state, payload) => {
+  state.queryData.reservationQuery = payload
+};
+
+export const clearReservationQuery = state => {
+  state.queryData.reservationQuery = {
     'count': 0,
     'next': null,
     'previous': null,

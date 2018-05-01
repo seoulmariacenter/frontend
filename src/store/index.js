@@ -34,7 +34,8 @@ const state = {
     dateTable: Array(),
     scheduleInfo: Object(),
     scheduleRetrieve: Object(),
-    reservationInfo: {
+    reservationInfo: Object(),
+    reservationQuery: {
       'count': 0,
       'next': null,
       'previous': null,

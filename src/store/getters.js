@@ -36,6 +36,18 @@ export const getReservationInfo = state => {
   return state.queryData.reservationInfo
 };
 
+export const getReservationQuery = state => {
+  return state.queryData.reservationQuery.results
+};
+
+export const getActiveReservationQuery = (state, getters) => {
+  return getters.getReservationQuery.filter(list => list.is_active)
+};
+
+export const getInactiveReservationQuery = (state, getters) => {
+  return getters.getReservationQuery.filter(list => list.is_active === false)
+};
+
 export const getActiveReservationCount = state => {
   return state.queryData.activeReservationCount
 };

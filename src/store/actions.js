@@ -275,8 +275,8 @@ export const getReservationListQuery = ({commit, state}, payload) => {
     credentials: true
   }).then((response) => {
     commit('clearMsg');
-    commit('clearReservationInfo');
-    commit('updateReservationInfo', response.data)
+    commit('clearReservationQuery');
+    commit('updateReservationQuery', response.data)
   }).catch((error) => {
     commit('clearMsg');
     commit('updateMsg', error.response.data)
