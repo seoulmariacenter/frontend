@@ -139,6 +139,28 @@ export const cancelReservation = ({commit, state}, payload) => {
   })
 };
 
+export const destroyReservation = ({commit, state}, payload) => {
+  axios({
+    method: 'delete',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.destroy,
+    data: {
+      pk: payload
+    },
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': 'JWT ' + sessionStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then(() => {
+    commit('clearMsg');
+    router.go(router.currentRoute)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data.message)
+  })
+};
+
 // 쿼리 호출
 export const getPublishedProductListQuery = ({commit, state}, payload) => {
   axios({

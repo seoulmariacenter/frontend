@@ -19,6 +19,7 @@ const state = {
     make: 'make/',
     check: 'check/',
     cancel: 'cancel/',
+    destroy: 'destroy/',
     signIn: 'sign-in/',
     refresh: 'refresh/'
   },

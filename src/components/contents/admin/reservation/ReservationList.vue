@@ -2,7 +2,7 @@
   <div class="col-lg-9 col-md-8 bg-light">
     <div class="m-3">
       <div class="d-block d-flex justify-content-between">
-        <h2><strong>{{getProductRetrieve.title}} 예약 관리</strong></h2>
+        <h2 class="mb-0"><strong>{{getProductRetrieve.title}} 예약 관리</strong></h2>
         <div class="d-flex justify-content-between">
           <div class="btn-group dropleft mr-4">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -14,7 +14,7 @@
               <button @click="reservationQuery = 'canceled'" type="button" class="dropdown-item">취소자 명단</button>
             </div>
           </div>
-          <p class="mt-3 mb-3">총 <span class="text-info">{{getActiveReservationCount}}</span> 명 예약 중</p>
+          <p class="mt-2 mb-2">총 <span class="text-info">{{getActiveReservationCount}}</span> 명 예약 중</p>
         </div>
       </div>
       <hr>
@@ -22,10 +22,31 @@
         <div class="col-md-6 col-sm-12 mb-3" v-for="value in isCanceledQuery" :key="value.id">
           <div class="card">
             <div class="card-header">
-              <h5 class="d-inline-block">예약자: {{value.username}}</h5>
-              <button @click="showModal = true" type="button" class="close" aria-label="Close">
+              <h5 class="d-inline-block mb-0">예약자: {{value.username}}</h5>
+              <button type="button" class="close" aria-label="Close" data-toggle="modal" data-target="#destroyModal">
                 <span aria-hidden="true">&times;</span>
               </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="destroyModal" tabindex="-1" role="dialog" aria-labelledby="destroyModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="destroyModalLabel">예약자 삭제</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      예약자를 정말로 삭제하시겠습니까? 한번 삭제된 정보는 복구되지 않습니다.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                      <button @click="onDestroy(value.pk)" type="button" class="btn btn-outline-danger">삭제</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="card-body">
               <h5 class="card-title">연락처: {{value.phone_number}}</h5>
@@ -69,6 +90,9 @@
       '$route': 'fetchData'
     },
     methods: {
+      onDestroy(payload) {
+        this.$store.dispatch('destroyReservation', payload)
+      },
       fetchData() {
         this.$emit('manageContent', false);
         this.$store.dispatch('getProductRetrieveQuery', this.params);
