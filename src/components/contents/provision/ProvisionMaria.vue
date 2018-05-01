@@ -6,32 +6,39 @@
       </div>
       <hr>
       <div class="m-3">
-        <p>서울마리아센터의 중심 순례지인 <strong>메쥬고리예</strong> 성모 성지를 소개합니다.</p>
+        <p>서울마리아센터의 중심 순례지인 <strong>메주고리예</strong> 성모 성지를 소개합니다.</p>
         <p>출처: <a target="_blank"
         class="text-info"
-        href="http://www.qpmm.org/">평화의 모후 선교회</a>
+        href="http://www.qpmm.org/">평화의 모후 선교회</a>,
+          <a target="_blank"
+          class="text-info"
+          href="https://www.medjugorje.com/medjugorje">메주고리예 성지 공식 홈페이지</a>
         </p>
         <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
           <div class="btn-group mr-lg-2 mr-sm-1 mb-2" role="group" aria-label="First group">
             <button
+            @click="callMedjugorje('medjugorje')"
             class="btn btn-outline-secondary"
-            type="button">메쥬고리예 소개
+            type="button">메주고리예 소개
             </button>
           </div>
-          <div class="btn-group mr-lg-2 mr-sm-1 mb-2" role="group" aria-label="Second group">
+          <div class="btn-group mr-lg-2 mr-sm-0 mb-2" role="group" aria-label="Second group">
             <button
+            @click="callMedjugorje('visionaries')"
             class="btn btn-outline-info"
-            type="button">메쥬고리예 발현 기록
+            type="button">메주고리예 발현 기록
             </button>
           </div>
           <div class="btn-group mr-lg-2 mr-sm-1 mb-2" role="group" aria-label="Third group">
             <button
+            @click="callMedjugorje('bishops')"
             class="btn btn-outline-primary"
             type="button">가톨릭 교회의 입장
             </button>
           </div>
-          <div class="btn-group mr-lg-2 mr-sm-0 mb-2" role="group" aria-label="Fourth group">
+          <div class="btn-group mr-lg-0 mr-sm-0 mb-2" role="group" aria-label="Fourth group">
             <button
+            @click="callMedjugorje('youth')"
             class="btn btn-outline-warning"
             type="button">유스페스티벌
             </button>
@@ -40,11 +47,29 @@
         <div class="row mt-3">
           <div class="col-12 mb-3">
             <transition name="slide-fade">
-              <div class="card border-secondary h750 overflow">
+              <div class="card border-secondary" v-if="isMedjugorje">
                 <h4 class="card-header text-secondary">
-                  <strong>메쥬고리예 소개</strong>
+                  <strong>메주고리예 소개</strong>
                 </h4>
                 <div class="card-body" v-html="aboutMedjugorje">
+                </div>
+              </div>
+            </transition>
+            <transition name="slide-fade">
+              <div class="card border-info" v-if="isVisionaries">
+                <h4 class="card-header text-info">
+                  <strong>메주고리예 발현 기록</strong>
+                </h4>
+                <div class="card-body" v-html="aboutVisionaries">
+                </div>
+              </div>
+            </transition>
+            <transition name="slide-fade">
+              <div class="card border-primary" v-if="isBishops">
+                <h4 class="card-header text-primary">
+                  <strong>가톨릭 교회의 입장</strong>
+                </h4>
+                <div class="card-body" v-html="aboutBishops">
                 </div>
               </div>
             </transition>
@@ -59,22 +84,46 @@
     name: "ProvisionMaria",
     data() {
       return {
-
+        isMedjugorje: true,
+        isVisionaries: false,
+        isBishops: false,
+        isYouth: false
+      }
+    },
+    methods: {
+      callMedjugorje(payload) {
+        if (payload === 'medjugorje') {
+          this.isMedjugorje = true;
+          this.isVisionaries = this.isBishops = this.isYouth = false;
+        } else if (payload === 'visionaries') {
+          this.isVisionaries = true;
+          this.isMedjugorje = this.isBishops = this.isYouth = false;
+        } else if (payload === 'bishops') {
+          this.isBishops = true;
+          this.isMedjugorje = this.isVisionaries = this.isYouth = false;
+        } else if (payload === 'youth') {
+          this.isYouth = true;
+          this.isMedjugorje = this.isVisionaries = this.isBishops = false;
+        }
       }
     },
     computed: {
       aboutMedjugorje() {
         return require('../../../assets/markdown/about_medjugorje.md')
+      },
+      aboutVisionaries() {
+        return require('../../../assets/markdown/about_visionaries.md')
+      },
+      aboutBishops() {
+        return require('../../../assets/markdown/about_bishops_opinion.md')
       }
     }
   }
 </script>
 <style scoped>
-  .h750 {
-    height: 750px;
-  }
-  .overflow {
-    overflow: scroll;
+  blockquote {
+    margin-left: 4rem;
+    margin-right: 4rem;
   }
   .slide-fade-enter-active {
     transition: all .6s ease;
