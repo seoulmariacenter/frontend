@@ -102,9 +102,8 @@ export const checkReservation = ({commit, state}, payload) => {
     credentials: true
   }).then((response) => {
     commit('clearMsg');
-    commit('clearReservationInfo');
-    commit('updateReservationInfo', response.data);
-    sessionStorage.setItem('hostname', response.data.username);
+    commit('clearReservationStorage');
+    commit('updateReservationStorage', response.data);
     router.push({
       name: 'Detail'
     })

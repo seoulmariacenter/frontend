@@ -19,7 +19,7 @@ export const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.hasReservation)) {
-    if (sessionStorage.getItem('hostname')) {
+    if (sessionStorage.getItem('session_username')) {
       next({
         name: 'Detail',
         query: {redirect:to.fullPath}

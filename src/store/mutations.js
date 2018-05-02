@@ -88,6 +88,24 @@ export const clearReservationInfo = state => {
   state.queryData.reservationInfo = Object()
 };
 
+export const updateReservationStorage = (state, payload) => {
+  sessionStorage.setItem('session_pk', payload.pk);
+  sessionStorage.setItem('session_product', payload.product);
+  sessionStorage.setItem('session_product_pk', payload.product_pk);
+  sessionStorage.setItem('session_username', payload.username);
+  sessionStorage.setItem('session_phone_number', payload.phone_number);
+  sessionStorage.setItem('session_gender', payload.gender)
+};
+
+export const clearReservationStorage = state => {
+  sessionStorage.removeItem('session_pk');
+  sessionStorage.removeItem('session_product');
+  sessionStorage.removeItem('session_product_pk');
+  sessionStorage.removeItem('session_username');
+  sessionStorage.removeItem('session_phone_number');
+  sessionStorage.removeItem('session_gender');
+};
+
 export const updateReservationQuery = (state, payload) => {
   state.queryData.reservationQuery = payload
 };

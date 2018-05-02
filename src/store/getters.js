@@ -36,6 +36,16 @@ export const getReservationInfo = state => {
   return state.queryData.reservationInfo
 };
 
+export const getReservationSessionInfo = state => {
+  return {
+    pk: sessionStorage.getItem('session_pk'),
+    product: sessionStorage.getItem('session_product'),
+    username: sessionStorage.getItem('session_username'),
+    phone_number: sessionStorage.getItem('session_phone_number'),
+    gender: sessionStorage.getItem('session_gender')
+  }
+};
+
 export const getReservationQuery = state => {
   return state.queryData.reservationQuery.results
 };

@@ -5,16 +5,19 @@
         <h2><strong>예약 정보</strong></h2>
       </div>
       <hr>
-      <div class="row m-2">
+      <div v-if="loading" class="alert alert-info text-center" role="alert">
+        <h4 class="mb-0"><strong>예약 정보를 불러 오는 중입니다. 잠시만 기다려주세요!</strong></h4>
+      </div>
+      <div v-show="show" class="row m-2">
         <div class="col p-0 card">
           <div class="card-header">
-            <h5 class="mb-0"><strong>예약 상품: {{getReservationInfo.product}}</strong></h5>
+            <h5 class="mb-0"><strong>예약 상품: {{getReservationSessionInfo.product}}</strong></h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">예약자 성함: {{getReservationInfo.username}}</li>
-            <li class="list-group-item">예약자 연락처: {{getReservationInfo.phone_number}}</li>
+            <li class="list-group-item">예약자 성함: {{getReservationSessionInfo.username}}</li>
+            <li class="list-group-item">예약자 연락처: {{getReservationSessionInfo.phone_number}}</li>
             <li class="list-group-item">예약자 성별:
-              <span v-if="getReservationInfo.gender">여성</span>
+              <span v-if="getReservationSessionInfo.gender">여성</span>
               <span v-else>남성</span>
             </li>
           </ul>
@@ -75,14 +78,14 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
-                <button @click="signOutReservation" type="button" class="btn btn-info">로그아웃</button>
+                <button @click="signOutReservation" type="submit" class="btn btn-info" data-dismiss="modal">로그아웃</button>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="row m-2">
-        <reservation-member v-if="callReservationMember" v-bind:host-pk="getReservationInfo.pk"/>
+        <reservation-member v-if="callReservationMember" v-bind:host-pk="getReservationSessionInfo.pk"/>
       </div>
     </div>
   </div>
@@ -100,6 +103,8 @@
     },
     data() {
       return {
+        show: null,
+        loading: false,
         callReservationMember: false,
         reservationNum: {
           a: '',
@@ -109,28 +114,41 @@
         }
       }
     },
+    created() {
+      this.fetchData()
+    },
+    watch: {
+      '$route': 'fetchData'
+    },
     methods: {
       signOutReservation() {
-        sessionStorage.removeItem('hostname');
-        router.go(router.currentRoute);
+        this.$store.commit('clearReservationStorage');
         router.replace({
           name: 'Home'
         })
       },
       cancelReservation() {
         const formData = {
-          name: this.getReservationInfo.username,
+          name: this.getReservationSessionInfo.username,
           password: this.reservationNum.a +
           this.reservationNum.b +
           this.reservationNum.c +
           this.reservationNum.d
         };
         this.$store.dispatch('cancelReservation', formData)
+      },
+      fetchData() {
+        this.show = this.loading = null;
+        this.loading = true;
+        if (this.getReservationSessionInfo !== null) {
+          this.loading = false;
+          this.show = true;
+        }
       }
     },
     computed: {
       ...mapGetters([
-        'getReservationInfo'
+        'getReservationSessionInfo'
       ])
     }
   }
