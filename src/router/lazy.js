@@ -49,3 +49,7 @@ export const ReservationCancelComplete = () => import('../components/contents/re
 export const AdminReservationList = () => import('../components/contents/admin/reservation/AdminReservationList.vue');
 
 export const AdminReservationDetail = () => import('../components/contents/admin/reservation/AdminReservationDetail.vue');
+
+export const ClientProductList = () => import('../components/contents/clientproduct/ClientProductList.vue');
+
+export const ClientProductDetail = () => import('../components/contents/clientproduct/ClientProductDetail.vue');

@@ -24,7 +24,9 @@ import {
   ProvisionTravel,
   ProvisionInsurance,
   ProvisionCompensation,
-  ClientProduct
+  ClientProduct,
+  ClientProductList,
+  ClientProductDetail
 } from './lazy'
 
 export const routes = [
@@ -41,6 +43,19 @@ export const routes = [
     path: '/product',
     name: 'ClientProduct',
     component: ClientProduct,
+    children: [
+      {
+        path: 'list',
+        name: 'ClientProductList',
+        component: ClientProductList
+      },
+      {
+        path: ':pk',
+        name: 'ClientProductDetail',
+        component: ClientProductDetail,
+        props: true
+      }
+    ]
   },
   {
     path: '/provision',
