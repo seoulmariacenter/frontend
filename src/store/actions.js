@@ -549,6 +549,33 @@ export const updateProduct = ({commit, state}, payload) => {
   })
 };
 
+export const uploadImage = ({commit, state}, payload) => {
+  axios({
+    method: 'patch',
+    url: state.endpoints.baseUrl + state.endpoints.travel + payload.params + '/',
+    data: {
+      image: payload.file
+    },
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Authorization': 'JWT ' + sessionStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    router.push({
+      name: 'Product',
+      params: {pk: response.data.pk}
+    })
+  }).catch((error) => {
+    if (typeof error.response !== 'undefined') {
+      commit('clearMsg');
+      commit('updateMsg', error.response.data)
+    }
+  })
+};
+
+
 export const updateSchedule = ({commit, state}, payload) => {
   axios({
     method: 'patch',

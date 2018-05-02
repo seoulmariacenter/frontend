@@ -46,12 +46,45 @@
             <product-update-destroy/>
           </div>
         </div>
-        <figure class="figure col-lg-6 col-sm-12" v-if="getProductRetrieve.image">
-          <img :src="getProductRetrieve.image" class="figure-img img-fluid rounded" alt="순례 상품 대표 이미지">
-        </figure>
-        <figure class="figure col-lg-6 col-sm-12" v-else>
-          <img class="figure-img img-fluid rounded" src="../../../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
-        </figure>
+        <a role="button" class="col-lg-6 col-sm-12 hovering" data-toggle="modal" data-target="#pictureModal">
+          <img v-if="getProductRetrieve.image"
+          :src="getProductRetrieve.image"
+          class="img-fluid rounded"
+          alt="순례 상품 대표 이미지">
+          <img v-else class="img-fluid rounded" src="../../../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
+          <p class="mt-2">대표 이미지를 변경하려면 사진을 클릭하세요!</p>
+        </a>
+        <!-- Modal -->
+        <div class="modal fade"
+        id="pictureModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="pictureModalLabel"
+        aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="pictureModalLabel">이미지 변경</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form enctype="multipart/form-data" @submit.prevent="onImageUpload">
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="imageUpload">이미지 업로드</label>
+                    <input type="file" ref="file" accept="image/*" class="form-control-file" id="imageUpload" @change="handleFileUpload()">
+                  </div>
+                  <img :src="imagePreview" v-show="showPreview"/>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">적용</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
       <message/>
       <hr>
@@ -68,6 +101,7 @@
 </template>
 <script>
   import {mapGetters, mapMutations} from 'vuex'
+  import axios from 'axios/index'
   import {router} from '../../../../main'
   import ProductUpdateDestroy from './ProductUpdateDestroy'
   import ScheduleTable from '../schedule/ScheduleTable'
@@ -81,6 +115,9 @@
     },
     data() {
       return {
+        file: '',
+        showPreview: false,
+        imagePreview: '',
         published: {
           yes: '발행 중',
           no: '미발행'
@@ -101,6 +138,75 @@
     methods: {
       tableResult() {
         return this.scheduleLoading ? this.scheduleLoading = false : this.scheduleLoading = true
+      },
+      handleFileUpload(){
+        /*
+         Set the local file variable to what the user has selected.
+         */
+        this.file = this.$refs.file.files[0];
+        console.log(this.file);
+        /*
+         Initialize a File Reader object
+         */
+        let reader  = new FileReader();
+
+        /*
+         Add an event listener to the reader that when the file
+         has been loaded, we flag the show preview as true and set the
+         image to be what was read from the reader.
+         */
+        reader.addEventListener("load", function () {
+          this.showPreview = true;
+          this.imagePreview = reader.result;
+        }.bind(this), false);
+
+        /*
+         Check to see if the file is not empty.
+         */
+        if( this.file ){
+          /*
+           Ensure the file is an image file.
+           */
+          if ( /\.(jpe?g|png|gif)$/i.test( this.file.name ) ) {
+            /*
+             Fire the readAsDataURL method which will read the file in and
+             upon completion fire a 'load' event which we will listen to and
+             display the image in the preview.
+             */
+            reader.readAsDataURL( this.file );
+          }
+        }
+      },
+      onImageUpload() {
+        /*
+         Initialize the form data
+         */
+        let formData = new FormData();
+
+        /*
+         Add the form data we need to submit
+         */
+        formData.append('image', this.file);
+
+        axios({
+          method: 'patch',
+          url: this.$store.state.endpoints.baseUrl + this.$store.state.endpoints.travel + this.params + '/',
+          data: formData,
+          headers: {
+            'Content-Type' : 'multipart/form-data;boundary="boundary"',
+            'Authorization': 'JWT ' + sessionStorage.getItem('token')
+          },
+          xsrfHeaderName: 'X-XSRF-TOKEN',
+          credentials: true
+        }).then(() => {
+          router.go(router.currentRoute)
+        }).catch((error) => {
+          if (typeof error.response !== 'undefined') {
+            this.$store.commit('clearMsg');
+            this.$store.commit('updateMsg', error.response.data)
+          }
+        })
+
       },
       onSubmit(payload) {
         let boolean;
@@ -147,4 +253,9 @@
   }
 </script>
 <style scoped>
+  .hovering:hover {
+    cursor: pointer;
+    opacity: .6;
+    transition: opacity .4s;
+  }
 </style>
