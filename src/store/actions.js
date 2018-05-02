@@ -446,11 +446,10 @@ export const createProduct = ({commit, state}, payload) => {
       price: payload.price,
       start_time: payload.startDate,
       end_time: payload.endDate,
-      image: payload.image,
       publish: false
     },
     headers: {
-      'Content-Type': 'application/*',
+      'Content-Type': 'application/json',
       'Authorization': 'JWT ' + sessionStorage.getItem('token')
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
@@ -529,7 +528,6 @@ export const updateProduct = ({commit, state}, payload) => {
       price: payload.price,
       start_time: payload.startDate,
       end_time: payload.endDate,
-      image: payload.image,
       publish: payload.publish
     },
     headers: {

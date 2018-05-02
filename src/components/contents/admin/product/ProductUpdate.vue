@@ -6,7 +6,7 @@
       </div>
       <hr>
       <div class="m-2">
-        <form enctype="multipart/form-data" @submit.prevent="onSubmit" method="post">
+        <form @submit.prevent="onSubmit" method="post">
           <div class="form-group row">
             <label for="inputTitle" class="col-md-2 col-form-label"><strong>상품 이름</strong></label>
             <div class="col-md-8">
@@ -32,12 +32,6 @@
             <div class="form-group col-md-5">
               <label for="inputStartDate2" class="col-form-label"><strong>도착 날짜</strong></label>
               <input v-model="endDate" type="date" class="form-control" id="inputStartDate2">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="imageUpload" class="col-form-label"><strong>상품 대표 이미지</strong></label>
-              <input @change="onFileSelected" type="file" class="form-control-file" id="imageUpload" accept="image/*">
             </div>
           </div>
           <div class="form-group row">
@@ -69,8 +63,7 @@
         title: null,
         price: null,
         startDate: null,
-        endDate: null,
-        selectedFile: null,
+        endDate: null
       }
     },
     created() {
@@ -84,9 +77,6 @@
         this.$emit('manageContent', false);
         this.$store.dispatch('getProductRetrieveQuery', this.params)
       },
-      onFileSelected(event) {
-        this.selectedFile = event.target.files[0];
-      },
       onSubmit() {
         const formData = {
           params: this.params,
@@ -94,7 +84,6 @@
           price: this.price,
           startDate: this.startDate,
           endDate: this.endDate,
-          image: this.selectedFile,
         };
 
         let result = Object();
