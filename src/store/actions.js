@@ -187,6 +187,25 @@ export const createReservationMember = ({commit, state}, payload) => {
   })
 };
 
+export const getReservationMemberQuery = ({commit, state}, payload) => {
+  axios({
+    method: 'get',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.member + payload + '/',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    commit('clearReservationMemberQuery');
+    commit('updateReservationMemberQuery', response.data);
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data)
+  })
+};
+
 // 쿼리 호출
 export const getPublishedProductListQuery = ({commit, state}, payload) => {
   axios({

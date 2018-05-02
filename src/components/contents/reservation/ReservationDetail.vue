@@ -21,10 +21,22 @@
             </p>
           </div>
         </div>
+      </div>
+      <div class="m-3 pt-3 pb-3">
+        <div class="d-block d-flex justify-content-between">
+          <h2><strong>동승자 목록</strong></h2>
+          <p class="mt-3 mb-0">동승자 인원: 총 <span class="text-info">{{getReservationMemberCount}}</span> 명</p>
+        </div>
+        <hr>
         <div class="mt-2" v-if="getReservationMemberQuery">
-          <div class="card" v-for="index in getReservationMemberQuery" :key="index.id">
+          <div class="card mb-2" v-for="index in getReservationMemberQuery" :key="index.id">
+            <div class="card-header">
+              <h6 class="card-title mb-0"><span>{{index.pk}}.</span> {{index.name}}</h6>
+            </div>
             <div class="card-body">
-              {{index}}
+              <p class="mb-1">연락처: {{index.phone_number}}</p>
+              <p class="mb-0" v-if="index.gender">성별: 여성</p>
+              <p class="mb-0" v-else>성별: 남성</p>
             </div>
           </div>
         </div>
@@ -39,6 +51,17 @@
     name: "ReservationDetail",
     components: {
       ReservationInformation
+    },
+    created() {
+      this.fetchData()
+    },
+    watch: {
+      '$route': 'fetchData'
+    },
+    methods: {
+      fetchData() {
+        this.$store.dispatch('getReservationMemberQuery', sessionStorage.getItem('session_pk'))
+      }
     },
     computed: {
       ...mapGetters([
