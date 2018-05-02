@@ -68,7 +68,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
-                  <button @click="cancelReservation" type="button" class="btn btn-danger">예약 취소</button>
+                  <button @click="cancelReservation" type="button" class="btn btn-danger" data-dismiss="modal">예약 취소</button>
                 </div>
                 <message/>
               </form>

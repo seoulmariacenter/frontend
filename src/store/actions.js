@@ -128,9 +128,9 @@ export const cancelReservation = ({commit, state}, payload) => {
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
   }).then(()=> {
+    commit('clearMsg');
+    commit('clearReservationStorage');
     commit('clearReservationInfo');
-    sessionStorage.removeItem('hostname');
-    router.go(router.currentRoute);
     router.replace({
       name: 'Cancel'
     })
