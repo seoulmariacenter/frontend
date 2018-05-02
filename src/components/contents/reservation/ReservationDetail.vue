@@ -31,7 +31,31 @@
         <div class="mt-2" v-if="getReservationMemberQuery">
           <div class="card mb-2" v-for="index in getReservationMemberQuery" :key="index.id">
             <div class="card-header">
-              <h6 class="card-title mb-0"><span>{{index.pk}}.</span> {{index.name}}</h6>
+              <h6 class="d-inline-block card-title mb-0"><strong>{{index.name}}</strong></h6>
+              <button type="button" class="close" aria-label="Close" data-toggle="modal" data-target="#destroyMemberModal">
+                <span aria-hidden="true">&times;</span>
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="destroyMemberModal" tabindex="-1" role="dialog" aria-labelledby="destroyMemberModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="destroyMemberModalLabel">동승자 삭제</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      동승자를 정말로 삭제하시겠습니까? 한번 삭제된 정보는 복구되지 않습니다.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                      <button @click="onDestroy(index.pk)" type="button" class="btn btn-outline-danger">삭제</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="card-body">
               <p class="mb-1">연락처: {{index.phone_number}}</p>
@@ -59,6 +83,13 @@
       '$route': 'fetchData'
     },
     methods: {
+      onDestroy(payload) {
+        const formData = {
+          pk: sessionStorage.getItem('session_pk'),
+          member: payload
+        };
+        this.$store.dispatch('destroyReservationMember', formData)
+      },
       fetchData() {
         this.$store.dispatch('getReservationMemberQuery', sessionStorage.getItem('session_pk'))
       }

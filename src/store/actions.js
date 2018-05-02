@@ -206,6 +206,24 @@ export const getReservationMemberQuery = ({commit, state}, payload) => {
   })
 };
 
+export const destroyReservationMember = ({commit, state}, payload) => {
+  axios({
+    method: 'delete',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.member + payload.pk + '/detail/' + payload.member + '/',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then(() => {
+    commit('clearMsg');
+    router.go(router.currentRoute)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data);
+  })
+};
+
 // 쿼리 호출
 export const getPublishedProductListQuery = ({commit, state}, payload) => {
   axios({
