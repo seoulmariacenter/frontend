@@ -206,6 +206,29 @@ export const getReservationMemberQuery = ({commit, state}, payload) => {
   })
 };
 
+export const updateReservationMember = ({commit, state}, payload) => {
+  axios({
+    method: 'patch',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.member + payload.pk + '/detail/' + payload.member + '/',
+    data: {
+      name: payload.name,
+      phone_number: payload.phone,
+      gender: payload.gender
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then(() => {
+    commit('clearMsg');
+    router.go(router.currentRoute)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data);
+  })
+};
+
 export const destroyReservationMember = ({commit, state}, payload) => {
   axios({
     method: 'delete',
