@@ -11,7 +11,7 @@
         <div class="mt-2" v-if="getReservationMemberQuery">
           <div class="card mb-2" v-for="index in getReservationMemberQuery" :key="index.id">
             <div class="card-header">
-              <h6 class="d-inline-block card-title mb-0"><strong>{{index.pk}} | {{index.name}}</strong></h6>
+              <h6 class="d-inline-block card-title mb-0"><strong>{{index.name}}</strong></h6>
               <button @click="member = index.pk" type="button" class="close" aria-label="Close" data-toggle="modal" data-target="#destroyMemberModal">
                 <span aria-hidden="true">&times;</span>
               </button>
