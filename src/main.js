@@ -41,7 +41,7 @@ router.beforeEach((to, from, next) => {
       })
     } else {
       next(
-      store.dispatch('refreshTokenAdmin')
+      // store.dispatch('refreshTokenAdmin')
       )
     }
   } else {
