@@ -24,11 +24,9 @@
           :data-content="value.title + ' 선택!'"
           class="col-12 p-0 mb-4 product">
             <div class="card text-dark">
-              <div v-if="value.image">
-                <img class="card-img-top" :src="value.image" alt="Card image">
-              </div>
-              <div v-else>
-                <img class="card-img-top" src="../../../assets/image/medjugorje_maria_01.jpg">
+              <div style="max-height: 163px; overflow: hidden">
+                <img v-if="value.image" class="card-img-top" :src="value.image" alt="Card image">
+                <img v-else class="card-img-top" src="../../../assets/image/medjugorje_maria_01.jpg">
               </div>
               <div class="card-body bg-white">
                 <h4 class="card-title mb-0"><strong>{{value.title}}</strong></h4>
