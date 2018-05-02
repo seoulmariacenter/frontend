@@ -36,7 +36,7 @@ export const getReservationInfo = state => {
   return state.queryData.reservationInfo
 };
 
-export const getReservationSessionInfo = state => {
+export const getReservationSessionInfo = () => {
   return {
     pk: sessionStorage.getItem('session_pk'),
     product: sessionStorage.getItem('session_product'),

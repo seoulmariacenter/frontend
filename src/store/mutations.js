@@ -97,7 +97,7 @@ export const updateReservationStorage = (state, payload) => {
   sessionStorage.setItem('session_gender', payload.gender)
 };
 
-export const clearReservationStorage = state => {
+export const clearReservationStorage = () => {
   sessionStorage.removeItem('session_pk');
   sessionStorage.removeItem('session_product');
   sessionStorage.removeItem('session_product_pk');
