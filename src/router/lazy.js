@@ -44,4 +44,6 @@ export const ReservationDetail = () => import('../components/contents/reservatio
 
 export const ReservationCancelComplete = () => import('../components/contents/reservation/ReservationCancelComplete.vue');
 
-export const ReservationList = () => import('../components/contents/admin/reservation/ReservationList.vue');
+export const AdminReservationList = () => import('../components/contents/admin/reservation/AdminReservationList.vue');
+
+export const AdminReservationDetail = () => import('../components/contents/admin/reservation/AdminReservationDetail.vue');

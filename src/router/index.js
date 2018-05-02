@@ -14,7 +14,8 @@ import {
   ReservationCheck,
   ReservationDetail,
   ReservationCancelComplete,
-  ReservationList,
+  AdminReservationList,
+  AdminReservationDetail,
   Provision,
   ProvisionIntroduce,
   ProvisionMaria,
@@ -151,8 +152,14 @@ export const routes = [
           },
           {
             path: 'product/:pk/reservation',
-            name: 'ReservationList',
-            component: ReservationList,
+            name: 'AdminReservationList',
+            component: AdminReservationList,
+            props: true
+          },
+          {
+            path: 'product/:pk/reservation/:host',
+            name: 'AdminReservationDetail',
+            component: AdminReservationDetail,
             props: true
           },
           {
