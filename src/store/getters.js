@@ -41,6 +41,7 @@ export const getReservationSessionInfo = () => {
     pk: sessionStorage.getItem('session_pk'),
     product: sessionStorage.getItem('session_product'),
     username: sessionStorage.getItem('session_username'),
+    christian_name: sessionStorage.getItem('session_christian_name'),
     phone_number: sessionStorage.getItem('session_phone_number'),
     gender: sessionStorage.getItem('session_gender')
   }

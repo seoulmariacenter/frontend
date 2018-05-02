@@ -65,6 +65,7 @@ export const createReservation = ({commit, state}, payload) => {
     url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.make,
     data: {
       username: payload.name,
+      christian_name: payload.christianName,
       phone_number: payload.phone,
       gender: payload.gender,
       product: payload.product
@@ -187,6 +188,7 @@ export const createReservationMember = ({commit, state}, payload) => {
     url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.member + payload.host + '/',
     data: {
       name: payload.name,
+      christian_name: payload.christianName,
       phone_number: payload.phone,
       gender: payload.gender,
       is_adult: payload.age,
@@ -233,6 +235,7 @@ export const updateReservationMember = ({commit, state}, payload) => {
     url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.member + payload.pk + '/detail/' + payload.member + '/',
     data: {
       name: payload.name,
+      christian_name: payload.christianName,
       phone_number: payload.phone,
       gender: payload.gender,
       is_adult: payload.age

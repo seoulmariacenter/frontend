@@ -93,6 +93,7 @@ export const updateReservationStorage = (state, payload) => {
   sessionStorage.setItem('session_product', payload.product);
   sessionStorage.setItem('session_product_pk', payload.product_pk);
   sessionStorage.setItem('session_username', payload.username);
+  sessionStorage.setItem('session_christian_name', payload.christian_name);
   sessionStorage.setItem('session_phone_number', payload.phone_number);
   sessionStorage.setItem('session_gender', payload.gender)
 };
@@ -102,6 +103,7 @@ export const clearReservationStorage = () => {
   sessionStorage.removeItem('session_product');
   sessionStorage.removeItem('session_product_pk');
   sessionStorage.removeItem('session_username');
+  sessionStorage.removeItem('session_christian_name');
   sessionStorage.removeItem('session_phone_number');
   sessionStorage.removeItem('session_gender');
 };
