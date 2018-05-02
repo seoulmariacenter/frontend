@@ -23,9 +23,9 @@
               </router-link>
             </li>
             <li class="nav-item active ml-lg-5 mr-lg-5 ml-md-3 mr-md-3">
-              <a class="nav-link pl-0 pr-0 pt-3 pb-1 mb-1" href="#">
+              <router-link :to="{name: 'ClientProduct'}" tag="a" class="nav-link pl-0 pr-0 pt-3 pb-1 mb-1" href="#">
                 <h4 class="mb-0">성지</h4>
-              </a>
+              </router-link>
             </li>
             <li class="nav-item active ml-lg-5 mr-lg-5 ml-md-3 mr-md-3">
               <router-link :to="{name: 'Introduce'}" tag="a" class="nav-link pl-0 pr-0 pt-3 pb-1 mb-1">

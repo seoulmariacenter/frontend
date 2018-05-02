@@ -10,6 +10,8 @@ export const Reservation = () => import('../components/view/Reservation.vue');
 
 export const Provision = () => import('../components/view/Provision.vue');
 
+export const ClientProduct = () => import('../components/view/ClientProduct.vue');
+
 export const ProvisionIntroduce = () => import('../components/contents/provision/ProvisionIntroduce.vue');
 
 export const ProvisionMaria = () => import('../components/contents/provision/ProvisionMaria.vue');

@@ -23,7 +23,8 @@ import {
   ProvisionService,
   ProvisionTravel,
   ProvisionInsurance,
-  ProvisionCompensation
+  ProvisionCompensation,
+  ClientProduct
 } from './lazy'
 
 export const routes = [
@@ -35,6 +36,11 @@ export const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: 'product',
+    name: 'ClientProduct',
+    component: ClientProduct,
   },
   {
     path: '/provision',
