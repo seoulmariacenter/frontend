@@ -38,14 +38,18 @@
             </div>
             <div class="card-body d-flex justify-content-between">
               <div class="">
-                <p class="mb-1"><strong>연락처:</strong> {{index.phone_number}}</p>
+                <p class="mb-0"><strong>연락처:</strong> {{index.phone_number}}</p>
                 <p class="mb-0">
-                  <span class="mb-0" v-if="index.gender"><strong>성별:</strong> 여성</span>
-                  <span class="mb-0" v-else><strong>성별:</strong> 남성</span>
+                  <span v-if="index.gender"><strong>성별:</strong> 여성</span>
+                  <span v-else><strong>성별:</strong> 남성</span>
+                </p>
+                <p class="mb-0">
+                  <span v-if="index.is_adult"><strong>연령:</strong> 성인</span>
+                  <span v-else><strong>연령:</strong> 유아</span>
                 </p>
               </div>
-              <div class="">
-                <button @click="member = index.pk" class="btn btn-outline-warning mt-2" data-toggle="modal" data-target="#updateMemberModal">수정</button>
+              <div class="mt-3">
+                <button @click="member = index.pk" class="btn btn-outline-warning" data-toggle="modal" data-target="#updateMemberModal">수정</button>
                 <!-- Modal -->
                 <div class="modal fade" id="updateMemberModal" tabindex="-1" role="dialog" aria-labelledby="updateMemberModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -81,7 +85,7 @@
                                 <input v-model="gender"
                                 class="form-check-input"
                                 type="radio"
-                                name="gridRadios"
+                                name="gridRadios1"
                                 id="genderRadios1"
                                 value="True"
                                 checked>
@@ -93,11 +97,39 @@
                                 <input v-model="gender"
                                 class="form-check-input"
                                 type="radio"
-                                name="gridRadios"
+                                name="gridRadios1"
                                 id="genderRadios2"
                                 value="False">
                                 <label class="form-check-label" for="genderRadios2">
                                   남성
+                                </label>
+                              </div>
+                            </div>
+                          </fieldset>
+                          <fieldset class="form-row">
+                            <legend class="col-form-label pb-0"><strong>동승자 연령</strong></legend>
+                            <div class="d-flex m-2">
+                              <div class="form-check mr-4">
+                                <input v-model="age"
+                                class="form-check-input"
+                                type="radio"
+                                name="gridRadios2"
+                                id="ageRadios1"
+                                value="True"
+                                checked>
+                                <label class="form-check-label" for="ageRadios1">
+                                  성인
+                                </label>
+                              </div>
+                              <div class="form-check m1-4">
+                                <input v-model="age"
+                                class="form-check-input"
+                                type="radio"
+                                name="gridRadios2"
+                                id="ageRadios2"
+                                value="False">
+                                <label class="form-check-label" for="ageRadios2">
+                                  유아
                                 </label>
                               </div>
                             </div>
@@ -132,6 +164,7 @@
         name: '',
         phone: '',
         gender: 'True',
+        age: 'True',
         member: 0
       }
     },
@@ -148,7 +181,8 @@
           member: payload,
           name: this.name,
           phone: this.phone,
-          gender: this.gender
+          gender: this.gender,
+          age: this.age
         };
 
         let result = Object();

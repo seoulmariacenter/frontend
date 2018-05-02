@@ -31,10 +31,14 @@
             <h6 class="card-title mb-0"><strong>{{index.name}}</strong></h6>
           </div>
           <div class="card-body">
-            <p class="mb-1"><strong>연락처:</strong> {{index.phone_number}}</p>
+            <p class="mb-0"><strong>연락처:</strong> {{index.phone_number}}</p>
             <p class="mb-0">
-              <span class="mb-0" v-if="index.gender"><strong>성별:</strong> 여성</span>
-              <span class="mb-0" v-else><strong>성별:</strong> 남성</span>
+              <span v-if="index.gender"><strong>성별:</strong> 여성</span>
+              <span v-else><strong>성별:</strong> 남성</span>
+            </p>
+            <p class="mb-0">
+              <span v-if="index.is_adult"><strong>연령:</strong> 성인</span>
+              <span v-else><strong>연령:</strong> 유아</span>
             </p>
           </div>
         </div>

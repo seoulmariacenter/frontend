@@ -189,6 +189,7 @@ export const createReservationMember = ({commit, state}, payload) => {
       name: payload.name,
       phone_number: payload.phone,
       gender: payload.gender,
+      is_adult: payload.age,
       host: payload.host
     },
     headers: {
@@ -233,7 +234,8 @@ export const updateReservationMember = ({commit, state}, payload) => {
     data: {
       name: payload.name,
       phone_number: payload.phone,
-      gender: payload.gender
+      gender: payload.gender,
+      is_adult: payload.age
     },
     headers: {
       'Content-Type': 'application/json'

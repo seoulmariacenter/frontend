@@ -13,15 +13,32 @@
         <legend class="col-form-label pb-0"><strong>동승자 성별</strong></legend>
         <div class="d-flex m-2">
           <div class="form-check mr-4">
-            <input v-model="gender" class="form-check-input" type="radio" name="gridRadios" id="genderRadios1" value="True" checked>
+            <input v-model="gender" class="form-check-input" type="radio" name="gridRadios1" id="genderRadios1" value="True" checked>
             <label class="form-check-label" for="genderRadios1">
               여성
             </label>
           </div>
           <div class="form-check m1-4">
-            <input v-model="gender" class="form-check-input" type="radio" name="gridRadios" id="genderRadios2" value="False">
+            <input v-model="gender" class="form-check-input" type="radio" name="gridRadios1" id="genderRadios2" value="False">
             <label class="form-check-label" for="genderRadios2">
               남성
+            </label>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="form-row">
+        <legend class="col-form-label pb-0"><strong>동승자 연령</strong></legend>
+        <div class="d-flex m-2">
+          <div class="form-check mr-4">
+            <input v-model="age" class="form-check-input" type="radio" name="gridRadios2" id="ageRadios1" value="True" checked>
+            <label class="form-check-label" for="ageRadios1">
+              성인
+            </label>
+          </div>
+          <div class="form-check m1-4">
+            <input v-model="age" class="form-check-input" type="radio" name="gridRadios2" id="ageRadios2" value="False">
+            <label class="form-check-label" for="ageRadios2">
+              유아
             </label>
           </div>
         </div>
@@ -40,7 +57,8 @@
       return {
         name: '',
         phone: '',
-        gender: 'True'
+        gender: 'True',
+        age: 'True'
       }
     },
     methods: {
@@ -49,6 +67,7 @@
           name: this.name,
           phone: this.phone,
           gender: this.gender,
+          age: this.age,
           host: this.hostPk
         };
         this.$store.dispatch('createReservationMember', formData)
