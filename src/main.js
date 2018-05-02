@@ -4,6 +4,7 @@ import App from './App.vue'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min'
+require('es6-promise/auto');
 
 import {routes} from './router'
 import store from './store/index'
