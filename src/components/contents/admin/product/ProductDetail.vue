@@ -75,7 +75,7 @@
                     <label for="imageUpload">이미지 업로드</label>
                     <input type="file" ref="file" accept="image/*" class="form-control-file" id="imageUpload" @change="handleFileUpload()">
                   </div>
-                  <img :src="imagePreview" v-show="showPreview"/>
+                  <img :src="imagePreview" v-show="showPreview" class="img-fluid"/>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
