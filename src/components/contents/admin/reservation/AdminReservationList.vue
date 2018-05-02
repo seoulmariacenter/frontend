@@ -52,14 +52,14 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">연락처: {{value.phone_number}}</h5>
-              <p class="card-text">예약 일시: {{new Date(value.date_joined).getFullYear() + '-' + new Date(value.date_joined).getMonth() + '-' + new Date(value.date_joined).getDate()}}</p>
+              <p class="card-text">예약 일시: {{new Date(value.date_joined).getFullYear() + '-' + parseInt(new Date(value.date_joined).getMonth() + 1) + '-' + new Date(value.date_joined).getDate()}}</p>
               <p class="card-text" v-if="value.gender">성별: {{gender.female}}</p>
               <p class="card-text" v-else>성별: {{gender.male}}</p>
             </div>
             <div class="card-footer d-flex justify-content-between">
               <button v-if="value.is_active" class="btn btn-secondary" disabled>예약 상태: <strong>{{isActive.true}}</strong></button>
               <button v-else class="btn btn-outline-danger" disabled>예약 상태: <strong>{{isActive.false}}</strong></button>
-              <span class="mt-2 text-right" v-if="value.date_canceled">취소 일시: {{new Date(value.date_canceled).getFullYear() + '-' + new Date(value.date_canceled).getMonth() + '-' + new Date(value.date_canceled).getDate()}}</span>
+              <span class="mt-2 text-right" v-if="value.date_canceled">취소 일시: {{new Date(value.date_canceled).getFullYear() + '-' + parseInt(new Date(value.date_canceled).getMonth() + 1) + '-' + new Date(value.date_canceled).getDate()}}</span>
             </div>
           </div>
         </div>
