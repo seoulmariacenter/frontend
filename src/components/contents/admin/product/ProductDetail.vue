@@ -58,7 +58,7 @@
       <div class="row m-2 d-flex justify-content-between">
         <button class="col-3 btn btn-outline-info mr-1" @click="tableResult">일정표 확인</button>
         <router-link :to="{name: 'Schedule'}" tag="button" class="col-3 btn btn-outline-warning">일정표 관리</router-link>
-        <router-link :to="{name: 'ReservationList'}" tag="button" class="col-3 btn btn-outline-primary ml-1">예약 확인</router-link>
+        <router-link :to="{name: 'AdminReservationList'}" tag="button" class="col-3 btn btn-outline-primary ml-1">예약 확인</router-link>
       </div>
       <div class="row m-2 mt-5">
         <schedule-table v-if="scheduleLoading" v-bind:acceptModify="acceptModify"/>
