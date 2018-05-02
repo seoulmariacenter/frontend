@@ -22,7 +22,9 @@
         <div class="col-md-6 col-sm-12 mb-3" v-for="value in isCanceledQuery" :key="value.id">
           <div class="card">
             <div class="card-header">
-              <h5 class="d-inline-block mb-0">예약자: {{value.username}}</h5>
+              <router-link :to="{name: 'AdminReservationDetail', params: {host: value.pk}}" tag="a" class="text-info">
+                <h5 class="d-inline-block mb-0">예약자: {{value.username}}</h5>
+              </router-link>
               <button @click="reservation = value.pk" type="button" class="close" aria-label="Close" data-toggle="modal" data-target="#destroyModal">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -68,7 +70,7 @@
 <script>
   import {mapGetters} from 'vuex'
   export default {
-    name: "ReservationList",
+    name: "AdminReservationList",
     data() {
       return {
         params: this.$route.params.pk,
