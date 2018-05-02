@@ -161,6 +161,26 @@ export const destroyReservation = ({commit, state}, payload) => {
   })
 };
 
+export const getReservationRetrieveQuery = ({commit, state}, payload) => {
+  axios({
+    method: 'get',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + 'detail/' + payload.pk + '/' + payload.host + '/',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': 'JWT ' + sessionStorage.getItem('token')
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    commit('clearReservationInfo');
+    commit('updateReservationInfo', response.data)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data);
+  })
+};
+
 export const createReservationMember = ({commit, state}, payload) => {
   axios({
     method: 'post',
