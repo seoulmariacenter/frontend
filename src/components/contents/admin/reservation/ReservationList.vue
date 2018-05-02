@@ -23,7 +23,7 @@
           <div class="card">
             <div class="card-header">
               <h5 class="d-inline-block mb-0">예약자: {{value.username}}</h5>
-              <button type="button" class="close" aria-label="Close" data-toggle="modal" data-target="#destroyModal">
+              <button @click="reservation = value.pk" type="button" class="close" aria-label="Close" data-toggle="modal" data-target="#destroyModal">
                 <span aria-hidden="true">&times;</span>
               </button>
 
@@ -42,7 +42,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                      <button @click="onDestroy(value.pk)" type="button" class="btn btn-outline-danger">삭제</button>
+                      <button @click="onDestroy(reservation)" type="button" class="btn btn-outline-danger">삭제</button>
                     </div>
                   </div>
                 </div>
@@ -80,7 +80,8 @@
           true: '완료',
           false: '취소함'
         },
-        reservationQuery: 'all'
+        reservationQuery: 'all',
+        reservation: 0
       }
     },
     created() {
