@@ -37,7 +37,7 @@
               <form>
                 <div class="modal-body">
                   <p>정말로 예약을 취소하시겠습니까?</p>
-                  <p>예약을 취소하시면 항공권 예매 여부에 따라 <strong>위약금을 부담</strong>하셔야 할 수도 있습니다.</p>
+                  <p>여행 일정이 임박했을 때 예약을 취소하시면 <strong>손해배상액을 부담</strong>하셔야 할 수도 있습니다.</p>
                   <p>본인 확인을 위해 예약번호 16자리를 다시 한번 입력해주십시오.</p>
                   <div class="form-group">
                     <label class="col-form-label"><strong>예약 번호</strong></label>
@@ -82,7 +82,7 @@
         </div>
       </div>
       <div class="row m-2">
-        <reservation-member v-if="callReservationMember"/>
+        <reservation-member v-if="callReservationMember" v-bind:host-pk="getReservationInfo.pk"/>
       </div>
     </div>
   </div>
