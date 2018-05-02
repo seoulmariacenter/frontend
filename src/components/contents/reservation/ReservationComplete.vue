@@ -11,7 +11,7 @@
           <li class="list-group-item list-group-item-danger"><span class="text-danger"><strong>예약 번호를 꼭 기록해주세요!</strong><br/>이 페이지를 벗어나면 예약 번호를 확인할 수 없습니다.</span>
           </li>
           <li class="list-group-item">예약 상품: <strong>{{getReservationInfo.product}}</strong></li>
-          <li class="list-group-item">예약자 성함: <strong>{{getReservationInfo.username}}</strong></li>
+          <li class="list-group-item">예약자 성함: <strong>{{getReservationInfo.username}} ({{getReservationInfo.christian_name}})</strong></li>
         </ul>
       </div>
       <div class="alert alert-info mt-5" role="alert">

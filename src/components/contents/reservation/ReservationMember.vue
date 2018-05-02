@@ -6,6 +6,10 @@
         <input v-model="name" type="text" class="form-control" id="inputName" placeholder="동승자 성함을 입력하세요." required>
       </div>
       <div class="form-row">
+        <label for="inputChristianName" class="col-form-label"><strong>동승자 세례명 (선택)</strong></label>
+        <input v-model="christianName" type="text" class="form-control" id="inputChristianName" placeholder="동승자 세례명을 입력하세요.">
+      </div>
+      <div class="form-row">
         <label for="inputPhone" class="col-form-label"><strong>연락처</strong></label>
         <input v-model="phone" type="text" class="form-control" id="inputPhone" placeholder="핸드폰 번호를 입력하세요. 예) 010-1234-5678" required>
       </div>
@@ -56,6 +60,7 @@
     data() {
       return {
         name: '',
+        christianName: '',
         phone: '',
         gender: 'True',
         age: 'True'
@@ -65,6 +70,7 @@
       onSubmit() {
         const formData = {
           name: this.name,
+          christianName: this.christianName,
           phone: this.phone,
           gender: this.gender,
           age: this.age,

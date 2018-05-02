@@ -8,7 +8,7 @@
         <hr>
         <div class="card">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">예약자 성함: {{getReservationInfo.username}}</li>
+            <li class="list-group-item">예약자 성함: {{getReservationInfo.username}} ({{getReservationInfo.christian_name}})</li>
             <li class="list-group-item">예약자 연락처: {{getReservationInfo.phone_number}}</li>
             <li class="list-group-item">예약자 성별:
               <span v-if="getReservationInfo.gender">여성</span>
@@ -28,7 +28,7 @@
         <hr>
         <div class="card mb-2" v-for="index in getReservationMemberQuery" :key="index.id">
           <div class="card-header">
-            <h6 class="card-title mb-0"><strong>{{index.name}}</strong></h6>
+            <h6 class="card-title mb-0"><strong>{{index.name}} ({{index.christian_name}})</strong></h6>
           </div>
           <div class="card-body">
             <p class="mb-0"><strong>연락처:</strong> {{index.phone_number}}</p>

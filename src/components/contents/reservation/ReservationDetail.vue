@@ -11,7 +11,7 @@
         <div class="mt-2" v-if="getReservationMemberQuery">
           <div class="card mb-2" v-for="index in getReservationMemberQuery" :key="index.id">
             <div class="card-header">
-              <h6 class="d-inline-block card-title mb-0"><strong>{{index.name}}</strong></h6>
+              <h6 class="d-inline-block card-title mb-0"><strong>{{index.name}} ({{index.christian_name}})</strong></h6>
               <button @click="member = index.pk" type="button" class="close" aria-label="Close" data-toggle="modal" data-target="#destroyMemberModal">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -69,6 +69,14 @@
                             class="form-control"
                             id="inputName"
                             placeholder="동승자 성함을 입력하세요.">
+                          </div>
+                          <div class="form-row">
+                            <label for="inputChristianName" class="col-form-label"><strong>동승자 세례명 (선택)</strong></label>
+                            <input v-model="christianName"
+                            type="text"
+                            class="form-control"
+                            id="inputChristianName"
+                            placeholder="동승자 세례명을 입력하세요.">
                           </div>
                           <div class="form-row">
                             <label for="inputPhone" class="col-form-label"><strong>연락처</strong></label>
@@ -162,6 +170,7 @@
     data() {
       return {
         name: '',
+        christianName: '',
         phone: '',
         gender: 'True',
         age: 'True',
@@ -180,6 +189,7 @@
           pk: sessionStorage.getItem('session_pk'),
           member: payload,
           name: this.name,
+          christianName: this.christianName,
           phone: this.phone,
           gender: this.gender,
           age: this.age

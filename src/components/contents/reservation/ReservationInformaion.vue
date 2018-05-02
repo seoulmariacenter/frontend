@@ -14,7 +14,7 @@
             <h5 class="mb-0"><strong>예약 상품: {{getReservationSessionInfo.product}}</strong></h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">예약자 성함: {{getReservationSessionInfo.username}}</li>
+            <li class="list-group-item">예약자 성함: {{getReservationSessionInfo.username}} ({{getReservationSessionInfo.christian_name}})</li>
             <li class="list-group-item">예약자 연락처: {{getReservationSessionInfo.phone_number}}</li>
             <li class="list-group-item">예약자 성별:
               <span v-if="getReservationSessionInfo.gender">여성</span>
