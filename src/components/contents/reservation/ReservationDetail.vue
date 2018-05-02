@@ -4,7 +4,7 @@
     <div class="bg-light col-md-5 col-sm-12">
       <div class="m-3 pt-3 pb-3">
         <div class="d-block d-flex justify-content-between">
-          <h2><strong>동승자 목록</strong></h2>
+          <h2 class="mb-0"><strong>동승자 목록</strong></h2>
           <p class="mt-3 mb-0">동승 인원: 총 <span class="text-info">{{getReservationMemberCount}}</span> 명</p>
         </div>
         <hr>

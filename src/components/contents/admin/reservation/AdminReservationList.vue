@@ -14,7 +14,7 @@
               <button @click="reservationQuery = 'canceled'" type="button" class="dropdown-item">취소자 명단</button>
             </div>
           </div>
-          <p class="mt-2 mb-2">총 <span class="text-info">{{getActiveReservationCount}}</span> 명 예약 중</p>
+          <p class="mt-2 mb-2">총 <span class="text-info">{{getActiveReservationCount}}</span> 팀 예약 중</p>
         </div>
       </div>
       <hr>
