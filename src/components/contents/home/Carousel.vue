@@ -9,12 +9,14 @@
         </ol>
         <div class="carousel-inner" id="carousel">
           <div class="carousel-item" v-for="product in getPublishedProductLists" :key="product.id">
-            <img v-if="product.image" :src="product.image" class="d-block w-100" alt="순례 상품 대표 이미지">
-            <img v-else class="d-block w-100" src="../../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
+            <div class="max-height">
+              <img v-if="product.image" :src="product.image" class="w-100" alt="순례 상품 대표 이미지">
+              <img v-else class="w-100" src="../../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
+            </div>
             <div id="opacity" class="card rounded-0">
               <div class="m-4 ml-5 text-white">
-                <h1 class="card-title"><strong>{{product.title}}</strong></h1>
-                <h5 class="card-text mb-1"><strong>{{product.start_time}} ~ {{product.end_time}}</strong></h5>
+                <h2 class="card-title mb-1"><strong>{{product.title}}</strong></h2>
+                <h6 class="card-text mb-1"><strong>{{product.start_time}} ~ {{product.end_time}}</strong></h6>
               </div>
             </div>
           </div>
@@ -79,5 +81,49 @@
 <style scoped>
   #opacity {
     background-color: rgba(0, 129, 213, 0.8);
+  }
+  @media (max-width: 359.98px) {
+    .max-height {
+      max-height: 96.66px;
+      overflow: hidden;
+    }
+  }
+
+  @media (min-width: 360px) and (max-width: 469.98px) {
+    .max-height {
+      max-height: 115px;
+      overflow: hidden;
+    }
+  }
+
+  @media (min-width: 470px) and (max-width: 575.98px) {
+    .max-height {
+      max-height: 170px;
+      overflow: hidden;
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .max-height {
+      max-height: 170px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .max-height {
+      max-height: 230px;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .max-height {
+      max-height: 310px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .max-height {
+      max-height: 370px;
+    }
   }
 </style>
