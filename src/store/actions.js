@@ -58,6 +58,7 @@ export const refreshTokenAdmin = ({commit, state}) => {
   })
 };
 
+// 예약 관련
 export const createReservation = ({commit, state}, payload) => {
   axios({
     method: 'post',
@@ -158,6 +159,32 @@ export const destroyReservation = ({commit, state}, payload) => {
   }).catch((error) => {
     commit('clearMsg');
     commit('updateMsg', error.response.data.message)
+  })
+};
+
+export const createReservationMember = ({commit, state}, payload) => {
+  axios({
+    method: 'post',
+    url: state.endpoints.baseUrl + state.endpoints.reservation + state.endpoints.member + payload.host + '/',
+    data: {
+      name: payload.name,
+      phone_number: payload.phone,
+      gender: payload.gender,
+      host: payload.host
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response) => {
+    commit('clearMsg');
+    commit('clearReservationMemberQuery');
+    commit('updateReservationMemberQuery', response.data);
+    router.go(router.currentRoute)
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data)
   })
 };
 

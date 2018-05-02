@@ -42,6 +42,12 @@ const state = {
       'previous': null,
       'results': Array()
     },
+    reservationMemberQuery: {
+      'count': 0,
+      'next': null,
+      'previous': null,
+      'results': Array()
+    },
     activeReservationCount: 0
   },
   message: null,

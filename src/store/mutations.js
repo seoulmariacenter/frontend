@@ -109,6 +109,19 @@ export const clearActiveReservationCount = state => {
   state.queryData.activeReservationCount = 0
 };
 
+export const updateReservationMemberQuery = (state, payload) => {
+  state.queryData.reservationMemberQuery = payload
+};
+
+export const clearReservationMemberQuery = state => {
+  state.queryData.reservationMemberQuery =  {
+    'count': 0,
+    'next': null,
+    'previous': null,
+    'results': Array()
+  }
+};
+
 // 메시지 관리
 export const clearMsg = state => {
   state.message = null
