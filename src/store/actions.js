@@ -366,7 +366,7 @@ export const createProduct = ({commit, state}, payload) => {
     },
     headers: {
       'Content-Type': 'application/*',
-      'Authorization': 'JWT ' + localStorage.getItem('token')
+      'Authorization': 'JWT ' + sessionStorage.getItem('token')
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
@@ -395,7 +395,7 @@ export const createDate = ({commit, state, getters}, payload) => {
     },
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'JWT ' + localStorage.getItem('token')
+      'Authorization': 'JWT ' + sessionStorage.getItem('token')
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
@@ -422,7 +422,7 @@ export const createSchedule = ({commit, state}, payload) => {
     },
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'JWT ' + localStorage.getItem('token')
+      'Authorization': 'JWT ' + sessionStorage.getItem('token')
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
@@ -449,7 +449,7 @@ export const updateProduct = ({commit, state}, payload) => {
     },
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'JWT ' + localStorage.getItem('token')
+      'Authorization': 'JWT ' + sessionStorage.getItem('token')
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
@@ -480,7 +480,7 @@ export const updateSchedule = ({commit, state}, payload) => {
     },
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'JWT ' + localStorage.getItem('token')
+      'Authorization': 'JWT ' + sessionStorage.getItem('token')
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
@@ -499,7 +499,7 @@ export const destroyProduct = ({commit, state}, payload) => {
     url: state.endpoints.baseUrl + state.endpoints.travel + payload + '/',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'JWT ' + localStorage.getItem('token')
+      'Authorization': 'JWT ' + sessionStorage.getItem('token')
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
@@ -522,7 +522,7 @@ export const destroySchedule = ({commit, state}, payload) => {
     + payload.date + '/' + state.endpoints.schedule + payload.schedulePk + '/',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'JWT ' + localStorage.getItem('token')
+      'Authorization': 'JWT ' + sessionStorage.getItem('token')
     },
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
