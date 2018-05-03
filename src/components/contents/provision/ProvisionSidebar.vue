@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-3 col-md-3 bg-light sidebar">
+  <div id="sidebar" class="col-lg-3 col-md-3 bg-light sidebar mb-4 position-sticky">
     <div class="sidebar-sticky m-3">
       <ul class="nav flex-column">
         <li class="nav-item mb-2"><h4><strong>서울마리아센터 소개</strong></h4></li>
@@ -16,10 +16,41 @@
 </template>
 <script>
   export default {
-    name: "ProvisionSidebar"
+    name: "ProvisionSidebar",
+    data() {
+      return {
+        lastScrollTop: 0
+      }
+    },
+    created () {
+      window.addEventListener('scroll', this.stickySidebar, false);
+    },
+    destroyed () {
+      window.removeEventListener('scroll', this.stickySidebar, false);
+    },
+    methods: {
+      stickySidebar(event) {
+        let st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st >= event.target.getElementById('sidebar').offsetTop) {
+          event.target.getElementById('sidebar').classList.add('sticky')
+        } else {
+          event.target.getElementById('sidebar').classList.remove('sticky')
+        }
+      }
+    }
   }
 </script>
 <style scoped>
+  #sidebar {
+    max-height: 300px;
+    overflow: hidden;
+  }
+  .sticky {
+    top: 0;
+  }
+  .margin {
+    margin-top: 200px;
+  }
   .hovering:hover {
     cursor: pointer;
   }
