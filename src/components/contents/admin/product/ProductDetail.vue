@@ -34,7 +34,7 @@
       </div>
       <div class="row m-2" v-if="getProductRetrieve">
         <div class="col-lg-6 col-sm-12 mb-sm-4">
-          <div class="card">
+          <div class="card mb-2">
             <div class="card-header">
               <h5 class="mb-0"><strong>상품명:</strong> {{getProductRetrieve.title}}</h5>
             </div>
@@ -44,6 +44,14 @@
               <li class="list-group-item"><strong>가격:</strong> {{getProductRetrieve.price}}원</li>
             </ul>
             <product-update-destroy/>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0"><strong>설명</strong></h5>
+            </div>
+            <div class="card-body">
+              <p>{{getProductRetrieve.description}}</p>
+            </div>
           </div>
         </div>
         <a role="button" class="col-lg-6 col-sm-12 hovering" data-toggle="modal" data-target="#pictureModal">
@@ -190,7 +198,7 @@
 
         axios({
           method: 'patch',
-          url: this.$store.state.endpoints.baseUrl + this.$store.state.endpoints.travel + this.params + '/',
+          url: this.$store.state.endpoints.baseUrl + this.$store.state.endpoints.travel + this.params + '/image/',
           data: formData,
           headers: {
             'Content-Type' : 'multipart/form-data;boundary="boundary"',

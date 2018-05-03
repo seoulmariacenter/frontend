@@ -34,6 +34,10 @@
               <input v-model="endDate" type="date" class="form-control" id="inputStartDate2" required>
             </div>
           </div>
+          <div class="form-group">
+            <label for="inputTextarea"><strong>설명</strong></label>
+            <textarea v-model="description" class="form-control col-md-10" id="inputTextarea" rows="3" placeholder="설명을 입력하세요"></textarea>
+          </div>
           <div class="form-group row">
             <div class="col-md-8 d-flex p-2">
               <button type="submit" class="btn btn-primary mr-2">순례 상품 생성</button>
@@ -61,7 +65,8 @@
         title: null,
         price: null,
         startDate: null,
-        endDate: null
+        endDate: null,
+        description: null
       }
     },
     created() {
@@ -79,7 +84,8 @@
           title: this.title,
           price: this.price,
           startDate: this.startDate,
-          endDate: this.endDate
+          endDate: this.endDate,
+          description: this.description
         };
 
         if (this.startDate > this.endDate) {
@@ -91,7 +97,7 @@
       },
       onReset() {
         this.$store.commit('clearMsg');
-        this.title = this.price = this.startDate = this.endDate = null
+        this.title = this.price = this.startDate = this.endDate = this.description = null
       }
     }
   }

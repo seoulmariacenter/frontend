@@ -34,6 +34,11 @@
               <input v-model="endDate" type="date" class="form-control" id="inputStartDate2">
             </div>
           </div>
+          <div class="form-group">
+            <label for="inputTextarea"><strong>설명</strong></label>
+            <textarea v-model="description" class="form-control col-md-10" id="inputTextarea" rows="3"
+            :placeholder="'기존 설명: ' + getProductRetrieve.description"></textarea>
+          </div>
           <div class="form-group row">
             <div class="col-md-8 d-flex p-2">
               <button type="submit" class="btn btn-primary mr-2">순례 상품 수정</button>
@@ -63,7 +68,8 @@
         title: null,
         price: null,
         startDate: null,
-        endDate: null
+        endDate: null,
+        description: null
       }
     },
     created() {
@@ -84,6 +90,7 @@
           price: this.price,
           startDate: this.startDate,
           endDate: this.endDate,
+          description: this.description
         };
 
         let result = Object();
