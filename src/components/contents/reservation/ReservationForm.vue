@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-light col-md-5 col-sm-12">
-    <div class="m-3 pt-3 pb-3">
+  <div class="bg-light col-md-5 col-sm-12 mb-4">
+    <div class="pt-3 pb-3">
       <div class="d-block">
         <h2><strong>예약자 정보 입력</strong></h2>
       </div>

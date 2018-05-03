@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-light col-md-6 col-sm-12">
-    <div class="m-3 pt-3 pb-3">
+  <div class="bg-light col-md-6 col-sm-12 mb-4">
+    <div class="pt-3 pb-3">
       <div class="d-block d-flex justify-content-between">
-        <h2><strong>순례 상품 선택</strong></h2>
-        <p class="mt-3 mb-0">총 <span class="text-info">{{getWholeProductLists.count}}</span> 개의 상품이 있습니다.</p>
+        <h2 class="mb-0"><strong>순례 상품 선택</strong></h2>
+        <p class="mt-3 mb-0">총 <span class="text-info">{{getWholeProductLists.count}}</span> 개 상품</p>
       </div>
       <hr>
-      <div class="row m-0 justify-content-center h500 overflow">
+      <div class="row m-0 justify-content-center h550 overflow">
         <div class="m-2" v-if="loading">
           <div class="alert alert-info text-center h-50" role="alert">
             <h4 class="mt-4"><strong>순례 상품을 불러 오는 중입니다.</strong></h4>
@@ -31,7 +31,7 @@
               <div class="card-body bg-white">
                 <h4 class="card-title mb-0"><strong>{{value.title}}</strong></h4>
                 <div class="d-flex justify-content-between">
-                  <span class="card-text d-inline-block">{{value.start_time}} - {{value.end_time}}</span>
+                  <span class="card-text d-inline-block">{{value.start_time}}~{{value.end_time}}</span>
                   <span class="card-text d-inline-block"><strong>{{value.price}}</strong> 원</span>
                 </div>
               </div>
@@ -115,8 +115,8 @@
   }
 </script>
 <style scoped>
-  .h500 {
-    height: 500px;
+  .h550 {
+    height: 550px;
   }
   .overflow {
     overflow: scroll;

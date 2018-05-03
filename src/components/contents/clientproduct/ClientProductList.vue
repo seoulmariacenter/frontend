@@ -1,8 +1,9 @@
 <template>
   <div class="bg-light">
     <div class="p-3">
-      <div class="d-block">
-        <h2><strong>순례 상품 보기</strong></h2>
+      <div class="d-block d-flex justify-content-between">
+        <h2 class="mb-0"><strong>순례 상품 보기</strong></h2>
+        <p class="mt-3 mb-0">총 <span class="text-info">{{getWholeProductLists.count}}</span> 개 상품</p>
       </div>
       <hr>
       <div class="m-2">
@@ -10,12 +11,12 @@
           <h4>잠시만 기다려 주세요...</h4>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-auto p-0 m-1" v-for="value in getPublishedProductLists" :key="value.id">
+          <div class="col-lg-4 col-md-6 col-sm-12 p-0" v-for="value in getPublishedProductLists" :key="value.id">
             <router-link :to="{name: 'ClientProductDetail', params: {pk: value.pk}}" tag="a" class="hovering">
-              <div class="card text-dark" style="width: 18rem">
-                <div style="max-height: 190px">
-                  <img v-if="value.image" class="card-img-top" :src="value.image" alt="Card image">
-                  <img v-else class="card-img-top" src="../../../assets/image/medjugorje_maria_01.jpg">
+              <div class="card text-dark mx-auto mb-3" style="max-width: 20rem;">
+                <div style="max-height: 190px; overflow: hidden">
+                  <img v-if="value.image" class="card-img-top img-fluid" :src="value.image" alt="Card image">
+                  <img v-else class="card-img-top img-fluid" src="../../../assets/image/medjugorje_maria_01.jpg">
                 </div>
                 <div class="card-body bg-white">
                   <h4 class="card-title mb-0"><strong>{{value.title}}</strong></h4>
