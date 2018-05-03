@@ -20,7 +20,7 @@
           <div class="form-group row">
             <label class="col-md-4 col-form-label"></label>
             <div class="col-md-8">
-              <button type="submit" class="btn btn-primary">로그인</button>
+              <button type="submit" class="btn btn-info">로그인</button>
             </div>
           </div>
           <div class="form-group row">

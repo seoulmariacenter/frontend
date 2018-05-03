@@ -47,7 +47,7 @@
               <div class="form-check mr-4">
                 <input class="form-check-input" type="checkbox" name="Provision" id="checkProvision" value="" required>
                 <label class="form-check-label" for="checkProvision">
-                  <span>나는 서울마리아센터의
+                  <span>서울마리아센터의
                     <router-link class="text-info" :to="{name: 'Travel'}" target="_blank">여행 약관</router-link>,
                     <router-link class="text-info" :to="{name: 'Insurance'}" target="_blank">여행자 보험 약관</router-link>,
                     <router-link class="text-info" :to="{name: 'Service'}" target="_blank">서비스 이용 약관</router-link> 및
@@ -58,7 +58,7 @@
             </div>
           </fieldset>
           <div class="form-group mt-2">
-            <button type="submit" class="btn btn-lg btn-info">예약하기!</button>
+            <button type="submit" class="btn btn-lg btn-info">예약하기</button>
           </div>
         </form>
       </div>

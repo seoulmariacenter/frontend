@@ -32,7 +32,7 @@
               로그아웃하시겠습니까?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
               <button @click="signOutAdmin" type="button" class="btn btn-info" data-dismiss="modal">로그아웃</button>
             </div>
           </div>

@@ -41,7 +41,7 @@
           </div>
           <div class="form-group row">
             <div class="col-md-8 d-flex p-2">
-              <button type="submit" class="btn btn-primary mr-2">순례 상품 수정</button>
+              <button type="submit" class="btn btn-info mr-2">순례 상품 수정</button>
               <button @click="onReset" type="reset" class="btn btn-outline-danger ml-2">지우고 다시 쓰기</button>
             </div>
           </div>

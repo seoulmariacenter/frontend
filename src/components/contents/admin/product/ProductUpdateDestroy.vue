@@ -18,7 +18,7 @@
             순례 상품을 정말 삭제하시겠습니까? 한번 삭제된 내용은 되돌릴 수 없습니다.
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
             <button type="submit" class="btn btn-danger" @click="onSubmit"><strong>삭제하기</strong></button>
           </div>
         </div>

@@ -10,8 +10,8 @@
         <input v-model="christianName" type="text" class="form-control" id="inputChristianName" placeholder="동승자 세례명을 입력하세요.">
       </div>
       <div class="form-row">
-        <label for="inputPhone" class="col-form-label"><strong>연락처</strong></label>
-        <input v-model="phone" type="text" class="form-control" id="inputPhone" placeholder="핸드폰 번호를 입력하세요. 예) 010-1234-5678" required>
+        <label for="inputPhone" class="col-form-label"><strong>연락처 (선택)</strong></label>
+        <input v-model="phone" type="text" class="form-control" id="inputPhone" placeholder="핸드폰 번호를 입력하세요. 예) 010-1234-5678">
       </div>
       <fieldset class="form-row">
         <legend class="col-form-label pb-0"><strong>동승자 성별</strong></legend>
@@ -48,7 +48,7 @@
         </div>
       </fieldset>
       <div class="form-group mt-2">
-        <button type="submit" class="btn btn-info">예약하기!</button>
+        <button type="submit" class="btn btn-info">예약하기</button>
       </div>
     </form>
   </div>

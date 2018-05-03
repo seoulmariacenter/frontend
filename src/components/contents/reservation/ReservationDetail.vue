@@ -49,7 +49,7 @@
                 </p>
               </div>
               <div class="mt-3">
-                <button @click="member = index.pk" class="btn btn-outline-warning" data-toggle="modal" data-target="#updateMemberModal">수정</button>
+                <button @click="member = index.pk" class="btn btn-warning" data-toggle="modal" data-target="#updateMemberModal">수정</button>
                 <!-- Modal -->
                 <div class="modal fade" id="updateMemberModal" tabindex="-1" role="dialog" aria-labelledby="updateMemberModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -79,7 +79,7 @@
                             placeholder="동승자 세례명을 입력하세요.">
                           </div>
                           <div class="form-row">
-                            <label for="inputPhone" class="col-form-label"><strong>연락처</strong></label>
+                            <label for="inputPhone" class="col-form-label"><strong>연락처 (선택)</strong></label>
                             <input v-model="phone"
                             type="text"
                             class="form-control"
@@ -144,8 +144,8 @@
                           </fieldset>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                          <button type="submit" class="btn btn-outline-warning">수정</button>
+                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
+                          <button type="submit" class="btn btn-warning">수정</button>
                         </div>
                       </form>
                     </div>
