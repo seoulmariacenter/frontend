@@ -29,12 +29,16 @@ export default {
   methods: {
     hideHeader(event) {
       let st = window.pageYOffset || document.documentElement.scrollTop;
-      if (st > this.lastScrollTop){
-        event.target.getElementById('mainHeader').style.top = "-100%";
+      if (st > 0) {
+        if (st > this.lastScrollTop){
+          event.target.getElementById('mainHeader').style.top = "-100%";
+        } else {
+          event.target.getElementById('mainHeader').style.top = "0";
+        }
+        this.lastScrollTop = st;
       } else {
         event.target.getElementById('mainHeader').style.top = "0";
       }
-      this.lastScrollTop = st;
     }
   }
 }
