@@ -14,11 +14,31 @@
         <router-link :to="{name: 'ProductCreate'}" tag="li" class="nav-item mb-2 hovering">
           <h4>순례 상품 만들기</h4>
         </router-link>
-        <li @click="signOutAdmin" class="nav-item mb-2 hovering">
+        <li class="nav-item mb-2 hovering" data-toggle="modal" data-target="#signOutModal">
           <h4>로그아웃</h4>
         </li>
-        <li class="nav-item"></li>
       </ul>
+      <!-- Modal -->
+      <div class="modal fade" id="signOutModal" tabindex="-1" role="dialog" aria-labelledby="signOutModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="signOutModalLabel">로그아웃</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              로그아웃하시겠습니까?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+              <button @click="signOutAdmin" type="button" class="btn btn-info" data-dismiss="modal">로그아웃</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </nav>
 </template>
