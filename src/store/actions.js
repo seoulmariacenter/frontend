@@ -550,8 +550,7 @@ export const updateProduct = ({commit, state}, payload) => {
       start_time: payload.startDate,
       end_time: payload.endDate,
       publish: payload.publish,
-      description: payload.description,
-      image: null
+      description: payload.description
     },
     headers: {
       'Content-Type': 'application/json',
