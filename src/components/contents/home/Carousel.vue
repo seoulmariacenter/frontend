@@ -9,16 +9,18 @@
         </ol>
         <div class="carousel-inner" id="carousel">
           <div class="carousel-item" v-for="product in getPublishedProductLists" :key="product.id">
-            <div class="max-height">
-              <img v-if="product.image" :src="product.image" class="w-100" alt="순례 상품 대표 이미지">
-              <img v-else class="w-100" src="../../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
-            </div>
-            <div id="opacity" class="card rounded-0">
-              <div class="m-4 ml-5 text-white">
-                <h2 class="card-title mb-1"><strong>{{product.title}}</strong></h2>
-                <h6 class="card-text mb-1"><strong>{{product.start_time}} ~ {{product.end_time}}</strong></h6>
+            <router-link :to="{name: 'ClientProductDetail', params: {pk: product.pk}}" tag="a" class="product">
+              <div class="max-height">
+                <img v-if="product.image" :src="product.image" class="w-100" alt="순례 상품 대표 이미지">
+                <img v-else class="w-100" src="../../../assets/image/medjugorje_maria_01.jpg" alt="기본 이미지">
               </div>
-            </div>
+              <div id="opacity" class="card rounded-0">
+                <div class="m-4 ml-5 text-white">
+                  <h2 class="card-title mb-1"><strong>{{product.title}}</strong></h2>
+                  <h6 class="card-text mb-1"><strong>{{product.start_time}} ~ {{product.end_time}}</strong></h6>
+                </div>
+              </div>
+            </router-link>
           </div>
         </div>
         <a class="carousel-control-prev" href="#mainCarouselIndicators" role="button" data-slide="prev">
@@ -81,6 +83,9 @@
 <style scoped>
   #opacity {
     background-color: rgba(0, 129, 213, 0.8);
+  }
+  .product:hover {
+    text-decoration: none;
   }
   @media (max-width: 359.98px) {
     .max-height {
