@@ -293,6 +293,25 @@ export const getPublishedProductListQuery = ({commit, state}, payload) => {
   })
 };
 
+export const getPublishedProductRetrieveQuery = ({commit, state}, payload) => {
+  axios({
+    method: 'get',
+    url: state.endpoints.baseUrl + state.endpoints.travel + 'publish/' + payload + '/',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    credentials: true
+  }).then((response)=> {
+    commit('clearMsg');
+    commit('clearProductRetrieve');
+    commit('updateProductRetrieve', response.data);
+  }).catch((error) => {
+    commit('clearMsg');
+    commit('updateMsg', error.response.data)
+  })
+};
+
 export const getProductListQuery = ({commit, state}, payload) => {
   axios({
     method: 'get',
@@ -446,6 +465,8 @@ export const createProduct = ({commit, state}, payload) => {
       price: payload.price,
       start_time: payload.startDate,
       end_time: payload.endDate,
+      description: payload.description,
+      image: null,
       publish: false
     },
     headers: {
@@ -528,7 +549,9 @@ export const updateProduct = ({commit, state}, payload) => {
       price: payload.price,
       start_time: payload.startDate,
       end_time: payload.endDate,
-      publish: payload.publish
+      publish: payload.publish,
+      description: payload.description,
+      image: null
     },
     headers: {
       'Content-Type': 'application/json',
