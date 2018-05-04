@@ -1,17 +1,45 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <app-header @scroll="hideHeader"/>
+    <router-view class="main pl-0 pr-0"/>
+    <app-footer/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import AppHeader from './components/structure/AppHeader'
+import AppFooter from './components/structure/AppFooter'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    AppHeader,
+    AppFooter
+  },
+  data() {
+    return {
+      lastScrollTop: 0
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.hideHeader, false);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.hideHeader, false);
+  },
+  methods: {
+    hideHeader(event) {
+      let st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st > 0) {
+        if (st > this.lastScrollTop){
+          event.target.getElementById('mainHeader').style.top = "-100%";
+        } else {
+          event.target.getElementById('mainHeader').style.top = "0";
+        }
+        this.lastScrollTop = st;
+      } else {
+        event.target.getElementById('mainHeader').style.top = "0";
+      }
+    }
   }
 }
 </script>
@@ -21,8 +49,12 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: #F8F5EF;
+}
+.container-fluid {
+  padding: 0;
+}
+.main {
+  padding-top: 123px;
 }
 </style>
