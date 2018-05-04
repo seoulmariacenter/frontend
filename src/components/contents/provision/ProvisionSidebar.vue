@@ -1,7 +1,7 @@
 <template>
-  <div id="sidebar" class="col-lg-3 col-md-3 bg-light sidebar mb-4 position-sticky">
+  <div id="sidebar" class="col-lg-3 col-md-3 bg-light sidebar mb-4 pl-0 pr-0 position-sticky">
     <div class="sidebar-sticky m-3">
-      <ul class="nav flex-column">
+      <ul class="nav flex-column ml-3">
         <li class="nav-item mb-2"><h4><strong>서울마리아센터 소개</strong></h4></li>
         <router-link :to="{name: 'Introduce'}" tag="li" class="nav-item mb-2 hovering">대표 인사말</router-link>
         <router-link :to="{name: 'Maria'}" tag="li" class="nav-item mb-2 hovering">성모님의 부르심을 찾아서</router-link>

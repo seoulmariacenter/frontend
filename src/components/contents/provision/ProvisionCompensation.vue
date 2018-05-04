@@ -1,15 +1,19 @@
 <template>
-  <div class="col-lg-8 col-md-8 bg-light">
+  <div class="col-lg-8 col-md-8 bg-light pl-0 pr-0">
     <div class="m-3">
-      <div class="d-block">
+      <div class="d-block ml-3">
         <h2><strong>소비자 분쟁 해결 기준</strong></h2>
       </div>
       <hr>
       <div class="m-3">
         <p>출처: <a target="_blank" class="text-info" href="http://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EC%86%8C%EB%B9%84%EC%9E%90%EB%B6%84%EC%9F%81%ED%95%B4%EA%B2%B0%EA%B8%B0%EC%A4%80">국가법령정보센터</a></p>
-        <div class="d-flex">
-          <button @click="callCompensation('domestic')" class="btn btn-outline-secondary mr-3" type="button">국내 여행 소비자 분쟁 해결 기준</button>
-          <button @click="callCompensation('foreign')" class="btn btn-outline-info ml-3" type="button">국외 여행 소비자 분쟁 해결 기준</button>
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group mr-2 mb-2" role="group" aria-label="First group">
+            <button @click="callCompensation('domestic')" class="btn btn-outline-secondary" type="button">국내 여행 소비자 분쟁 해결 기준</button>
+          </div>
+          <div class="btn-group mb-2" role="group" aria-label="Second group">
+            <button @click="callCompensation('foreign')" class="btn btn-outline-info" type="button">국외 여행 소비자 분쟁 해결 기준</button>
+          </div>
         </div>
         <div class="row mt-3">
           <div class="col-12 mb-3">

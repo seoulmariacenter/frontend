@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-header @scroll="hideHeader"/>
-    <router-view class="main"/>
+    <router-view class="main pl-0 pr-0"/>
     <app-footer/>
   </div>
 </template>

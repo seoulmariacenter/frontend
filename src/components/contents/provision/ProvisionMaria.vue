@@ -1,7 +1,7 @@
 <template>
-  <div class="col-lg-8 col-md-8 bg-light">
+  <div class="col-lg-8 col-md-8 bg-light pl-0 pr-0">
     <div class="m-3">
-      <div class="d-block">
+      <div class="d-block ml-3">
         <h2><strong>성모님의 부르심을 찾아서</strong></h2>
       </div>
       <hr>
@@ -82,7 +82,9 @@
                   <h3>메주고리예 유스페스티벌이란?</h3>
                   <p class="mb-1">메주고리예에서는 1989년부터 매년 7-8월마다 전 세계의 청년들이 함께 모여 성모님을 찬양하는 축제를 벌이고 있습니다.
                     2017년 기준으로 28회 째를 맞이하고 있는 유스페스티벌은 회를 거듭할수록 규모가 커져 참가 사제 약 5백 명, 순례객 약 5만 명에 이르는 국제적 규모의 행사가 되었습니다.</p>
-                  <p><a target="_blank" href="https://www.facebook.com/Medjugorje-Youth-festival-310061499090138/" class="text-warning">
+                  <p><a target="_blank"
+                  href="https://www.facebook.com/Medjugorje-Youth-festival-310061499090138/"
+                  class="text-warning">
                     <strong>유스페스티벌 페이스북 페이지 바로 가기</strong>
                   </a></p>
                   <hr>
