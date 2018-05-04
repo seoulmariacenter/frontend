@@ -43,8 +43,8 @@
                       예약자를 정말로 삭제하시겠습니까? 한번 삭제된 정보는 복구되지 않습니다.
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                      <button @click="onDestroy(reservation)" type="button" class="btn btn-outline-danger">삭제</button>
+                      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
+                      <button @click="onDestroy(reservation)" type="button" class="btn btn-danger">삭제</button>
                     </div>
                   </div>
                 </div>

@@ -48,7 +48,7 @@
             <td class="text-center">
               <button
               type="button"
-              class="btn btn-sm btn-outline-warning"
+              class="btn btn-sm btn-warning"
               data-toggle="modal"
               data-target="#scheduleModal"
               @click="parseSchedulePk(index['pk'])"
