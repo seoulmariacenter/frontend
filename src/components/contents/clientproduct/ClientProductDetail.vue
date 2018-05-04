@@ -27,14 +27,20 @@
             <p>{{getProductRetrieve.description}}</p>
           </div>
         </div>
+        <hr>
+        <schedule-table/>
       </div>
     </div>
   </div>
 </template>
 <script>
   import {mapGetters} from 'vuex'
+  import ScheduleTable from '../admin/schedule/ScheduleTable'
   export default {
     name: "ClientProductDetail",
+    components: {
+      ScheduleTable
+    },
     data() {
       return {
         params: this.$route.params.pk

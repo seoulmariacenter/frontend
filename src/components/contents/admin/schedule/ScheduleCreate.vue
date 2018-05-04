@@ -9,7 +9,7 @@
         <div class="col-5 p-2 rounded border border-secondary">출발 일시: <strong>{{getProductRetrieve.start_time}}</strong></div>
         <div class="col-5 p-2 rounded border border-secondary">도착 일시: <strong>{{getProductRetrieve.end_time}}</strong></div>
       </div>
-      <div class="row m-2">
+      <div class="m-2">
         <schedule-table v-on:parseDateNum="parseDateNum" v-on:callScheduleDetail="callScheduleDetail" v-bind:scheduleLoading="scheduleLoading" v-bind:acceptModify="acceptModify"/>
       </div>
       <div class="row m-2" v-if="scheduleDetail">

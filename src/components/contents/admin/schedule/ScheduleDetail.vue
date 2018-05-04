@@ -21,7 +21,7 @@
                 정말 닫으시겠습니까? 작성하던 내용이 지워질 수 있습니다!
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">취소</button>
                 <button type="button" class="btn btn-danger" @click="callScheduleDetail">닫을게요</button>
               </div>
             </div>
@@ -100,7 +100,7 @@
             <input v-model="description" type="text" class="form-control" id="inputDescription" placeholder="일정 입력" required>
           </div>
           <div class="d-flex">
-            <button type="submit" class="btn btn-primary mr-1">스케줄 등록</button>
+            <button type="submit" class="btn btn-info mr-1">스케줄 등록</button>
             <button type="button" @click="onReset" class="btn btn-outline-danger ml-1">지우고 다시 쓰기</button>
           </div>
         </form>

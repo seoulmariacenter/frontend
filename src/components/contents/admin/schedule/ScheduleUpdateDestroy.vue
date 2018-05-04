@@ -8,7 +8,6 @@
         </button>
       </div>
       <div class="modal-body">
-        <h4>새로운 스케줄 등록하기</h4>
         <form @submit.prevent="onSubmit" method="post">
           <div class="form-row">
             <div class="form-group col-md-6">
@@ -40,8 +39,8 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-danger" @click="onDestroy"><strong>스케줄 삭제</strong></button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="parseSchedulePk">수정 취소</button>
-            <button type="submit" class="btn btn-primary">수정하기</button>
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" @click="parseSchedulePk">수정 취소</button>
+            <button type="submit" class="btn btn-warning">수정하기</button>
           </div>
         </form>
       </div>
