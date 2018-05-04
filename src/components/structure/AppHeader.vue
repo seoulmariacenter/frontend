@@ -1,5 +1,5 @@
 <template>
-  <header id="mainHeader" class="container-fluid mb-4" role="banner">
+  <header id="mainHeader" class="container-fluid mb-4 pl-0 pr-0" role="banner">
     <div class="top-line"></div>
     <nav class="navbar navbar-expand-md navbar-light bg-light align-middle">
       <div class="container">

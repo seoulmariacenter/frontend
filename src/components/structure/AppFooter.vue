@@ -1,5 +1,5 @@
 <template>
-  <footer class="container-fluid mt-4">
+  <footer class="container-fluid mt-4 pl-0 pr-0">
     <div class="jumbotron jumbotron-fluid mb-0">
       <div class="container">
         <div class="row align-items-center">
