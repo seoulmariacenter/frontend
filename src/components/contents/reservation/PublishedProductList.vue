@@ -20,8 +20,6 @@
           :id="'card_' + value.pk"
           @click="callProductInfo([value.pk, value.title])"
           role="button"
-          data-container="body" data-toggle="popover" data-placement="top"
-          :data-content="value.title + ' 선택!'"
           class="col-12 p-0 mb-4 product">
             <div class="card text-dark">
               <div style="max-height: 163px; overflow: hidden">
