@@ -6,7 +6,7 @@
         <p class="mt-3 mb-0">총 <span class="text-info">{{getWholeProductLists.count}}</span> 개 상품</p>
       </div>
       <hr>
-      <div class="row m-0 justify-content-center h550 overflow">
+      <div class="m-0 justify-content-center h550 overflow">
         <div class="m-2" v-if="loading">
           <div class="alert alert-info text-center h-50" role="alert">
             <h4 class="mt-4"><strong>순례 상품을 불러 오는 중입니다.</strong></h4>
