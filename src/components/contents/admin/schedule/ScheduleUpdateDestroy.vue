@@ -100,14 +100,6 @@
         };
 
         let result = Object();
-        // for (let property in formData) {
-        //   if (formData[property] === '') {
-        //     result[property] = '.';
-        //   } else {
-        //     result[property] = formData[property]
-        //   }
-        // }
-
         for (let property in formData) {
           if (formData[property] !== '') {
             result[property] = formData[property];
