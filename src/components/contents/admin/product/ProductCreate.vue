@@ -108,7 +108,8 @@
       },
       onReset() {
         this.$store.commit('clearMsg');
-        this.title = this.price = this.startDate = this.endDate = this.description = null
+        this.description = '';
+        this.title = this.price = this.startDate = this.endDate = null
       }
     },
     computed: {
