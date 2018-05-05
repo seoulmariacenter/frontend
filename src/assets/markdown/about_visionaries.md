@@ -1,10 +1,8 @@
-<figure class="figure">
-    <img src="../image/Village-from-Apparition-Hill.jpg" class="img-fluid mb-2" alt="Village from Apparition Hill">
-    <figcaption class="figure-caption">첫 발현 당시 발현산에서 내려다 본 메주고리예 마을 전경.
+<img src="../image/Village-from-Apparition-Hill.jpg" class="img-fluid" alt="Village from Apparition Hill">
+<figcaption class="figure-caption mb-3">첫 발현 당시 발현산에서 내려다 본 메주고리예 마을 전경.
     <br>
     가운데 하얗게 보이는 건물이 성 야고보 성당이다.
-    </figcaption>
-</figure>
+</figcaption>
 
 보스니아 헤르체고비나의 치틀룩에 위치한 작은 마을 메주고리예에서는 1981년 6월 24일부터 복되신 동정 마리아 (크로아티아인들은 성모님을 ‘고스파'라는 애칭으로 부른다)께서 거의 매일 발현하고 계신다. 신뢰할 만한 여섯 명의 목격 증인들이 성모님의 매일 발현 사실을 맹세를 통해 확실히 증언하고 있다.
 
@@ -24,14 +22,12 @@
 
 성모님께서는 마지막으로 **“나의 천사들아! 하느님께서 너희와 함께 하시기를!”** 이라는 말씀을 남기시고 아이들 곁을 떠나셨다. 그분께서 떠나시기 전 다음날에도 다시 뵈올 수 있는지 아이들이 물었을 때, 성모님께서는 고개를 끄덕이시며 그렇다고 응답해 주셨다.
 
-<figure class="figure">
-    <img src="../image/Jakov-Ivanka-&-Marija.jpg" class="img-fluid mb-2" alt="Jakov, Ivanka & Marija">
-    <figcaption class="figure-caption">
+<img src="../image/Jakov-Ivanka-&-Marija.jpg" class="img-fluid" alt="Jakov, Ivanka & Marija">
+<figcaption class="figure-caption mb-3">
     목격 증인들이 성모님을 마주하며 영적 황홀경에 들어서 있는 모습.
     <br>
     왼쪽부터 조그만 소년 야콥 촐로, 이반카 이반코비치, 그리고 마리야 아브로비치.
-    </figcaption>
-</figure>
+</figcaption>
 
 목격 증인들은 그 만남 전체를 말로 설명하는 것은 거의 불가능한 일이라고 말한다. 그 날 이반 이반코비치와 밀카 파블로비치는 발현 언덕에 가지 않았다. 대신 마리야 파블로비치와 야콥 촐로가 그곳에 갔다. 그들의 증언에 따르면, 성모님께서는 발현 둘째 날에 당신의 모습을 보았던 아이들에게 정기적으로 발현하고 계신다고 한다. 비록 밀카 파블로비치와 이반 이반코비치도 몹시 성모님을 뵙고 싶어 했지만, 그들은 다시 그분을 뵙지 못하게 되었다. 그러나 밀카와 이반은 다른 목격 증인들과 함께 했다.
 
@@ -61,12 +57,10 @@
 
 1981년 6월 28일 아침 이른 시간에도 불구하고 벌써 많은 군중들이 곳곳에서 모여들기 시작했다. 정오쯤에는 대략 1만 5천여 명의 인파가 운집해 있었다. 같은 날 메주고리예 본당 사제 요조 조브코 신부는 이전 날들에 아이들이 보고 들은 것에 대하여 조사했다.
 
-<figure class="figure">
-    <img src="../image/crowds-outside-st-james.jpg" class="img-fluid mb-2" alt="Crowds Outside St. James Church">
-    <figcaption class="figure-caption">
+<img src="../image/crowds-outside-st-james.jpg" class="img-fluid" alt="Crowds Outside St. James Church">
+<figcaption class="figure-caption mb-3">
     발현 당시 성 야고보 성당 뒷마당에 모여든 거대한 군중들.
-    </figcaption>
-</figure>
+</figcaption>
 
 성모님께서는 언제나 발현하시던 그 시간에 아이들에게 다시 나타나셨다. 아이들은 성모님과 함께 기도하고, 질문을 던졌다. 비츠카가 물었다. “사랑하는 성모님, 저희와 저희 신부님들에게 무엇을 바라시나요?” 성모님께서는 **“사람들은 기도하고 굳게 믿어야 한다.”** 고 응답하셨다. 사제들의 경우 그들 자신들도 확고하게 믿어야 하며, 다른 이들의 신앙을 강화시켜주는 역할을 해야 한다고 말씀하셨다.
 
@@ -82,14 +76,12 @@
 
 그날 발현 언덕을 찾은 군중의 수는 이전의 그 어느 때보다도 많았다. 아이들이 언제나처럼 그 장소에 와서 기도하기 시작하자 성모님께서 발현하셨다. 그 때에 복되신 어머니께서는 모든 사람들에게 굳건하게 믿고 확신을 가지라고 요청하셨다.
 
-<figure class="figure">
-    <img src="../image/Group-in-Ecstacy.jpg" class="img-fluid mb-2" alt="Groups of Visionaries">
-    <figcaption class="figure-caption">
+<img src="../image/Group-in-Ecstacy.jpg" class="img-fluid mb-2" alt="Groups of Visionaries">
+<figcaption class="figure-caption mb-3">
     성모님을 마주하며 영적 황홀경에 들어서 있는 목격 증인들.
     <br>
     이들을 의심한 사람들이 수 차례의 의학 검사를 받게 했으나, 증인들 모두 정신적으로 완전히 건강하다는 소견을 받았다.
-    </figcaption>
-</figure>
+</figcaption>
 
 그날 아이들을 따라다니면서 관찰하던 한 의사가 발현 중에 성모님을 만져보기를 원했다. 아이들이 그 의사의 손을 성모님의 어깨 부분으로 이끌자, 그녀는 따끔거리고 울렁거리는 감각을 느낄 수 있었다고 증언했다. 그 의사는 비록 무신론자였지만 자신이 느낀 사실을 인정할 수밖에 없었다. “이곳에서 뭔가 이상한 일이 일어나고 있다!”
 
@@ -105,22 +97,19 @@
 
 한편 본당 신부는 순례자에게 묵주기도에 참여할 것과 본당의 거룩한 미사에 참여할 것을 장려하였다. 아이들도 역시 성당에 와서 묵주기도를 인도했고, 성모님께서도 역시 성당에서 여러 차례 그들에게 발현하셨다. **본당 주임인 요조 조브코 신부도 묵주기도를 바치는 중에 성모님을 뵈었는데, 그 순간 그는 기도를 멈추고 즉석에서 노래를 부르기 시작했다. “당신은 얼마나 아름다우신지요, 동정녀 마리아, 당신은 참으로 아름다우십니다!”** 성당 안에 있던 모든 사람들은 그에게 심상치 않은 일이 일어나고 있음을 알아차렸다. 나중에 요조 신부는 그 자신도 성모님을 뵈었다는 사실을 확증하게 되었다. 발현에 대한 진정성이 증명되지 않는 한 발현에 대해 회의적인 태도를 갖고 있었고, 심지어 발현에 관해 이야기하는 것조차 금기시하던 요조 신부가 이제는 아이들의 대변자가 된 것이다. 요조 신부는 후에 이와 같은 사실을 법정에서 인정하고는 투옥되는 처벌을 받게 된다.
 
-<figure class="figure">
-    <img src="../image/crowded-up-to-altar.jpg" class="img-fluid mb-2" alt="Crowded Up to Altar of St. James Church">
-    <figcaption class="figure-caption">
+<img src="../image/crowded-up-to-altar.jpg" class="img-fluid" alt="Crowded Up to Altar of St. James Church">
+<figcaption class="figure-caption mb-3">
     발현 당시 성모님의 발현을 기다리며 성 야고보 성당에 모여든 목격 증인과 군중들.
-    </figcaption>
-</figure>
+</figcaption>
 
 성모님께서는 1982년 1월 15일부터 성당 제대 옆에 있는 작은 방에서 아이들에게 발현하셨다. 새로운 난관과 위험이 발생하자 요조 신부는 아이들을 보호하기 위해 이를 용인해 주었으며, 성모님 또한 이에 동의하셨다. 1985년 4월, 교구장 주교의 요청에 따라 발현의 한 장소였던 이 작은 방을 떠나야 했으며, 그 이후로 아이들은 본당 건물의 작은 방에서 발현을 목격하게 되었다.
 
-<figure class="figure">
-    <img src="../image/The-Visionaries-Entering-the-Apparition-Room.jpg" class="img-fluid mb-2" alt="Visionaries Entering the Apparition Room">
-    <figcaption class="figure-caption">
+<img src="../image/The-Visionaries-Entering-the-Apparition-Room.jpg" class="img-fluid" alt="Visionaries Entering the Apparition Room">
+
+<figcaption class="figure-caption mb-3">
     성 야고보 성당 제대 옆 작은 방으로 들어가는 목격 증인들.
     <br>
-    이곳에서의 발현은 1985년 3월 25일까지 계속되었다.</figcaption>
-</figure>
+이곳에서의 발현은 1985년 3월 25일까지 계속되었다.</figcaption>
 
 발현이 시작된 때부터 지금에 이르는 오랜 시간 동안 성모님께서 아이들 중 어느 누구에게도 발현하지 않으셨던 날은 고작 5일뿐 이었다.
 

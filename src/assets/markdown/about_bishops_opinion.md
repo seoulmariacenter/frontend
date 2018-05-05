@@ -32,10 +32,9 @@
 
 ### <a name="john"></a>"메주고리예는 파티마의 연장이고 실천입니다."
 
-<figure class="figure">
-<img src="../image/pope_meet_fatima_lady.jpg" class="img-fluid mb-0" alt="Pope John Paul ii Meets the Our Lady of Fatima">
-<figcaption class="figure-caption">파티마 성모님께 인사를 드리는 성 교황 요한 바오로 2세.</figcaption>
-</figure>
+
+<img src="../image/pope_meet_fatima_lady.jpg" class="img-fluid" alt="Pope John Paul ii Meets the Our Lady of Fatima">
+<figcaption class="figure-caption mb-3">파티마 성모님께 인사를 드리는 성 교황 요한 바오로 2세.</figcaption>
 
 * 1986년 6월 : 메주고리예  순례자들에 대한 사목적 조언을 얻고자 하는 12명의 이탈리아 주교들의 질문에 대하여 교황은 "사람들이 회개, 기도, 고해, 속죄, 단식한다면 메주고리예로 가게 하십시오.“라고 말했다.
 
