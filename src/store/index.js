@@ -9,7 +9,7 @@ Vue.use(Vuex);
 
 const state = {
   endpoints: {
-    baseUrl: 'http://api.seoulmariacenter.net/',
+    baseUrl: 'https://api.seoulmariacenter.net/',
     member: 'member/',
     travel: 'travel/product/',
     date: 'date/',
