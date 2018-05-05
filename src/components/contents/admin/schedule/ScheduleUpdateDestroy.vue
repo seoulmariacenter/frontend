@@ -35,7 +35,7 @@
           </div>
           <div class="form-group">
             <label for="inputDescription">일정</label>
-            <input v-model="description" type="text" class="form-control" id="inputDescription" :placeholder="'기존 일정: ' + getScheduleRetrieve.description" required>
+            <input v-model="description" type="text" class="form-control" id="inputDescription" :placeholder="'기존 일정: ' + getScheduleRetrieve.description">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-danger" @click="onDestroy"><strong>스케줄 삭제</strong></button>
@@ -100,11 +100,17 @@
         };
 
         let result = Object();
+        // for (let property in formData) {
+        //   if (formData[property] === '') {
+        //     result[property] = '.';
+        //   } else {
+        //     result[property] = formData[property]
+        //   }
+        // }
+
         for (let property in formData) {
-          if (formData[property] === '') {
-            result[property] = '.';
-          } else {
-            result[property] = formData[property]
+          if (formData[property] !== '') {
+            result[property] = formData[property];
           }
         }
         this.$store.dispatch('updateSchedule', result);
