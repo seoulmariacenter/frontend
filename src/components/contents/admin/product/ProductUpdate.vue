@@ -34,10 +34,16 @@
               <input v-model="endDate" type="date" class="form-control" id="inputStartDate2">
             </div>
           </div>
-          <div class="form-group">
-            <label for="inputTextarea"><strong>설명</strong></label>
-            <textarea v-model="description" class="form-control col-md-10" id="inputTextarea" rows="3"
-            :placeholder="'기존 설명: ' + getProductRetrieve.description"></textarea>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label for="inputTextarea" class="col-form-label"><strong>설명</strong></label>
+              <textarea v-model="description" @input="update" class="form-control" id="inputTextarea" rows="12"
+              :placeholder="'기존 설명: ' + getProductRetrieve.description"></textarea>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="marked" class="col-form-label"><strong>미리보기</strong></label>
+              <div id="marked" v-html="compileMarkdown" class="form-control overflow"></div>
+            </div>
           </div>
           <div class="form-group row">
             <div class="col-md-8 d-flex p-2">
@@ -54,6 +60,8 @@
   </div>
 </template>
 <script>
+  const _ = require('lodash');
+  import marked from 'marked/marked.min'
   import {mapGetters} from 'vuex'
   import Message from '../../../structure/AppMessage'
   export default {
@@ -69,7 +77,7 @@
         price: null,
         startDate: null,
         endDate: null,
-        description: null
+        description: ''
       }
     },
     created() {
@@ -83,6 +91,9 @@
         this.$emit('manageContent', false);
         this.$store.dispatch('getProductRetrieveQuery', this.params)
       },
+      update: _.debounce(function (e) {
+        this.description = e.target.value
+      }, 300),
       onSubmit() {
         const formData = {
           params: this.params,
@@ -115,7 +126,10 @@
     computed: {
       ...mapGetters([
         'getProductRetrieve'
-    ])
+    ]),
+      compileMarkdown: function () {
+        return marked(this.description, {sanitize: true})
+      }
     }
   }
 </script>

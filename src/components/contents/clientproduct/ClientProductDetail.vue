@@ -24,7 +24,7 @@
             <h5 class="mb-0"><strong>설명</strong></h5>
           </div>
           <div class="card-body">
-            <p>{{getProductRetrieve.description}}</p>
+            <div v-html="compileMarkdown"></div>
           </div>
         </div>
         <hr>
@@ -35,6 +35,7 @@
 </template>
 <script>
   import {mapGetters} from 'vuex'
+  import marked from 'marked/marked.min'
   import ScheduleTable from '../admin/schedule/ScheduleTable'
   export default {
     name: "ClientProductDetail",
@@ -61,7 +62,10 @@
       ...mapGetters([
         'getProductRetrieve',
         'calcDate'
-      ])
+      ]),
+      compileMarkdown: function () {
+        return marked(this.getProductRetrieve.description, {sanitize: true})
+      }
     }
   }
 </script>

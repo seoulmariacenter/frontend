@@ -50,7 +50,7 @@
               <h5 class="mb-0"><strong>설명</strong></h5>
             </div>
             <div class="card-body">
-              <p>{{getProductRetrieve.description}}</p>
+              <div v-html="compileMarkdown"></div>
             </div>
           </div>
         </div>
@@ -104,6 +104,7 @@
 </template>
 <script>
   import {mapGetters, mapMutations} from 'vuex'
+  import marked from 'marked/marked.min'
   import axios from 'axios/index'
   import {router} from '../../../../main'
   import ProductUpdateDestroy from './ProductUpdateDestroy'
@@ -251,6 +252,9 @@
       },
       oppositePublishedText: function() {
         return this.getProductRetrieve.publish ? this.published.no : this.published.yes;
+      },
+      compileMarkdown: function () {
+        return marked(this.getProductRetrieve.description, {sanitize: true})
       }
     }
   }

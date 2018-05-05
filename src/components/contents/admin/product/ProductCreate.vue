@@ -34,9 +34,15 @@
               <input v-model="endDate" type="date" class="form-control" id="inputStartDate2" required>
             </div>
           </div>
-          <div class="form-group">
-            <label for="inputTextarea"><strong>설명</strong></label>
-            <textarea v-model="description" class="form-control col-md-10" id="inputTextarea" rows="3" placeholder="설명을 입력하세요"></textarea>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label for="inputTextarea" class="col-form-label"><strong>설명</strong></label>
+              <textarea v-model="description" @input="update" class="form-control" id="inputTextarea" rows="12" placeholder="설명을 입력하세요"></textarea>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="marked" class="col-form-label"><strong>미리보기</strong></label>
+              <div id="marked" v-html="compileMarkdown" class="form-control overflow"></div>
+            </div>
           </div>
           <div class="form-group row">
             <div class="col-md-8 d-flex p-2">
@@ -53,6 +59,8 @@
   </div>
 </template>
 <script>
+  const _ = require('lodash');
+  import marked from 'marked/marked.min'
   import Message from '../../../structure/AppMessage'
   export default {
     name: "ProductCreate",
@@ -66,7 +74,7 @@
         price: null,
         startDate: null,
         endDate: null,
-        description: null
+        description: ''
       }
     },
     created() {
@@ -79,6 +87,9 @@
       fetchData() {
         this.$emit('manageContent', false)
       },
+      update: _.debounce(function (e) {
+        this.description = e.target.value
+      }, 300),
       onSubmit() {
         const formData = {
           title: this.title,
@@ -99,8 +110,17 @@
         this.$store.commit('clearMsg');
         this.title = this.price = this.startDate = this.endDate = this.description = null
       }
+    },
+    computed: {
+      compileMarkdown: function () {
+        return marked(this.description, {sanitize: true})
+      }
     }
   }
 </script>
 <style scoped>
+  .overflow {
+    max-height: 300px;
+    overflow: scroll;
+  }
 </style>
