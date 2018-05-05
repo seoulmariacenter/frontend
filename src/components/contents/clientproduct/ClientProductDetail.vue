@@ -15,7 +15,10 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><strong>소요 시간:</strong> {{getProductRetrieve.start_time}} ~ {{getProductRetrieve.end_time}}
               <strong>({{calcDate}}박 {{calcDate+1}}일)</strong></li>
-            <li class="list-group-item"><strong>가격:</strong> {{getProductRetrieve.price}}원</li>
+            <li class="list-group-item">
+              <span><strong>가격:</strong> {{getProductRetrieve.price}}원</span>
+              <span class="float-right"><router-link :to="{name: 'ReservationManagement'}" tag="button" class="btn btn-outline-primary">예약하기</router-link></span>
+            </li>
           </ul>
         </div>
         <hr>
