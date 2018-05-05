@@ -1,70 +1,43 @@
 <template>
-  <div>
-    <div v-if="loading" class="alert alert-info text-center" role="alert">
-      <h4 class="mb-0"><strong>순례 상품을 불러 오는 중입니다. 잠시만 기다려주세요!</strong></h4>
-    </div>
-    <div v-show="show" class="d-flex overflow">
-      <div class="ml-2 mr-2" v-for="index in getPublishedProductLists" :key="index.id">
-        <router-link :to="{name: 'ClientProductDetail', params:{pk: index.pk}}" tag="a" class="text-dark decoration">
-        <div class="card" style="width: 22rem;">
-          <div class="img-height">
-            <img v-if="index.image" :src="index.image" class="card-img-top"/>
-            <img v-else class="card-img-top" src="../../../assets/image/medjugorje_maria_01.jpg" alt="Card image cap">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">{{index.title}}</h5>
-            <p class="card-text">
-              <span class="float-left">{{index.start_time}}~{{index.end_time}}</span>
-              <span class="float-right"><strong>{{index.price}} 원</strong></span>
-            </p>
-          </div>
-        </div>
-        </router-link>
+  <div id="carouselMainIndicators" class="carousel mt-4 slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselMainIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselMainIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselMainIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselMainIndicators" data-slide-to="3"></li>
+      <li data-target="#carouselMainIndicators" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="../../../assets/image/carousel/carousel_1.png" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="../../../assets/image/carousel/carousel_2.png" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="../../../assets/image/carousel/carousel_3.png" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="../../../assets/image/carousel/carousel_4.png" alt="Fourth slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="../../../assets/image/carousel/carousel_5.png" alt="Fifth slide">
       </div>
     </div>
+    <a class="carousel-control-prev" href="#carouselMainIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselMainIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 </template>
 <script>
-  import {mapGetters} from 'vuex'
   export default {
-    name: "carousel",
-    data() {
-      return {
-        show: null,
-        loading: false
-      }
-    },
-    created() {
-      this.fetchData()
-    },
-    watch: {
-      '$route': 'fetchData'
-    },
-    methods: {
-      fetchData() {
-        this.show = this.loading = null;
-        this.loading = true;
-        this.$store.dispatch('getPublishedProductListQuery', '?page=1');
-        this.loading = false;
-        this.show = true;
-      }
-    },
-    computed: {
-      ...mapGetters([
-          'getPublishedProductLists'
-      ])
-    }
+    name: "advertisement"
   }
 </script>
 <style scoped>
-  .overflow {
-    overflow-x: scroll;
-  }
-  .decoration:hover {
-    text-decoration: none;
-  }
-  .img-height {
-    max-height: 116.66px;
-    overflow: hidden;
-  }
 </style>
