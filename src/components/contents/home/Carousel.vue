@@ -36,7 +36,7 @@
 </template>
 <script>
   export default {
-    name: "advertisement"
+    name: "Carousel"
   }
 </script>
 <style scoped>

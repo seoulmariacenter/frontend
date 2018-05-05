@@ -29,7 +29,7 @@
 <script>
   import {mapGetters} from 'vuex'
   export default {
-    name: "carousel",
+    name: "MainProductView",
     data() {
       return {
         show: null,

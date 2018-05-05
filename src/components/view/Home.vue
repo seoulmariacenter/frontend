@@ -1,9 +1,9 @@
 <template>
   <section class="container">
-      <carousel/>
+      <main-product-view/>
     <div class="row">
       <div class="col-md-8">
-        <advertisement/>
+        <carousel/>
       </div>
       <div class="col-md-4">
         <app-sidebar/>
@@ -13,14 +13,14 @@
 </template>
 <script>
   import AppSidebar from '../structure/AppSidebar'
+  import MainProductView from '../contents/home/MainProductView'
   import Carousel from '../contents/home/Carousel'
-  import Advertisement from '../contents/home/Advertisement'
   export default {
     name: "home",
     components: {
       AppSidebar,
-      Carousel,
-      Advertisement
+      MainProductView,
+      Carousel
     }
   }
 </script>
