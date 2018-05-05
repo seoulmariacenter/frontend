@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <app-header @scroll="hideHeader"/>
+    <app-header @scroll="scrollEvent"/>
     <router-view class="main pl-0 pr-0"/>
+    <scroll-top-button/>
     <app-footer/>
   </div>
 </template>
@@ -9,11 +10,13 @@
 <script>
 import AppHeader from './components/structure/AppHeader'
 import AppFooter from './components/structure/AppFooter'
+import ScrollTopButton from './components/contents/home/ScrollTopButton'
 export default {
   name: 'app',
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+    ScrollTopButton
   },
   data() {
     return {
@@ -21,25 +24,27 @@ export default {
     }
   },
   created () {
-    window.addEventListener('scroll', this.hideHeader, false);
+    window.addEventListener('scroll', this.scrollEvent, false);
   },
   destroyed () {
-    window.removeEventListener('scroll', this.hideHeader, false);
+    window.removeEventListener('scroll', this.scrollEvent, false);
   },
   methods: {
-    hideHeader(event) {
+    scrollEvent(event) {
       let st = window.pageYOffset || document.documentElement.scrollTop;
       if (st > 0) {
         if (st > this.lastScrollTop){
           event.target.getElementById('mainHeader').style.top = "-100%";
+          event.target.getElementById('scroll-top').style.bottom = "2em";
         } else {
           event.target.getElementById('mainHeader').style.top = "0";
+          event.target.getElementById('scroll-top').style.bottom = "-100%";
         }
         this.lastScrollTop = st;
       } else {
         event.target.getElementById('mainHeader').style.top = "0";
       }
-    }
+    },
   }
 }
 </script>
