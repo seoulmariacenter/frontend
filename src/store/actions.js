@@ -635,7 +635,6 @@ export const destroyProduct = ({commit, state}, payload) => {
     xsrfHeaderName: 'X-XSRF-TOKEN',
     credentials: true
   }).then(() => {
-    alert('삭제가 완료되었습니다');
     router.go(router.currentRoute);
     router.replace({
       name: 'ProductManagement'
